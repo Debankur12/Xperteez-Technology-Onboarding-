@@ -1,0 +1,570 @@
+Delivered-To: debojit@xperteez.co.in
+Received: by 2002:ac4:cd03:0:b0:723:80c:1b3d with SMTP id x3csp3946564pin;
+        Wed, 4 Jun 2025 04:55:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=6; AJvYcCXgInMYyw/jugMw2KIUXdUJ2tI5rMZB+XbKSOdQz/ZsOoUDv3+7CyJMba9ckZkqaGrUvYlk2SgR@xperteez.co.in
+X-Received: by 2002:a05:6602:3f0a:b0:85c:96a5:dc2c with SMTP id ca18e2360f4ac-8731c659b43mr304169939f.14.1749038131473;
+        Wed, 04 Jun 2025 04:55:31 -0700 (PDT)
+ARC-Seal: i=5; a=rsa-sha256; t=1749038131; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=RehHcopjsDtGlY8yPGncP8cx2Ml2nja7IeUdmES83Bp7/xuy7470UDxlUi2bwf/DEl
+         UjxtK3dkmEDtQ/bqYq4khECgtP2TRmG8J2OAmT8O4HFxZgISDzPAKNn/R/IvjRmZTDxY
+         8OfnrSG/8h5wgl7YdxXyrKg9dmDj1l4mRjw0QOpSEExsbFb7hWFYf+MFfWmI1s+9tm0M
+         8U/ELZewpuVSdi11lefa2mR/7BE0EdfdiemGU9VbNJm6P3Tx7aLHC/2WcL+YEvezHidf
+         cfN2EbKiJyizSkufSKR1arRS9bBRZsoWdsUFdr2t3YIX8gql3dT1duPdQF9vqhnpwoNf
+         5eGQ==
+ARC-Message-Signature: i=5; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:from:dkim-signature;
+        bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+        fh=inzpQ1+7+Rmua4HhJmtuIp5rEBGIaq6K79zVl8GZXwM=;
+        b=LGb/RRILx47ZCpFRxlop2ifYYfQjEM1J0SRzVWwo1D88dy45YVuheGF/a7iiKg9EHB
+         Vw5myqji2Xm9n2+KUqACJhMEWVtget8p1Oa44S/V+ixZ1B01pM5OnPIdnJk7PQz6wha4
+         ZCYIEsuGSN3GqB28FvMRASStHkp9sHlOE8grBOsc/tAeD7vJS1Ast/R/wmnIncx4UI4n
+         GLfl0nZHEEjitti96BTviQCW+wS5Nr7NeaaFQrSRUF3vjHIOIEK+VP5k5bT4CAhXmHrg
+         uKNdQgFxcPfqwY7rwCICLWvWnoKFI5STCeaJp6YTYoLns3CWWDaHaUbJ7BSfOb29dSyQ
+         +Z9A==;
+        dara=google.com
+ARC-Authentication-Results: i=5; mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=W4nrv9wA;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbmxiqdbamgqenpp7zaq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBMXIQDBAMGQENPP7ZAQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+Return-Path: <ops+bncBAABBMXIQDBAMGQENPP7ZAQ@xperteez.co.in>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 8926c6da1cb9f-4fdda80530dsor7470969173.3.2025.06.04.04.55.30
+        for <debojit@xperteez.co.in>
+        (Google Transport Security);
+        Wed, 04 Jun 2025 04:55:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ops+bncbaabbmxiqdbamgqenpp7zaq@xperteez.co.in designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=W4nrv9wA;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbmxiqdbamgqenpp7zaq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBMXIQDBAMGQENPP7ZAQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+ARC-Seal: i=4; a=rsa-sha256; t=1749038130; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=YMgpW/TNhaJOHiZWi1SSJAA2RmQtPSBNkjM5FGYvi2IppPb3OMNBXW+fW/AElH7GY2
+         UuD/1RPjMLEYch4ysLWiikq7ZrTFhPBK/tnO7Rxr8ItKiub7liqKK72UAAIkl9d4hmil
+         nR3zCURRsmGcHxgCOSk4wUnRYjZ+icMISwr4oz/Y3za/yV6eklqwQkKmMhE+EY+zZYM6
+         jk3ASEyDWx+O6mm4xhvCNeCSn8zauFR32hJkrxssqfJzOTzWxKgrdAv/8PwDxJQMiSyo
+         rgQnE3J0qEjLmcHR7zxJC6nAwxivFKcgk42McLKF7XWTo7FqjGSkVrQG0lszzyP7ZcSx
+         youA==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:from:dkim-signature;
+        bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+        fh=inzpQ1+7+Rmua4HhJmtuIp5rEBGIaq6K79zVl8GZXwM=;
+        b=kCIOe6lv2vnQTFOmws/en6cpd4WJ2NJa3fXtvWQBMJlhUEISH0uz1OIZ5arGWQeccy
+         emSS69JASe24C1DAH3nlRYpzJr1Eackzgf4BjPN4ufKKzZ42A7pST0kMcFzBXhM9hBzs
+         ytBa419S/ewNTMJHRb/VhmEAgVs7u7xEmYKAPrpk/G/ybfopYt3Eihtdj8BIDF6EY+62
+         SkJAYHVSQzyF7bbOyBRMat8nDVFaGKSb9DEGWNdalXNw5lhdADoWJ5+AImFLQgS0N3wM
+         5v78qtZLnnu1e68cILQoUXDnaJSaD688R5rks08PadUGn1b68ZbNHdxFejUUP/FmwC1N
+         +cAg==;
+        darn=xperteez.co.in
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=f3nYVFKd;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=f3nYVFKd;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of lakshmi.bose@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=lakshmi.bose@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xperteez-co-in.20230601.gappssmtp.com; s=20230601; t=1749038130; x=1749642930; darn=xperteez.co.in;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+        b=W4nrv9wA2NJ3vD+OqBOx/CGnqwDxl93z4qSDe6AYbl52HcAbeovJYEA1RgmPkbTpsU
+         PiEtLn9otr1ME1F1gdDDzeWkHJ/Ihd4X55kbn2Sj27mSGjOuzcx9dDG6Qi3/xk/Zy7wb
+         Zhy5Y4sYTuZNy9ApkHofWVV0lo2qeH+z3y4dvkLIJ7rnPl/6bFrfHVJHuEEZQvlnRT93
+         rRkrrGu+2TzzpqWJcf4zy4QFsruuxhVyM4VXzOYU5dNO2bpwjEqLhr6GXv73Shhq6Joh
+         X5+UX0hktb88eUTZ++kR+td2oWofAhZNnPjWCQs7gXBQrtmf8BwrrR9tfKzXjcpcq3Rx
+         UqwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749038130; x=1749642930;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:from:x-beenthere:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+        b=FKcf2ETKOlctdU800O0m2r/nqdDjjoI3sRFE19hIFeuNjueqtOYyc+rZ0CfDZZwU27
+         TZsnPmVlqajTQYBC3phTLLJtpiDsTZjWPuVTHAO+Eu/Mz5wn/G+hF5eeVVl9dwFMKLnJ
+         3cncNO+e0wWlqk8xgOgLw3dEUNLieVUV+WwWBXeovGXAy2Vb9NFVyMlZnET09qfpIE59
+         fEY5lKrwj0JwaYqCzSy5qwheqB5P/ug/5NX3rYrfnL7sHBDf9CWqvZNlhXi06bd/zm5E
+         8uA8frUuXQe+TibYu2HMmklpsjXZrUNoEAoS+WHJa6bsqUjnohdoQtEuwSI5xCbcz3Hr
+         Fc9w==
+X-Forwarded-Encrypted: i=4; AJvYcCW+1m/BJ9qr4MorvDrmVCJxblks+Ti9rpkiDmg4sSu3d3ektfQ3npRpypuT2tJlfcJWo3y50Yic@xperteez.co.in
+X-Gm-Message-State: AOJu0YxTcX/u1CROHOzxbxG7AG049EM8f52U9xWBS3/8sjo5mC6mDFHF
+	cFHxiI/ivY/3NqUGVJsNHW78H4cynD/oKa2zh/k8IbQIfDgRxAe9mkqWN/MF5GaJ0EwG3GD/bOx
+	bUA==
+X-Google-Smtp-Source: AGHT+IHklpAhEBci3cy/ys6gV1jlcXbzmEUJqnLwjrlT4xzpfwBHvBC0/st7VS8UhUjGSijB+VztoA==
+X-Received: by 2002:a05:6e02:1807:b0:3dc:857c:c61e with SMTP id e9e14a558f8ab-3ddbedc5a0bmr26977775ab.15.1749038130530;
+        Wed, 04 Jun 2025 04:55:30 -0700 (PDT)
+X-BeenThere: ops@xperteez.co.in; h=AZMbMZeYl/E/nwcGMbfnIMkZYu9yErYFawscbucUgpEcp0Qt0A==
+Received: by 2002:a92:c74a:0:b0:3dc:932b:5faf with SMTP id e9e14a558f8ab-3dd91762680ls46209075ab.2.-pod-prod-05-us;
+ Wed, 04 Jun 2025 04:55:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCWONYIpjAAaFrsKY092dv4L3w3nvDiIdiVfyw1E1Jys1QM1pHjVwxl6JZnZCftrK14g13g=@xperteez.co.in
+X-Received: by 2002:a05:6602:4810:b0:864:4a1b:dfc5 with SMTP id ca18e2360f4ac-8731c610b0fmr282828139f.9.1749038129833;
+        Wed, 04 Jun 2025 04:55:29 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1749038129; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=SfkWWnj8m/l3/MTsEaiskf9FBtstK/2I179kO/bo5RhZNRIVqkovwgHFxox4j9YH/I
+         o61UZenPd99asTQbHDOqxpOTbMx0bTZj9G6asnLKsbg3C4iuwNHqODChQXaMlW6589L4
+         O8iu1oFAsWyDACmSZ+vLBrIchzcx94vJg4JuXP5LD/DXGE0VrVcs70tR1Mb23kmxWrq2
+         osDpLQZrx3rZ7F/4Eel7rpf2ZcA7MDqXrvtC9F737Vdpp2fKKjyfabNGbV5NMu6vgsfv
+         zloEhRhkR79hcn3vB9bimCTEYzL7fkqf6P2PUwLwvU5BCXo+gWhVDxnnbey8bXk18Un1
+         XJrg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:from:dkim-signature:dkim-signature;
+        bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+        fh=4tHt1wCr8UN4HRvRfS3bI4X/0fC/7ZSnu3aKtVRxMIg=;
+        b=RxIklIgy5c9hLzyw+Da3D9DiiWepLPh64Xnj2vh24DS4CReMZm3Aseg2CbhopylSfs
+         96WxGl1V5Yi2RPg9D3EDEQ4AN3vK3mjlJE6dAHt83C9Yz2Feogtku19nLP6Xp4F3Bcvf
+         Qa7LuBuHSVmDs8xvH6Hy4LZIL8XqJYmST+uxbMXQU2u6GUn5M7urjmmzIeFrCu8eGNYB
+         din1GAaZQ5bfOIGDGFlLrJJj4CXpL5b76S/LqGl9TXVClXGi27p+Hwxm4+qhT3Hw/VMn
+         ROkptL+/KO7e5ssIwpSydK8i/mgxG42ZdSi4vR8XTLhmzpq1nCxkUmWnBUcmOUinZK/j
+         XpsQ==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=f3nYVFKd;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=f3nYVFKd;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of lakshmi.bose@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=lakshmi.bose@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+Received: from PNZPR01CU001.outbound.protection.outlook.com (mail-centralindiaazlp170110003.outbound.protection.outlook.com. [2a01:111:f403:c408::3])
+        by mx.google.com with ESMTPS id 8926c6da1cb9f-4fdd7f03dedsi12988365173.98.2025.06.04.04.55.29
+        for <ops@xperteez.co.in>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 04:55:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lakshmi.bose@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) client-ip=2a01:111:f403:c408::3;
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=pEKG0v9kqJnGFKZIWuWYtakNoqf/AtjWKyOV+6d9A7zbFrdM/rUnwxIXpB5IjNgezm9gjlzsdsbBReE+pRaThkoBJzQUpjG2rF+tQkqjpusLg0ozjZlzRm4VU3krEycW8eimpKn2Okbl0DgpUtyMu2fuFMfR0gbzcHbjqldP0iL7kBccC1twqHPc08THUiwwgRhrrcRmRJiRZGo+bh5gi4vkVmitR9Tg3QBAF0HMeUHk3yJzsetHpNjqoCY59i/Ma+8nbh+hylzjckk4zzowJPpiZf5DaOoWAKtfAdw08c0l0ySmtGWUuEzMWzqaAcGI5rj0qG+44VRchnX4GBFu1g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+ b=gmHS+0rkQSroy5mVnkPI7oJ01BHEUB8mGOEeqJr6FRehznBqnrdeD7bkJPXIdL85kWKg7HQb0lr2HL883+rPdqLnaa+KfVtCyXzWmNeSKJzqT9g94oi2ajZgQtVevNHNJMXFMu750ZgVWtSqeJJbNhmsZCh5NWnrKItcsX/+W7nvYS5UK19C+2EutUCIaP5xT8ChpliQVQBm5/N4zR+lRvMd3u2RQwdVShvUN/6am4duZmZKnjsrZjA2Z9TnNq66c1dWF0OulfKlqRGQyCr8nWV8aFbmtYArsj6sC7SQi86qCIOm435ufoHXZEnsi8z4MyvaaaTaj5ps6tJb+DxmXw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.204.180.79) smtp.rcpttodomain=alexiaconsultants.org
+ smtp.mailfrom=axismaxlife.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=axismaxlife.com] dkim=[1,1,header.d=axismaxlife.com]
+ dmarc=[1,1,header.from=axismaxlife.com])
+Received: from PN4P287CA0126.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:2b2::9)
+ by PN2PR01MB10122.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:1f9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Wed, 4 Jun
+ 2025 11:55:26 +0000
+Received: from PN1PEPF000062BA.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2b2:cafe::5f) by PN4P287CA0126.outlook.office365.com
+ (2603:1096:c01:2b2::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Wed,
+ 4 Jun 2025 11:55:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 20.204.180.79)
+ smtp.mailfrom=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com;dmarc=pass action=none header.from=axismaxlife.com;
+Received-SPF: Pass (protection.outlook.com: domain of axismaxlife.com
+ designates 20.204.180.79 as permitted sender)
+ receiver=protection.outlook.com; client-ip=20.204.180.79;
+ helo=appliancehostname.parentdomain.com; pr=C
+Received: from appliancehostname.parentdomain.com (20.204.180.79) by
+ PN1PEPF000062BA.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8792.29 via Frontend Transport; Wed, 4 Jun 2025 11:55:25 +0000
+Received: from MA0PR01CU012.outbound.protection.outlook.com (unknown [40.93.131.30])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Forcepoint Email with ESMTPS id 2735A91DD06607D06DE0;
+	Wed,  4 Jun 2025 17:25:27 +0530 (IST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i05P5DNIDo7+CelJCpQB7BYeIeuoAS/Bb7xNUajvlYrqRcya3jb0KEQBhIDrVeCKcpVLMgw/IEX1x2Cs7jZBU8AlqJ4xMrSoguYYnt838nEbNpVC4x3PiXedPsG0WJhL3Xsg7ztvSJ6xSqHA+FUAKEo0+nGoVXm3tU8I6N0lYkTxxUnzA1PVj9r+o0QsNZ0pMQ5bBSnnGm7bZJTaqY0E73gAURk3yrJuzfIIN7ESYkhr6ucI214+jU0OMv7zCLRHycuNL167MjSsFRLw5AqM0yxEo6hMx5UMeyYcQr6ItLjCol9meQ/X/SjDiZBFToLX+xEXywSUsMA10qEMplUfXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PdeAdMk752WVSbj0G8gDSxynxr8Wcq/YBDIiQflDzd4=;
+ b=WvUG9+RbKl4Cl+OALvCoy4t4XmJ/W09bxpIPXqfxPzIdWW/ayUUAiYGBrOCeof40DdfP2rIozRhkXUZIZOIrEoD8uEUbQwG1Od2pfzW3Qe/zR1K9csfkXQ2K4SbE0bK5iPD76OcuaCvx+9o0n8fVn9L6joxAkjn8bUNRyiPvwTXz/MGwh+LdhHO+rg5yeXVOpJdWNtsf+KEqB+Fog6hfAsn2DU8NcuZKxtKA/jZhvznvEVF+VCrloDnzYxz825Kx/cBg4eoOdu/KOpUgn63oW6CRY9tpb+/VPSgW4tlum7zJ8RMrxtgxRkJh3e2jocEnCa7CYOs0dChhKP8SgTFVeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axismaxlife.com; dmarc=pass action=none
+ header.from=axismaxlife.com; dkim=pass header.d=axismaxlife.com; arc=none
+Received: from MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:a9::7)
+ by PN3PR01MB9871.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:151::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Wed, 4 Jun
+ 2025 11:55:21 +0000
+Received: from MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::62a8:6cc5:74f8:4dd8]) by MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::62a8:6cc5:74f8:4dd8%3]) with mapi id 15.20.8813.018; Wed, 4 Jun 2025
+ 11:55:21 +0000
+From: "lakshmi.bose via Recruitment Operations" <ops@xperteez.co.in>
+CC: <susmita.mandal@axismaxlife.com>
+Subject: RE: Vacancy for RMA - Golpark
+Thread-Topic: Vacancy for RMA - Golpark
+Thread-Index: AdvVG7aVxLVQmhIJQMepf+nTo58R9AAK4Inw
+Date: Wed, 4 Jun 2025 11:55:21 +0000
+Message-ID: <MAZPR01MB853622450F03A4579A0E69E7886CA@MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM>
+References: <MAZPR01MB85369F4A4AFD08561533E142886CA@MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <MAZPR01MB85369F4A4AFD08561533E142886CA@MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axismaxlife.com;
+x-ms-traffictypediagnostic: MAZPR01MB8536:EE_|PN3PR01MB9871:EE_|PN1PEPF000062BA:EE_|PN2PR01MB10122:EE_
+X-MS-Office365-Filtering-Correlation-Id: e80b0068-4605-4b72-d778-08dda35eb1b5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018|8096899003;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?zlGtGstKC0HBAk2wEHv5Itx53hcYzWsQJuBFYRcIBxzKxfS4jwErORuvb62N?=
+ =?us-ascii?Q?WpdkB5qnCIDkqsXv8l49HI9NvU5t9tnriZmhPpEYIPLscou3MQXG4OiO4oGz?=
+ =?us-ascii?Q?F8U+ZcNWXHYcfd+IQdfp0DA2bE2SmpWmuZfIyIT0lF8jNy7vJA8HCZjZqJPs?=
+ =?us-ascii?Q?xDsvVqKaMJrslso48p2nPdh9bdJchj53Q4e9PRy/Cs2v+Qqg68qxWlGV8ccH?=
+ =?us-ascii?Q?1bL7hFntni4JyHkAvRVrMB2OcPFovrr1X1wtIkty0f13CsG4sUw9YQueTOtB?=
+ =?us-ascii?Q?NSe3QRg0N2qiRFttzUAqgbI29OiJPOApiPF1CKf/wzGu6NY9CEGFtC9Hbo8l?=
+ =?us-ascii?Q?JL4SYiSCXyuqmc9uNOL0OCVyrtDAlxUI0FK8aF/xuKNFk/zNAyNLjLMu482M?=
+ =?us-ascii?Q?29pvcy0M+7ebNHoY8mhB6s54k0BtiQTdHkIBnhtjVQ+kbUrWr63l+t3TWskf?=
+ =?us-ascii?Q?rjYbKHXIDGyHaeLbvOINZKjAzo4ZH6P0ftrU2dNttRhpBVlz4wq9epXno4n2?=
+ =?us-ascii?Q?Gdaf99h/9CH2aebow2GNKh4CIJcZHvaQ3atjpeEZcKxhQoggK+ttnqeNhtU7?=
+ =?us-ascii?Q?twAa8tA+n2ouzD6OV/QyejN4CoQG0gNjWwN4t5VqUbGexxZvHTkqOD99O/rj?=
+ =?us-ascii?Q?GgMCk0xHh8w+iO4vgP6T4N6eWACs6wJZTh/Uv+qzhU8uWjLsdQsWy1WUtSl5?=
+ =?us-ascii?Q?VYrNSd4paFtA37RRwQknxHRMmyOu2zabzoDMUyKRuDZ+MpGmuCInzC02f8rK?=
+ =?us-ascii?Q?+GV4sShuCBiXkGFBOcweJ4+AqCMjZlq1qpnESmYMfgsNsTXwez52CW1u2FpR?=
+ =?us-ascii?Q?Qn0/1/IhqTFUulIAqa+2otL//xl3L90ZIvhP9Z6krD+tEYCcdPTsedbTcILs?=
+ =?us-ascii?Q?NCMzlwk7YJ23cfjn8dFQknfBGqQI2hIj81ax4upZGmRTJT/fhNMM+7CKnVZx?=
+ =?us-ascii?Q?IsC0oqGuVL77ax2VUUCdMTQBJBvZCGqd12u/Vece+rXEqpctV1sgUsABhEP0?=
+ =?us-ascii?Q?KoaXqoZLq8MaY3mdX/aY937o37QvQBf8YcxedBiF/XoJZDP8yd1aN1K+d+Nf?=
+ =?us-ascii?Q?NaaY3JkIJr/1VLDtr9Px9mWb44dd3uhey7E7yaUFRHjCdde8kVhaIoz4nzEH?=
+ =?us-ascii?Q?Fs4A9HMQr6PGFKv4U16iMjtPTZYltd2ppmodI0rqbPvZvOFRzcUI7kl5pIVe?=
+ =?us-ascii?Q?6blJb/mmNeyEYaugqptQYnYQuitvXtzHQu7U3Es+N4wkw25zdliFVFfLfr2O?=
+ =?us-ascii?Q?VbUfEsDZxeKxMO2zTnosjWh7B45qK6MVzdYTErZ1umgFmEEejphpt+5T+qIf?=
+ =?us-ascii?Q?4YoYIZ8pCf7QNIbM1LAzVHDDTFkh78Zli+IOMDf21LqeO/ixXGO8SQfcOk3n?=
+ =?us-ascii?Q?i34d7/whCCqi1J7yShtP60ybXLTdPGfiq+XX4JEEsYhJvwhacqWQu+DnItta?=
+ =?us-ascii?Q?W7n5oz340qs3zi7DwCqHi4JAU1/dpCLMgbMbkyw0JcY2mf5/JjS8WNMBj291?=
+ =?us-ascii?Q?LxHF+SwcaDt8VqY=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MAZPR01MB8536.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018)(8096899003);DIR:OUT;SFP:1102;
+Content-Type: multipart/alternative;
+	boundary="_000_MAZPR01MB853622450F03A4579A0E69E7886CAMAZPR01MB8536INDP_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PR01MB9871
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: PN1PEPF000062BA.INDPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b4e25291-5d75-478a-2077-08dda35eaf42
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|32650700017|14060799003|7416014|376014|82310400026|36860700013|1800799024|8096899003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nujm3DcBv5LMVPEddjclq8FCur872u+vMp/MB3aDii02hin0/Fpj5k1N7WmV?=
+ =?us-ascii?Q?qlAygXEceyokBNQftOfECS+nrm0GDmbpsEqnKGgTvyrVqM7Aa1c4d3rL1BdN?=
+ =?us-ascii?Q?uEEaqHrxsLU0+0RMVAYCJKmbVePSax2rRH1qiVXDve1Z8oAQNQOKwxjUt4X3?=
+ =?us-ascii?Q?/bccIHHfv9J8MvgxR6CY8xnlmIAk5JNlkb3oUV9LAwZJJj8f3LUrAIA6FdGi?=
+ =?us-ascii?Q?lRlkRmU7SRrvtCaX+L77j72kNPHQ34snI1U9rUe1ZbXB5fxDlXCgHcm5Dc8j?=
+ =?us-ascii?Q?eUAj/+0ipru5EyIFSmB3as5vgMNHOzEUuCbS6haPrh5kYjzvxRXiVr0ALdd5?=
+ =?us-ascii?Q?E9vYIrDS6htboF0t3Eu3BHLYDsLll3bzv7gKHAjiWQnFVw5LAJG94dAMIa+W?=
+ =?us-ascii?Q?VzLfdlN4p5pW1/WG2pPOyUmJR6wv9dhon155qtsHPhp7CivlCa4LONRpA5cE?=
+ =?us-ascii?Q?i+AFwvKOgV4gXUPUJpu3wgoTYr/jFH23V/vYcn4+iEq61xjScYVlB2BT7Zqb?=
+ =?us-ascii?Q?ogJwncW8gqZS7UfbPbn22Ohc7n1/YyqdO/AV17rBX/BbZC1OKYqTS9+TFC/r?=
+ =?us-ascii?Q?KiWn/Dh8qgcHRLKd/UsrlShApxIz8XeIcahmjJY+i5vKJx7X+IsiOkxxpMyt?=
+ =?us-ascii?Q?sQ03vKUnyaA5pzODMMTy2LUKrdU7yFmdhxlS5Gal07P7KCo3igZAS50g3qGC?=
+ =?us-ascii?Q?uMrIKvNFR/6eYSOKkTiKovxE6e6fAk1tm51d7KG8FPqKLC5XoEMQn9JTSSOh?=
+ =?us-ascii?Q?4Aba4UCFKAI45hyBGqorn+ZE7pvS2yaLzplNHufw4UdxB7Jo3XIve+Utn/hK?=
+ =?us-ascii?Q?pcnNh1sR+oqjFBshi2IX4Hp7JHuitL14ZoBa8HAnXqWTHGxlcAAxUmzwpItD?=
+ =?us-ascii?Q?QbgoF0AuFLfwkpMvihSgqyqgK9hmY2sJdxNd7LerTPZ+AMeEl42kYwN/r/5a?=
+ =?us-ascii?Q?37AO5SyeHO0nRhq05+SMkuQKnClixZ2s1LUiv5TPLy9vvJKQGFIB9d43nvix?=
+ =?us-ascii?Q?qmQb9cMSZpsx2Nd3EddikFJkKxMvSZNYm47P6zESmMkB2trxfdH/mVUzq3H6?=
+ =?us-ascii?Q?sBM2gaOBAjPcYVvYMk0tLbJO7uktyiI5pqQo3rFthXfxNNuD0rmO2NwitAfs?=
+ =?us-ascii?Q?SDqGwWUlBIDIU7gROBlG1lwf3ApZv23PBK1tTWMcnH1WAAitnUl9KI7fP3gQ?=
+ =?us-ascii?Q?nJ5nb5sReSrTBYXMrsPM3ze1gYPISQC/dQHQoRfa/8WeQOQL8xDNTvb/6pKr?=
+ =?us-ascii?Q?OFAwY+kYF1iokVbQYFTCgaT/lzNKatKfQQOIR+grnSVgUJAVp2EMhGCb04uI?=
+ =?us-ascii?Q?5F5i2PWHJHECycHmEJalRGvxyR5F2wcSYDjKcKXzOcIclqWL4ag94GGjYaZJ?=
+ =?us-ascii?Q?N+F0YFf1PxpBB5jP3TxLlI/GzhM8n19EV4l+ic0eTrJxgcKQbUx9iiaxGOSy?=
+ =?us-ascii?Q?FCoHU7E542HsbsMN3Jqo5Ybe1BkFxtd8Yzm4QzMbE/OIZYJ5CKCCHjZIbv83?=
+ =?us-ascii?Q?e7L9xXJ5y5YQiZ6vVnkjTTVxYlWxGs1r8y5X?=
+X-Forefront-Antispam-Report: CIP:20.204.180.79;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:appliancehostname.parentdomain.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(32650700017)(14060799003)(7416014)(376014)(82310400026)(36860700013)(1800799024)(8096899003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axismaxlife.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2025 11:55:25.9784
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e80b0068-4605-4b72-d778-08dda35eb1b5
+X-MS-Exchange-CrossTenant-Id: 97e4bcfe-5cba-4a9c-8821-4be8019d9055
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=97e4bcfe-5cba-4a9c-8821-4be8019d9055;Ip=[20.204.180.79];Helo=[appliancehostname.parentdomain.com]
+X-MS-Exchange-CrossTenant-AuthSource: PN1PEPF000062BA.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2PR01MB10122
+X-Original-Sender: lakshmi.bose@axismaxlife.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@axismaxlife.com header.s=selector1 header.b=f3nYVFKd;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1
+ header.b=f3nYVFKd;       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com
+ dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of lakshmi.bose@axismaxlife.com designates
+ 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=lakshmi.bose@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+X-Original-From: <lakshmi.bose@axismaxlife.com>
+Reply-To: <lakshmi.bose@axismaxlife.com>
+Precedence: list
+Mailing-list: list ops@xperteez.co.in; contact ops+owners@xperteez.co.in
+List-ID: <ops.xperteez.co.in>
+X-Spam-Checked-In-Group: ops@xperteez.co.in
+X-Google-Group-Id: 950430647392
+List-Post: <https://groups.google.com/a/xperteez.co.in/group/ops/post>, <mailto:ops@xperteez.co.in>
+List-Help: <https://support.google.com/a/xperteez.co.in/bin/topic.py?topic=25838>,
+ <mailto:ops+help@xperteez.co.in>
+List-Archive: <https://groups.google.com/a/xperteez.co.in/group/ops/>
+List-Subscribe: <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>,
+ <mailto:ops+subscribe@xperteez.co.in>
+List-Unsubscribe: <mailto:googlegroups-manage+950430647392+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>
+MIME-Version: 1.0
+
+--_000_MAZPR01MB853622450F03A4579A0E69E7886CAMAZPR01MB8536INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear All
+
+Please find the JR number - 150533
+
+Profiles have to be shared over mail once uploaded else will not be conside=
+red.
+
+Regards
+Lakshmi
+Regional HR BP- East 1
+Contact - 8240005772
+
+
+From: Lakshmi Bose (Kolkata - GO2 - Human Resources)
+Sent: 04 June 2025 12:20
+To: Lakshmi Bose (Kolkata - GO2 - Human Resources) <lakshmi.bose@axismaxlif=
+e.com>
+Cc: Susmita Mandal (BP) (Kolkata - GO2 - Human Resources - Axis) <susmita.m=
+andal@axismaxlife.com>
+Subject: Vacancy for RMA - Golpark
+
+Dear All
+
+Greetings for the day !
+
+Please share relevant profiles for the following vacancy by tomorrow EOD. I=
+nterview will take place on 9th June,2025.
+
+Job Title - Relationship Manager/ Sr. Relationship Manager
+
+Location - Golpark, Kolkata
+
+Channel - Axis Bank Affluent Channel
+
+Qualification - Minimum Graduate
+
+Experience - Minimum 2 years of experience in Bancassurance channel in Life=
+ Insurance company or in Banking . Should have exposure in HNI client manag=
+ement.
+
+Regards
+Lakshmi
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Disclaimer: This email contains confidential information intended solely fo=
+r the recipient, and if received by mistake, it should not be distributed o=
+r copied; please notify the sender and delete all copies.
+
+WARNING: Computer viruses can be transmitted via email. You are advised to =
+check for viruses in the email and attachments, with the company disclaimin=
+g liability for any resulting damage.
+
+
+--_000_MAZPR01MB853622450F03A4579A0E69E7886CAMAZPR01MB8536INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-IN" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Dear All<o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Please find the JR num=
+ber &#8211; 150533<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Profiles have to be sh=
+ared over mail once uploaded else will not be considered.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Regards<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Lakshmi <o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Regional HR BP- East 1=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D">Contact - 8240005772<o=
+:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></spa=
+n></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"mso-fareast-languag=
+e:EN-IN">From:</span></b><span lang=3D"EN-US" style=3D"mso-fareast-language=
+:EN-IN"> Lakshmi Bose (Kolkata - GO2 - Human Resources)
+<br>
+<b>Sent:</b> 04 June 2025 12:20<br>
+<b>To:</b> Lakshmi Bose (Kolkata - GO2 - Human Resources) &lt;lakshmi.bose@=
+axismaxlife.com&gt;<br>
+<b>Cc:</b> Susmita Mandal (BP) (Kolkata - GO2 - Human Resources - Axis) &lt=
+;susmita.mandal@axismaxlife.com&gt;<br>
+<b>Subject:</b> Vacancy for RMA - Golpark <o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Dear All<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Greetings for the day !<o:p></o=
+:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Please share relevant profiles =
+for the following vacancy by tomorrow EOD. Interview will take place on 9<s=
+up>th</sup> June,2025.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Job Title &#8211; Relationship =
+Manager/ Sr. Relationship Manager<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Location &#8211; Golpark, Kolka=
+ta<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Channel &#8211; Axis Bank Afflu=
+ent Channel<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Qualification &#8211; Minimum G=
+raduate<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Experience &#8211; Minimum 2 ye=
+ars of experience in Bancassurance channel in Life Insurance company or in =
+Banking . Should have exposure in HNI client management.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Regards<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">Lakshmi <o:p></o:p></span></p>
+</div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<title>AxisMaxLifeInsurance</title>
+<style> body {margin:0} .head-text{font-size:12.0pt;} .subhead-text{font-si=
+ze:7.0pt;}@media(max-width:768px) {.head-text{font-size:8.0pt;line-height:5=
+px}.subhead-text{font-size:5pt;line-height:5px}} </style><span style=3D"mso=
+-bookmark:_MailOriginal"><span class=3D"head-text"><b><span style=3D"mso-bi=
+di-font-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color=
+:#003974">Max
+ Life Insurance </span></b></span></span><span style=3D"mso-bookmark:_MailO=
+riginal"><span class=3D"null1"><b><span class=3D"subhead-text" style=3D"mso=
+-bidi-font-size:4.0pt;font-family:&quot;Century Gothic&quot;,sans-serif; co=
+lor:#003974">is now
+<o:p></o:p></span></b><b><span class=3D"head-text" style=3D"mso-bidi-font-s=
+ize:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#97144d"=
+>Axis
+</span></b></span></span><b><span class=3D"head-text" style=3D"mso-bidi-fon=
+t-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#0039=
+74">Max Life Insurance
+</span></b><span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"=
+><b>
+<div><span class=3D"subhead-text" style=3D"mso-bidi-font-size:4.0pt; font-f=
+amily:&quot;Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa f=
+or our Customers, Sellers, Partners, Employees &amp; Community.</span></b><=
+/span></span>
+<span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"><b><span c=
+lass=3D"subhead-text" style=3D"mso-bidi-font-size:7.0pt;font-family:&quot;C=
+entury Gothic&quot;,sans-serif; color:#013974"><o:p></o:p></span></b></div>
+<br>
+<h><b>Disclaimer:</b></h> This email contains confidential information inte=
+nded solely for the recipient, and if received by mistake, it should not be=
+ distributed or copied; please notify the sender and delete all copies.<br>
+<br>
+<b>WARNING:</b> Computer viruses can be transmitted via email. You are advi=
+sed to check for viruses in the email and attachments, with the company dis=
+claiming liability for any resulting damage.<br>
+<br>
+<p></p>
+</span></span>
+</body>
+</html>
+
+--_000_MAZPR01MB853622450F03A4579A0E69E7886CAMAZPR01MB8536INDP_--

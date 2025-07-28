@@ -1,0 +1,947 @@
+Delivered-To: debojit@xperteez.co.in
+Received: by 2002:a05:6a06:440e:b0:724:b4d6:e8bc with SMTP id gi14csp6812pib;
+        Wed, 18 Jun 2025 00:34:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=6; AJvYcCXWO2Pp5gLB07vudq5FbdbP76+ze19ut6CAYR8WN57zkzvpXujaoyIHgdIpcjvotGRAOBAxDjob@xperteez.co.in
+X-Received: by 2002:a05:690c:4903:b0:70c:cbef:df24 with SMTP id 00721157ae682-71175429549mr240849677b3.18.1750232094161;
+        Wed, 18 Jun 2025 00:34:54 -0700 (PDT)
+ARC-Seal: i=5; a=rsa-sha256; t=1750232094; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=SI0JqZAVpQjV2151xIPqXbAiSYvoOgVxupvq4EVnYuGY4cbA2FlTP6BMiMZoipW1rw
+         YNE8s6NDCUX1m812PIuR/WtHrOupbvEc2HzBW3LtH9uSY7qshK9b7EiJuOMLX9WT22XA
+         jssPlw6XFjdrX8HDvLoiv8SPJiSb/0H6ju6z+8VCI8HwOs0zPcvMQrkRBmvJ2GuRZHWV
+         oEDVCLWKSxfwkt1hAsJakIWE7eXWXqORqRkhCix0AeKqsaYR4a4TBPjAYjiNnNm1Mya2
+         S6+iQJ79PbZ1htv9FcYBKPhkWhGXeBUSIqK6zSNPmh51cGg0k+LuUpMeY0XgxozNNaR6
+         03uQ==
+ARC-Message-Signature: i=5; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+        fh=odjNU/eRKWHkn26m+iTjnJoEI9yOoPnAoLm9NwNP0NQ=;
+        b=PCq46AcCKpGN3lIso5kwccPJxY0lC9Cu50QSEI9cgUEZMOn2w+Pesk2hMF+eYEh+75
+         1CMuoYizi99GTLFIp3YVZ4Z5xl+eM7051lH6uAOpk4wsMTJHZ4e5WzzCNkF8isjT+U+L
+         iYDf6VYjzv1XfAepjiPxYWkdF9NrOcWb5wzlT6OFVuMxPI96oUQGDhqtPwoTEFyOqwH+
+         R/kAzLLdo0F1a5JY1dKem0CtEtcoUyQ0KdHtrVtUbx2wIncAf/G5ojxvYmGehMpnhYtg
+         dGuNw6EoIHVsFXeEYzB6g298VpseTb6wvI3G43MlBcPN+F7+bNHHOGktU3dH4n/vp12R
+         Rwlw==;
+        dara=google.com
+ARC-Authentication-Results: i=5; mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=BveHeVFN;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbg6yzhbamgqeqt64nvq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBG6YZHBAMGQEQT64NVQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+Return-Path: <ops+bncBAABBG6YZHBAMGQEQT64NVQ@xperteez.co.in>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 00721157ae682-7115159cca4sor47503877b3.1.2025.06.18.00.34.51
+        for <debojit@xperteez.co.in>
+        (Google Transport Security);
+        Wed, 18 Jun 2025 00:34:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ops+bncbaabbg6yzhbamgqeqt64nvq@xperteez.co.in designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=BveHeVFN;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbg6yzhbamgqeqt64nvq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBG6YZHBAMGQEQT64NVQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+ARC-Seal: i=4; a=rsa-sha256; t=1750232091; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=GwEQKHvKXYkb+BJqKEiwG0+D3Qd6h0uxUpkFPoftGql+OcUGDLvnix2q7xP29lNt+n
+         rSYhDYMul+ozw4u9JudXNZAinFuqEYYQ1hMMjTJgvpMacBgzfsCsMGUJqgziW9ElNnu+
+         9QhmhOlsERIw1f8S4CUSXnEPewyZo+dNavDseutlZt3ELXtBrpGrtSFH1Gc4z9CIR1fq
+         rxBVZq23klb2p1jMlChgZstWimBdUccozcsvnnX5/jXkapvYdtUKAERw+p+mBqQU8u77
+         fjMkkiVfVpt1WMNXy9ABAtA32dpY7wEBa5cChqssBWyH/WdibW1sc7E7l+LrmWr++nKg
+         eJKQ==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+        fh=odjNU/eRKWHkn26m+iTjnJoEI9yOoPnAoLm9NwNP0NQ=;
+        b=Lp2HOlHcqBu9dXSC19b5yPQoRvB9pNkcLjOrYKapoNEEiILTnb5S+/jD7Xjg7cVx7Z
+         loHsebnKTg4ffDXY0skmj5d1hhvv80dmbjcyHCfW+gjNjHryLPZWM1uXkYFIbnTgUjZr
+         XYpjW6luVC3T4Dv0yD4ABF4Z3jHJO1yw1p5VhTihq4z0NacrGBqtJ41HqtC8ByQKSQFv
+         EXBu8lrVfvZ7JzXTDV8y/0y+dy3Rk6ajdPG5JponoFz5oU/7HObB+B3h0MzKW9+PaENx
+         tiAWWh/GMA/mWBINzk7EYXpefK4Ss/B2K67CO+SQTK0QiLO/dmmGw49FuYYn1X8lmsml
+         /AiQ==;
+        darn=xperteez.co.in
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=HrCTqWHS;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=HrCTqWHS;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshit.gupta@axismaxlife.com designates 2a01:111:f403:c409::1 as permitted sender) smtp.mailfrom=akshit.gupta@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xperteez-co-in.20230601.gappssmtp.com; s=20230601; t=1750232091; x=1750836891; darn=xperteez.co.in;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+        b=BveHeVFNOihaQqG0j8lzYh1T3jh2AOlzNem63R3BuhEnw4Tc5giH/L1y0Yp1X/SiZ1
+         ltGr2M6A06eZXEmmzFxL2SIP7ljTclUOZs0ZDnT7o+8m16i30j4PE5H55cEsCpYjAlSf
+         ivM+RAMLzwyEJt2QVuLqMNKUdG0xbN8pHH254WYqsY60l2NZB86Xh63/w5eQVUGDTX3L
+         ZekoQ3ymGtMTaVFlnIHJTg1txO4/ETO/lubhrZsL4TF0i8+NusYKinGGvVkUdkxHq9sn
+         ksIBkhb+Gz9U0FdWD20uHLQ1u4Vb0OZ8LrtJJT0L3JybSKexiFiMCi3pnBP4A2QbjATs
+         RLBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750232091; x=1750836891;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+        b=IB4lRXf6fYAivKPkmvG8NMCaCE1EwsrUE2wC9qTZBPVhfaQCn2z+dOm2SYU1mjwUJH
+         39uHpolO6+gUQ1Q6upRn6AbAtmoHujOAQZKpo+1xwDcIwGVsFJ7eFiQQb3kDxRz8sUlY
+         uENsXNV64DryfMPRDAD0LfA6x/VHN+ANQhtfkStPnIxiq8jM2vH/IJCQR1LAJ3mDLt9u
+         SmVGq7OdEpMoESLvtnvEsaDsNbW/xHdi+d1hNXFdoZfeRdJ995qY39GC9IBc/XmoBkTZ
+         NqIc8gNqu+OMumDrYyRHgv9lx+KpzG+7xuEWjoi/v1ZVfSAnH8iNHLy7jR/f7FKdehvJ
+         zKrA==
+X-Forwarded-Encrypted: i=4; AJvYcCVe0O+WIeK7FE86DA8peO0MZQnarS9t4lp0wDRpACaSXAat4g1zHSgzhGvgTo0XTNLcjEYOL52C@xperteez.co.in
+X-Gm-Message-State: AOJu0YxyH2r8JrCPw1P3P0SA/I/7llsz8TS+eOHljkhjxlhaKrHj53ZC
+	QphkC0aPXoGpSCz+B+Daicg6EzAVdrGC3aDnW5xJcol8apPaeiZWTa9LbkQE7anp8We1HQ==
+X-Google-Smtp-Source: AGHT+IHm9A7Po9X+9WvWKJ6QlA1nbcU80/PNMNUEaxOz3gVf88sarK94ejp5YqQSzn2V7lLBCyScPQ==
+X-Received: by 2002:a05:690c:dc5:b0:70e:2d3d:acdd with SMTP id 00721157ae682-71175463213mr104371277b3.9.1750232091363;
+        Wed, 18 Jun 2025 00:34:51 -0700 (PDT)
+X-BeenThere: ops@xperteez.co.in; h=AZMbMZcJ14d15Mm0uGvLy8Pa4sf/lHSIQQmr6Lvx3XajEQF2yg==
+Received: by 2002:a25:c345:0:b0:e82:5194:7aa2 with SMTP id 3f1490d57ef6-e8251947e5els2944584276.0.-pod-prod-08-us;
+ Wed, 18 Jun 2025 00:34:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCU5g1sESXCeVErbfb75OIcRUpYsgDEevwK85QZ4sbWLj3lxdvWou7K8NTrv3D5F7Iif4Z4=@xperteez.co.in
+X-Received: by 2002:a05:690c:6aca:b0:70c:bb54:ccfb with SMTP id 00721157ae682-7117542acf0mr219619117b3.21.1750232090539;
+        Wed, 18 Jun 2025 00:34:50 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1750232090; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=iQt95eRXZSo5qPiKAtr1COqDY7OeM128ipGzKrNX6WTFtnjIZz0xbBnvBZleCOan0Y
+         /Rxl1QYMb8biptGBzj/RJxaa4HkLAqBsQm6R4X/g5EYgLiSEajhq7dK4FZQiROMlgpYI
+         eEg6oWrJf/FLqfvdDWJHY6woAYARNUJlZ0Ui63dv0aNEHMd2l5Uf51+/0B/n/rYLv0LI
+         q1/vfmbu0fRnMdZlUh4WFBly3B9NdmTtf+kus2x2zMgH0+VIAziyh2ABE1TCYrgG/bpA
+         sKvnAr49OvPCsoqXb1GMlulPpU6QD6XbsJLEfi+UkKuxdifHPftidzPQjqH+LU3UFRQH
+         jbbg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :cc:from:dkim-signature:dkim-signature;
+        bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+        fh=pSRvTA7im9wLNF6c3D90CktRUmTBO6Nhn6WXlZc7mB4=;
+        b=OpRtcI3pzRRl3w2mmMF6rati7tkUWcgx/PI0p28yhAjXAij+EXTS7sGwT1y4VwQhAF
+         dt8dq9gtKggoOhKDRX2vgm5QHipNvjnKYyN5ZJfWIFhtIGxp1/tO9IgC5zv41nqre/dn
+         3Y8pzFrVhCy7TUBP+HE88+7SzbD6LVTTsgnTY4JCnh0pa53R0dvMK1GY33JuTigUzjKk
+         YYs3PEKvZMmhoGkFq2D0cDL7l8/uqTJC57DRADRs6J5fkiHnkxIw+oAs5i/5g/0r0uzE
+         xvws5w42efXssgsWJDLUOZ2OLXs1YC72tEImEM8upwgfVOTLnzW8VeqOwRyx3Tr6zBH5
+         HrGA==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=HrCTqWHS;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=HrCTqWHS;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshit.gupta@axismaxlife.com designates 2a01:111:f403:c409::1 as permitted sender) smtp.mailfrom=akshit.gupta@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+Received: from MA0PR01CU009.outbound.protection.outlook.com (mail-southindiaazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c409::1])
+        by mx.google.com with ESMTPS id 00721157ae682-711961a02b3si63005817b3.116.2025.06.18.00.34.50
+        for <ops@xperteez.co.in>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 00:34:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of akshit.gupta@axismaxlife.com designates 2a01:111:f403:c409::1 as permitted sender) client-ip=2a01:111:f403:c409::1;
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=MzIMD5ckC4SyaEbfK2MCgcGlPaQxprS+dzhpkVcgFJmfqj9Yz5POIQl9YxuOTNjbHM6fumb7GNruvzYf6NmsoQbCgzXgRBKlhSSOM7326XHpnVndaOVrMoxk0vbGpYWsO5TCr53Jj9i+co04JosZqkims3ALn5OzYmg0Z0SVXMZ5MuYRzPu1roxCy+g11KV7XzFvnL1tR9YYDWEes//383LH04zUDDoQ2qIGCLFGS9PgZrBFNdixuij1FuZcV7Xvm0J9JY/Nck67NETMf79+EkZn1SS705dnvh1aLQ4YEDw2rzFLixB2gnbfzjnXZ2m0neKF1cIcH16zrB2P2ZncDg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+ b=fFGQSspvGMq61Wt4yjsSwwsrbU1IvypHG9fsB0rdHL9SWy6X+y3sXY1f2nJnXv/p5giw/dXBX07bLZyh181l+6v3nbxAohgD7ZG6Hoygmasn212RkpodWH4GIRKMOfOqfdeyzX/+UL8DqmbiV/e8NMhZziuoAbQKZGR+PpDS1noJL27c8KoXwv8GHjoc2BOyYwf9SU+vGzhj0FTdJ5szX36faPHtWSykXSRfRZa7jJvzZjSYyICr/YiTGqq80aczyJQy/iTRHOyHYrSDCqBb7ydShfv/cxAbOIO3jXoTVkfcjzqsRqR/3BiRKGG0T2DFydVhLkPNMAfQ2+6TzW2uZg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.204.180.79) smtp.rcpttodomain=stalwartmanagement.com
+ smtp.mailfrom=axismaxlife.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=axismaxlife.com] dkim=[1,1,header.d=axismaxlife.com]
+ dmarc=[1,1,header.from=axismaxlife.com])
+Received: from PN3PR01CA0087.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:9a::12)
+ by MA0PR01MB8681.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:b7::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.19; Wed, 18 Jun
+ 2025 07:34:46 +0000
+Received: from PN2PEPF0000018E.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:9a:cafe::b5) by PN3PR01CA0087.outlook.office365.com
+ (2603:1096:c01:9a::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.33 via Frontend Transport; Wed,
+ 18 Jun 2025 07:34:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 20.204.180.79)
+ smtp.mailfrom=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com;dmarc=pass action=none header.from=axismaxlife.com;
+Received-SPF: Pass (protection.outlook.com: domain of axismaxlife.com
+ designates 20.204.180.79 as permitted sender)
+ receiver=protection.outlook.com; client-ip=20.204.180.79;
+ helo=appliancehostname.parentdomain.com; pr=C
+Received: from appliancehostname.parentdomain.com (20.204.180.79) by
+ PN2PEPF0000018E.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8857.21 via Frontend Transport; Wed, 18 Jun 2025 07:34:46 +0000
+Received: from MA0PR01CU009.outbound.protection.outlook.com (unknown [40.93.131.5])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Forcepoint Email with ESMTPS id B280691E034C6F97C118;
+	Wed, 18 Jun 2025 13:04:31 +0530 (IST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E3eYYfFid3jXrFXfKdxmdO9Xt3iPeTFnx8yl0HkNjDd+atH3PbYje6D1uWIywoI8ulYyYP9VIMhcg49UGNYNW8lQZB+nqashTlWjNT4lbd9X8NhB1i1l03FJFh2m57q8fkH0jUH+pdyK6/bCITtRrGJ5LpPHSSSuO/MGhCrAWeZGVUVKPycztC4eCvb9RoqhjvedoWdYx+Q/f0v42bDDt/+V7ErN/HTKR+5wGAuJFryyK/87sBwlxC3p9JJ5Kjquap4LE7XPJjGO8ml5Zi6uWfPqiO15bGBeFMTrkeilguOdgvH7qS857cVEIssf9epr3GfjCmpaZ9hHTuvxhYWSpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o8y4A5LF1FNYZwgYz+IH9G7GZYUfVPmZGDeiK810FaE=;
+ b=stGg/LwgeNGYFavaYDYqc0l1Y3jSk9ATrIXfmm8lSZF/ZhusJIBUQ8W3cQ/NT1uW76iYLMb2L0aLMu8WBxZUuPxumiisyoAiDCj2gDk3XjZsjMj1if/pJjeTYRNkK8Qw06RmRmJgn07Yu0vBpRlFvZd6YBjUefvtutfcUt+aNTgt0/epJzF3eQhlCGigBjmAFocm86f/kco/MB9pWNhQ2KwmvBGCkO2edesnyKPf2gpLEiA48zq6aZaLJ/TG6h1IY6X8+w/O/giXNQ9SrGrwejUkY6IoMlsp9UdwaSztCIE9G332dv6TpXGsdz5ZaUjrNYP1S65clnWYEBct5cRYfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axismaxlife.com; dmarc=pass action=none
+ header.from=axismaxlife.com; dkim=pass header.d=axismaxlife.com; arc=none
+Received: from PN3PR01MB7679.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:cf::12)
+ by PN0PR01MB9366.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:10b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.19; Wed, 18 Jun
+ 2025 07:34:27 +0000
+Received: from PN3PR01MB7679.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::ebfd:8141:110:48e2]) by PN3PR01MB7679.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::ebfd:8141:110:48e2%4]) with mapi id 15.20.8857.019; Wed, 18 Jun 2025
+ 07:34:26 +0000
+From: "akshit.gupta via Recruitment Operations" <ops@xperteez.co.in>
+CC: <vandana.bhatia1@axismaxlife.com>
+Subject: CAT Axis West Gap Sheet
+Thread-Topic: CAT Axis West Gap Sheet
+Thread-Index: AdvgIjN/lYD/BmkgR96Ntg2Ro7bk0w==
+Date: Wed, 18 Jun 2025 07:34:26 +0000
+Message-ID: <PN3PR01MB76791C945A2C286B0F88589C9172A@PN3PR01MB7679.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-IN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axismaxlife.com;
+x-ms-traffictypediagnostic: PN3PR01MB7679:EE_|PN0PR01MB9366:EE_|PN2PEPF0000018E:EE_|MA0PR01MB8681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43632d12-1b3b-4393-bdb7-08ddae3a99c1
+x-ld-processed: 97e4bcfe-5cba-4a9c-8821-4be8019d9055,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|8096899003|38070700018;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?rMMZ2fvt+CrqKtjJYhWgEGZDbhtwI8BVvb1lO5gDrkLwBMWzW2BVaeuD7R28?=
+ =?us-ascii?Q?ehXyaZN8PCsMaTOBhaIlRxckHrwcvgSaORa1Lk3YJMeE2OGXGvQtgtciCxT+?=
+ =?us-ascii?Q?E92xZUOLZuGMnbk973oE8e/oZOYBCJgC5GGcxNLs4g2/r9m0CUCHweyi/UJx?=
+ =?us-ascii?Q?1OMcKri1Mv/eeTojGtfbWRv6ph+LD82lnbK4qeM6OuSr4W3bx4k8EsnRrjvV?=
+ =?us-ascii?Q?YE1pEfAAjc8pheTmVicTJN7aUwoG8o4aikO46G2QdeJYQbMg9DzfBeMvVsg9?=
+ =?us-ascii?Q?9DBPl4XxzwmxQcNkedkByqFQEWaHn/tvqzQ3l3zPcQAdnNfw5G3iwFl3Edgy?=
+ =?us-ascii?Q?t+OKbnxw7x1PI+vbx8Ymf4RP+Ycw2cuIfqST3HgzTTT30y1gcfL10Kd/qgEK?=
+ =?us-ascii?Q?sIJHf2t1EBl1RHYXB2cTHIMPFBsifhziVnI24DcbOQ1yPd7aiEMbkYdKsYWu?=
+ =?us-ascii?Q?NF2w92Zh8tUubxKawmD/e9ANipv6jvbzsSltAhirTlISs3SlA7ygZ4rLRi9e?=
+ =?us-ascii?Q?dKBZS3XC1+qiQlnrql3q/uCmFZRRUl0eG9bI2EJHOlrLgExn+Pgnb2ZBz8tD?=
+ =?us-ascii?Q?BENhCfyIDjQvWmVqaR/JosTpY8REA4pMjqvgHzHzlmNTKCanshK+FYuM1kcs?=
+ =?us-ascii?Q?tDipz89+5bYsLGbo/CGAFQYU2XFjcKTRVzGbXzkJUEtoOsiPqi23YCrZkOnB?=
+ =?us-ascii?Q?81UM5DrdvGdgeD5HiNo6qoQW/1RT0gU6fNlz2DXwj/8Z1APjfA0MFVmW0LBv?=
+ =?us-ascii?Q?XwTf4wBK0cr+KFjhbDwLa8/x/WsPGVDz+di88qiOoMlgjso8d0qpcOMptrbW?=
+ =?us-ascii?Q?SKDTTb7Sm7+AOfjZEanWnl32q34HuEzOeJVC2/7738T53yfxY3wX977p0pw2?=
+ =?us-ascii?Q?rW6c3JyAynQPVMgpxYVS6hg3J3VmmlIjASp4RvfSSXVEp/hLlaVnsAORj2ds?=
+ =?us-ascii?Q?mAjt0nXf/M5dMrFeQKOpWtKRJlNMxw5GdEseAUjzDsmdZAamtTUF5Kwxp7P0?=
+ =?us-ascii?Q?8kACiAJzF9fF3o0cLyVO3ce1O4DUx5pgtHQSP3RGRmC5XopWEcWGX40U/aXS?=
+ =?us-ascii?Q?ra3d7ZGOl8vaKc7S02ejqQQgil/X5Tgm8bVTHq0+cQZGgH3ifnr40DTav3EP?=
+ =?us-ascii?Q?jjx0+b/YdJq/I/ni8SJGg5ZdjB9QKLGdng61DB9YAAaljB3wnD8TVRhnaTJL?=
+ =?us-ascii?Q?P74sTg/XbNM8LdxoA2tX54JGToUmOI5H71xu7EqlzO74ZYVxcDrKiyiUwYkZ?=
+ =?us-ascii?Q?m5+OEPPlRgXteS0l7YPz4YuhDWDzJmsz3azvX7A25oXw8m6ymJaLC9LCWTiL?=
+ =?us-ascii?Q?PPNXQlCZhWhs1Gcq6kjZKkuGpo4Na4QwlDT9pWDHs1cnBQ+PyPxqpen8A9RJ?=
+ =?us-ascii?Q?JF4D1qmdRkiJfIZSJxcV7k5De0t2Igui7kQLpyrXaguoSBnRDsyZDIJ43tNr?=
+ =?us-ascii?Q?0tCcTQG2A4S50LWge0tgiRG8Vn2WwRJ59e4PIZItJjEeXgrxe+vkrQ=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3PR01MB7679.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(8096899003)(38070700018);DIR:OUT;SFP:1102;
+Content-Type: multipart/alternative;
+	boundary="_000_PN3PR01MB76791C945A2C286B0F88589C9172APN3PR01MB7679INDP_"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB9366
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: PN2PEPF0000018E.INDPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 60855a74-a37a-4635-1a98-08ddae3a8dc8
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|35042699022|82310400026|14060799003|1800799024|36860700013|376014|8096899003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AcG/DIyoZm1z3DXc3r5SKqtoJkRoQebvtlrvru6u8NT5wDY/Z8ae6FlurriI?=
+ =?us-ascii?Q?VAi8pLEwGbK7xgX2dIOtLcD/VB365wCwP2056/M6TQXotBBbNsSJqRY8lIdw?=
+ =?us-ascii?Q?m9uMyo8CHwfCo0pLYoZPSy2yDg7K9lenVajr7KVYc2cSfP3pefzgVFWp98Dw?=
+ =?us-ascii?Q?mJrGzY1hgLK5wPYuWpx6a0erXV9ND2t2XDdXCoJRPutZg8OmLFRTcngMzWsN?=
+ =?us-ascii?Q?MX3XfwPJHItb+OI1nfvC61js0rApwLbm+OnmCEVy8IF2eINi8xvqS54grCkJ?=
+ =?us-ascii?Q?V4X18jW4ZgW7wk9zQEpUbPmVknZhzmwS+3js9qIzGoqT+jkNaplpZm8VBHKO?=
+ =?us-ascii?Q?ON+c3ps0qrI3xeJmGVyLckMSeX15dVNX1kArPNCKvXZVgERb9VH9/uSAZoO8?=
+ =?us-ascii?Q?8vpti7MF/ITBxlqgKcTDkSCtHarynRzmYzcXf4zZTzAgkpI9aHbKs12MyUhM?=
+ =?us-ascii?Q?PxUzWaQTsJxvawmoTIX1MCgVZIh48LrLDd5DvossgIf/zO8vSdIdvrLp1P8U?=
+ =?us-ascii?Q?5L/uVDXcLezYy7t39KxJ+0Je/po6Xus28/VqCDn6rrEp6Q7ghGOQt+eNbnib?=
+ =?us-ascii?Q?y44+7ctDgW+O2U46KxSwcdp+lkKBdOj+uZBQe3KiBt7Z56F1/9MDa1N14mxT?=
+ =?us-ascii?Q?9O0bptNbvY3ZTdjyr/qYZLQP3togXIEnghIEKoW7S+U1OX+jB2ytRNJd8TWT?=
+ =?us-ascii?Q?EX5AD1etNpVcLAlbs4xhqDhhWyveZVoHZV7FMuD1e7/2BvFaCPcgrFcVFAX1?=
+ =?us-ascii?Q?hb8Es9jTALnFfi1q1vfnpzRnkjQRSSdqFa8fd5erORjcqAgEefaM+5Nl4c6b?=
+ =?us-ascii?Q?jJzjRByye4zFNhVFozDSdF/Iv7Iinh862fhP3hJ9/IQzmWx4YXnG/KEpnFmx?=
+ =?us-ascii?Q?1l5oUjrnS+myJgc4LSYgZlpzOdZyafDOYyec2Lsns+6KWIiiWwIpr4aLuUD1?=
+ =?us-ascii?Q?zHIYlYXY/yoRdyE5ntox5D8p9OMdVqJvlN0OVmEfNjWsu0QBLp0Hd+Xx23VD?=
+ =?us-ascii?Q?hcADWgWHgSf6gGmlQl6ImHxpfVGtKJ6e3Zr7zCg5DYJmKpgoZdXIwdrlpwgs?=
+ =?us-ascii?Q?EeSaZHgSQFX1zeiGejolCkd0cebeg+9FEe4q2fZMY20yay4VICgyV6VHVof/?=
+ =?us-ascii?Q?II/4BzKBTK041viVpcOMAzt0WjE28wmVj4kEIpS8xP87oZrqZfEOVCC3tbyY?=
+ =?us-ascii?Q?epyEeDIKs27J2uepMqTA72SxXUu3v0IPgLMXyiL5h5FYDLmgwf8mIB8JYL5a?=
+ =?us-ascii?Q?nWvMotDyABmcF51ZfmsBG5nSSHMH0m1qqD8tbnSbHovoMx8v+yJP12Eoz+Js?=
+ =?us-ascii?Q?jgGpTCoPXC4FcqiStEARlwzS6i8Or4mDAqE6W97y2LwFbutnVCqxheT5ecr5?=
+ =?us-ascii?Q?m1bZAYnoyI9bQ7HRxROuwbjfD6nkS7lUpfrpef2ve7dEEuzDgB/fuOcCAlJ5?=
+ =?us-ascii?Q?r0bf00+T4m8TpILXmyFW/pspdov4PB/6tzjN/SFjPJgNmQy3RfbTl/HOjzMF?=
+ =?us-ascii?Q?NzCY4ktap6tT/QBKM61Pw1Ls0urv2Hv/x8Zg?=
+X-Forefront-Antispam-Report: CIP:20.204.180.79;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:appliancehostname.parentdomain.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(35042699022)(82310400026)(14060799003)(1800799024)(36860700013)(376014)(8096899003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axismaxlife.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 07:34:46.6790
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43632d12-1b3b-4393-bdb7-08ddae3a99c1
+X-MS-Exchange-CrossTenant-Id: 97e4bcfe-5cba-4a9c-8821-4be8019d9055
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=97e4bcfe-5cba-4a9c-8821-4be8019d9055;Ip=[20.204.180.79];Helo=[appliancehostname.parentdomain.com]
+X-MS-Exchange-CrossTenant-AuthSource: PN2PEPF0000018E.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB8681
+X-Original-Sender: akshit.gupta@axismaxlife.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@axismaxlife.com header.s=selector1 header.b=HrCTqWHS;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1
+ header.b=HrCTqWHS;       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com
+ dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshit.gupta@axismaxlife.com designates
+ 2a01:111:f403:c409::1 as permitted sender) smtp.mailfrom=akshit.gupta@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+X-Original-From: <akshit.gupta@axismaxlife.com>
+Reply-To: <akshit.gupta@axismaxlife.com>
+Precedence: list
+Mailing-list: list ops@xperteez.co.in; contact ops+owners@xperteez.co.in
+List-ID: <ops.xperteez.co.in>
+X-Spam-Checked-In-Group: ops@xperteez.co.in
+X-Google-Group-Id: 950430647392
+List-Post: <https://groups.google.com/a/xperteez.co.in/group/ops/post>, <mailto:ops@xperteez.co.in>
+List-Help: <https://support.google.com/a/xperteez.co.in/bin/topic.py?topic=25838>,
+ <mailto:ops+help@xperteez.co.in>
+List-Archive: <https://groups.google.com/a/xperteez.co.in/group/ops/>
+List-Subscribe: <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>,
+ <mailto:ops+subscribe@xperteez.co.in>
+List-Unsubscribe: <mailto:googlegroups-manage+950430647392+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>
+
+--_000_PN3PR01MB76791C945A2C286B0F88589C9172APN3PR01MB7679INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Team,
+
+Sharing the gaps for CAT AXIS- West. Please share as many profiles you can.
+
+Gap Sheet-
+
+BRM
+Location
+Shortfall
+Mr. Ramakant Patil
+Shivajinagar, Pune
+6
+Mr. Kumar Saurav
+Shivajinagar, Pune
+1
+New BRM
+Pune
+9
+Mr. Nikhil Prakash Bhoir
+Nahur
+5
+Mr. Prashant Shridhar Shetty
+Nahur
+5
+Mr. Suraj Singh
+Borivali
+2
+Mr. Istiyak Afsar Shaikh
+Andheri
+5
+Mr. Munnilal Yadav
+Malad
+5
+New BRM
+Andheri
+9
+New BRM
+Malad
+9
+Total
+
+56
+
+
+Designation & Budget
+
+AM - 3.1 LPA
+
+DM - 4 LPA
+
+
+Interview mode- Face to Face & Virtual both.
+
+
+
+Note- Field Sales experience is must.
+
+
+
+You can tag the CVs under the JR- 125345
+
+
+
+Also, kindly fill this tracker along with the CVs.
+
+Gender
+Date of CV shared
+Candidate Name
+Contact No
+Email ID
+Highest Education
+Total Exp in Yrs
+Sales / LI experience in years
+Current Organization
+Current CTC
+Expected CTC
+Notice Period (In days)
+Current Location
+Vertical
+
+Thanks,
+Akshit Gupta
+AM-HR
+Axis Max Life Insurance
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Disclaimer: This email contains confidential information intended solely fo=
+r the recipient, and if received by mistake, it should not be distributed o=
+r copied; please notify the sender and delete all copies.
+
+WARNING: Computer viruses can be transmitted via email. You are advised to =
+check for viruses in the email and attachments, with the company disclaimin=
+g liability for any resulting damage.
+
+
+--_000_PN3PR01MB76791C945A2C286B0F88589C9172APN3PR01MB7679INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-IN" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Hi Team,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Sharing the gaps for CAT AXIS- West. Please share as=
+ many profiles you can.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Gap Sheet-<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:290.85pt;margin-left:-.5pt;border-collaps=
+e:collapse">
+<tbody>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;background:#FFE699;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">BRM<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border:solid windowtex=
+t 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Location<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border:solid windowtext=
+ 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">Shortfall<o:p></o:p></sp=
+an></b></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Ramakant Patil<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Shivajinagar, Pune<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">6<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Kumar Saurav<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Shivajinagar, Pune<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">1<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">New BRM<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Pune<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">9<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Nikhil Prakash Bhoir<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Nahur<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">5<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Prashant Shridhar Shetty<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Nahur<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">5<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Suraj Singh<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Borivali<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">2<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Istiyak Afsar Shaikh<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Andheri<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">5<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Mr. Munnilal Yadav<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Malad<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">5<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">New BRM<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Andheri<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">9<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">New BRM<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Malad<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">9<o:p></o:p></span></b><=
+/p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"198" nowrap=3D"" style=3D"width:148.85pt;border:solid windowte=
+xt 1.0pt;border-top:none;background:#FCE4D6;padding:0cm 5.4pt 0cm 5.4pt;hei=
+ght:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">Total<o:p></o:p></span></b></p>
+</td>
+<td width=3D"132" nowrap=3D"" style=3D"width:99.25pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black;mso-fareast-language:E=
+N-IN">&nbsp;<o:p></o:p></span></b></p>
+</td>
+<td width=3D"66" nowrap=3D"" style=3D"width:42.75pt;border-top:none;border-=
+left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtex=
+t 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black;mso-fareast-language:EN-IN">56<o:p></o:p></span></b>=
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><b><span sty=
+le=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#24=
+2424">Designation &amp; Budget</span></b><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:#242424"><o:p></o:p></span><=
+/p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white;font-variant-=
+ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:start;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x">
+<b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-ser=
+if;color:#242424">AM &#8211; 3.1 LPA</span></b><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#242424"><o:p></o:p></=
+span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white;font-variant-=
+ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:start;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x">
+<b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-ser=
+if;color:#242424">DM &#8211; 4 LPA<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24">Interview mode- Face to Face &amp; Virtual both.<o:p></o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24"><o:p>&nbsp;</o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><b><span sty=
+le=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#24=
+2424">Note</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Cali=
+bri&quot;,sans-serif;color:#242424">-
+<b>Field Sales</b> experience is must.<o:p></o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24"><o:p>&nbsp;</o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24">You can tag the CVs under the JR- 125345
+<o:p></o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24"><o:p>&nbsp;</o:p></span></p>
+<p style=3D"margin:0cm;margin-bottom:.0001pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#2424=
+24">Also, kindly fill this tracker along with the CVs.<o:p></o:p></span></p=
+>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:1583.0pt;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:21.75pt">
+<td width=3D"59" nowrap=3D"" style=3D"width:44.05pt;border:solid windowtext=
+ 1.0pt;background:yellow;padding:.75pt .75pt 0cm .75pt;height:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Gender<o:p></o:p></span></p>
+</td>
+<td width=3D"99" nowrap=3D"" style=3D"width:74.3pt;border:solid windowtext =
+1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;hei=
+ght:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Date of CV shared<o:p></o:p></span></p>
+</td>
+<td width=3D"208" nowrap=3D"" style=3D"width:155.8pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Candidate Name<o:p></o:p></span></p>
+</td>
+<td width=3D"106" nowrap=3D"" style=3D"width:79.8pt;border:solid windowtext=
+ 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;he=
+ight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Contact No<o:p></o:p></span></p>
+</td>
+<td width=3D"235" nowrap=3D"" style=3D"width:175.9pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Email ID<o:p></o:p></span></p>
+</td>
+<td width=3D"100" nowrap=3D"" style=3D"width:75.2pt;border:solid windowtext=
+ 1.0pt;border-left:none;background:yellow;padding:.75pt .75pt 0cm .75pt;hei=
+ght:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Highest Education<o:p></o:p></span></p>
+</td>
+<td width=3D"114" nowrap=3D"" style=3D"width:85.3pt;border:solid windowtext=
+ 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;he=
+ight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Total Exp in Yrs<o:p></o:p></span></p>
+</td>
+<td width=3D"153" nowrap=3D"" style=3D"width:114.6pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Sales / LI experience in years<o:p></o:p></span></p>
+</td>
+<td width=3D"189" nowrap=3D"" style=3D"width:142.05pt;border:solid windowte=
+xt 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;=
+height:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Current Organization<o:p></o:p></span></p>
+</td>
+<td width=3D"176" nowrap=3D"" style=3D"width:131.95pt;border:solid windowte=
+xt 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;=
+height:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Current CTC<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" style=3D"width:110.9pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Expected CTC<o:p></o:p></span></p>
+</td>
+<td width=3D"197" nowrap=3D"" style=3D"width:147.55pt;border:solid windowte=
+xt 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;=
+height:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Notice Period (In days)<o:p></o:p></span></p>
+</td>
+<td width=3D"141" nowrap=3D"" style=3D"width:105.4pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Current Location<o:p></o:p></span></p>
+</td>
+<td width=3D"187" nowrap=3D"" style=3D"width:140.2pt;border:solid windowtex=
+t 1.0pt;border-left:none;background:#ED7D31;padding:.75pt .75pt 0cm .75pt;h=
+eight:21.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k">Vertical<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Thanks,<o:p></o:p></p>
+<p class=3D"MsoNormal">Akshit Gupta<o:p></o:p></p>
+<p class=3D"MsoNormal">AM-HR <o:p></o:p></p>
+<p class=3D"MsoNormal">Axis Max Life Insurance<o:p></o:p></p>
+</div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<title>AxisMaxLifeInsurance</title>
+<style> body {margin:0} .head-text{font-size:12.0pt;} .subhead-text{font-si=
+ze:7.0pt;}@media(max-width:768px) {.head-text{font-size:8.0pt;line-height:5=
+px}.subhead-text{font-size:5pt;line-height:5px}} </style><span style=3D"mso=
+-bookmark:_MailOriginal"><span class=3D"head-text"><b><span style=3D"mso-bi=
+di-font-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color=
+:#003974">Max
+ Life Insurance </span></b></span></span><span style=3D"mso-bookmark:_MailO=
+riginal"><span class=3D"null1"><b><span class=3D"subhead-text" style=3D"mso=
+-bidi-font-size:4.0pt;font-family:&quot;Century Gothic&quot;,sans-serif; co=
+lor:#003974">is now
+<o:p></o:p></span></b><b><span class=3D"head-text" style=3D"mso-bidi-font-s=
+ize:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#97144d"=
+>Axis
+</span></b></span></span><b><span class=3D"head-text" style=3D"mso-bidi-fon=
+t-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#0039=
+74">Max Life Insurance
+</span></b><span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"=
+><b>
+<div><span class=3D"subhead-text" style=3D"mso-bidi-font-size:4.0pt; font-f=
+amily:&quot;Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa f=
+or our Customers, Sellers, Partners, Employees &amp; Community.</span></b><=
+/span></span>
+<span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"><b><span c=
+lass=3D"subhead-text" style=3D"mso-bidi-font-size:7.0pt;font-family:&quot;C=
+entury Gothic&quot;,sans-serif; color:#013974"><o:p></o:p></span></b></div>
+<br>
+<h><b>Disclaimer:</b></h> This email contains confidential information inte=
+nded solely for the recipient, and if received by mistake, it should not be=
+ distributed or copied; please notify the sender and delete all copies.<br>
+<br>
+<b>WARNING:</b> Computer viruses can be transmitted via email. You are advi=
+sed to check for viruses in the email and attachments, with the company dis=
+claiming liability for any resulting damage.<br>
+<br>
+<p></p>
+</span></span>
+</body>
+</html>
+
+--_000_PN3PR01MB76791C945A2C286B0F88589C9172APN3PR01MB7679INDP_--

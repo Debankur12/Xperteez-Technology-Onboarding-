@@ -1,0 +1,1397 @@
+Delivered-To: debojit@xperteez.co.in
+Received: by 2002:ac4:9a86:0:b0:723:80c:1b3d with SMTP id bi6csp2347423pib;
+        Mon, 16 Jun 2025 23:03:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=6; AJvYcCWVKyn4GY/50DD2Y2o8HQnP1Ef1l3ftpRDiwvrxjJOYDlXFZ4kEqWiZfYtrtnAhgzAHubZ2YQzD@xperteez.co.in
+X-Received: by 2002:a05:6902:1a44:b0:e82:1f55:eed0 with SMTP id 3f1490d57ef6-e822acab5a4mr16017352276.4.1750140187992;
+        Mon, 16 Jun 2025 23:03:07 -0700 (PDT)
+ARC-Seal: i=5; a=rsa-sha256; t=1750140187; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VRiUsBF3b0+bX1ejcRxDzvoroeJf4gN0HxzyYHtLLAbgHDT9Y2A6JL8zSl8wb1bBdr
+         2ZRdk3WGo/7tHu75WcsCtOQ2+WDDzWIELxmQTv07ZhAl1AmDnk8SQoVZIiSOSwOLsD9b
+         9M8Ft4C1fjCImPoB4gcyNgr+2dS4WGV7KhMLodVq23i5FrTuUxWpXAXEGz+fI/lc/ujL
+         3ETHO0gBb6q0+qfAUjTjNaMkVVVUMafDFRTacCYdcst9PD0HwZyCqHVUNxmYLrhgo6HG
+         EXnUBiTLICvdf7sO1tzaLhwzvwJlUziGW4LVkbIk9UQuDD2IyhEnVlx0jXoELejPmW4l
+         ihww==
+ARC-Message-Signature: i=5; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:to:from
+         :dkim-signature;
+        bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+        fh=XJAEkAAOXuXXl4qDXU9pyy4D2+W/NNIThDBwIFoNfsw=;
+        b=Sm8ic9o3V8nI+8zsdmhOw5ryR4NRj/JDketevWK0Y1A8z1DwmK51qVRFtUheTRRmjx
+         bpjNl7C8FRiyV8AlrMj9pYPGyMAR/1bhzFZRXRP3W5NLioBKWocWPUmG7eSuYgkwKh35
+         VAw7KR9xtAUSbq+naLTEKkJptSdsokV77SyORL9Ts1gCvTywuasYWZ6JFq7Rkx16HOsP
+         F0gWK8xIgQldQZe7szh2LhSa5uU6fnjdPiB3DHlHwIOY6ck718nUhMUeuCufySe1id6k
+         skoAtDFQ0IAoMf3amly9BvKrZgOKEmOoTHiwuzhs7RX8jfy4tGhJNYwPZGuBzLKr3sEg
+         xNjg==;
+        dara=google.com
+ARC-Authentication-Results: i=5; mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=kzPoR8S2;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbg4kytbamgqervte52a@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBG4KYTBAMGQERVTE52A@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+Return-Path: <ops+bncBAABBG4KYTBAMGQERVTE52A@xperteez.co.in>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 3f1490d57ef6-e820d373ff2sor3019343276.0.2025.06.16.23.03.07
+        for <debojit@xperteez.co.in>
+        (Google Transport Security);
+        Mon, 16 Jun 2025 23:03:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ops+bncbaabbg4kytbamgqervte52a@xperteez.co.in designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=kzPoR8S2;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbg4kytbamgqervte52a@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBG4KYTBAMGQERVTE52A@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+ARC-Seal: i=4; a=rsa-sha256; t=1750140187; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=fUYwPF1a/xyNuFcdVMyLszKWr6ZD/kAnNTmUziMR9A9AAj8Ozwh2d68SJVjHemMFey
+         f/oBJeMJTTzWsQt0otd6xuiFctA+qvwxHqdS5tEDkN4pVuN7MxajJanxRERQgsq2taLh
+         Hy6TnyxTdG7aiORD0cojxNT7MfSTmMP4SthDGNJ/OPALzW1JNbbN+NKerqjIeFfPUenC
+         +cSbdeyBYG2gxoyUMFbLOzWzgdlGk+cnaGy+Kl/UFoeLUMP82dCwbZTp7MN418AS0HtY
+         Fzo547nvazW5A3I8i1gxXinPfiVK8Eun/7Fj/x09k8ejJVbWgXc13QKvgb7KKgiIVZ0d
+         CE9Q==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:to:from
+         :dkim-signature;
+        bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+        fh=XJAEkAAOXuXXl4qDXU9pyy4D2+W/NNIThDBwIFoNfsw=;
+        b=AQ/cI0hSXBHXitFUkch31pgD+Tio85v0djcxtY5xdNCI24hprlZl575rMIrbkmnhgX
+         Pu0SvjKQK3XS1ei+B3VU2wzNtcjQ+PEnHeP6gxKwufKlORHSnkDU8b7bmz3J2foAWAI0
+         fc2ljX87/d3GMxrQ4g+Ih/8JfZQt4gm09FwIYr2jYtvq2AfoUCRtpuDaHeTEWnYpDXok
+         U31AQFSmGiLY/vNWLVUfHxAb/g2OwmVx7gj3IKGlnrdzKG+vlWLo253ERxdGp+wfqyN0
+         2qFBylC0hx3rSjfM3NeU8bn6cY2xxvPgXazYDhz4kPioT2WkNNli/Gm0xV7OWleMQC2o
+         zdKw==;
+        darn=xperteez.co.in
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=X7JzNrDk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=X7JzNrDk;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ashutosh.srivastava5@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=ashutosh.srivastava5@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xperteez-co-in.20230601.gappssmtp.com; s=20230601; t=1750140187; x=1750744987; darn=xperteez.co.in;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+        b=kzPoR8S2Q1WydIJ91tHmLu3e4YlQ2AYO00mk+qj2aO1RazLbTBLVhNKHBlxoLxP9gx
+         6Jm3BaOS06FToOJ0gdSEgx4T3Pyp3HOmw6UygKuJC+Hk7wFMzG83OczLTEQ2OzpwXSuN
+         ERFSjFwce00uwACPB6t0BG/M2CjRkXVu7uJP5ltyvlX9HdSXbhpvD4EAOOAzFyEmfQEk
+         Of7cbuQ100nJVkcAxp2hMf0mHZn1O7465BHx6aG1J8Kl6v7E2dMr8QYwPfNb1UiBDpQV
+         TTb7/tqAnbdkClCghvTiSmJNWmn3RxcA1W48vO+SaKeTnOt6W6aCau1n2tQ0a+/+b+t4
+         q4lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750140187; x=1750744987;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:to:from
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+        b=go4HdCSkvtUhcqCxwpzwoRxI/mttAqvVGvBs6DBu1aUIe4aqm83BoHPbxd+huXow7q
+         TNqn4uq29N191OP8r9OWKk6/si54BP+cCYyBdJ1XMwHNKGKLvyIpOmetcq4DFv1xOdUn
+         aLYZSgE/ZvlG8BpM45Q2cbjLSsBsn+px8X0o1KTs/yKL5115mVJn0d0ApoMaEFCxp0ty
+         RXZ1Q1zyfP5XyNM1E9KC2F1jQ6mODNDhgZ2lUTF1U2zdwfrhcI2NQJw4J3cYPSwXpZIS
+         CPDzQduc0358tcgFP4E3h8NJh2//TjCM395GtlNuzd4Ypdpq90vFF25ae+idygFnOQma
+         Ta6Q==
+X-Forwarded-Encrypted: i=4; AJvYcCUEd+QTreHoIhdloSioieZUj6apwLiRtiQBo/vk5H3fpIBbL+tMy/jM5FURoRUagfVOGq+AcZ1k@xperteez.co.in
+X-Gm-Message-State: AOJu0Yxa36Nz6i2/76TPTIv2eo67v53FUYBjL57ptNjyGPXvZmabAr3b
+	l6R2lEtw6tZsLEKTbTe2L04x12ogup3X1jydlP8DEysrYXVPHRN3XYY4H7ZdLcauKnLgmg==
+X-Google-Smtp-Source: AGHT+IFoGrr+ueVcMGIkbDpn7RoCyVDBHGRrbW/Qjs6DTqYRcx80nlHTsf2QUqiS/gceeXyprYPxHg==
+X-Received: by 2002:a05:6902:2611:b0:e82:19f3:61ac with SMTP id 3f1490d57ef6-e822acfbdcbmr7647986276.6.1750140187394;
+        Mon, 16 Jun 2025 23:03:07 -0700 (PDT)
+X-BeenThere: ops@xperteez.co.in; h=AZMbMZca8sEVuhuG1oRa2nBD7N3z8yZ2idvp22/sW//tI7SZKg==
+Received: by 2002:a05:6902:630a:b0:e7d:cee1:1ba9 with SMTP id
+ 3f1490d57ef6-e826412024els1150249276.2.-pod-prod-08-us; Mon, 16 Jun 2025
+ 23:03:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCW7CJNO2AEAEjOWo3pddZ4MHxxxzA3TbzdZeh6+6wUXbxeQR+H2Sy9V3ARuSEM7481qlLI=@xperteez.co.in
+X-Received: by 2002:a05:690c:1a:b0:711:41a5:482a with SMTP id 00721157ae682-7117544ca60mr173437977b3.27.1750140186473;
+        Mon, 16 Jun 2025 23:03:06 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1750140186; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=cK7bMB40D9v4BAJErrM58IDaiPF1RfwxNhJ9PqGEMdqxiDucpGWdLiaMMxZg0ZC0to
+         pe68sX4EIUSYiGl7pt5eUO52X8v9NkFIF3jrGWmYor9ufsCWm0xffxBOj+ik0oCMa6og
+         wZS7xSeUSyuycYFx70z+XZ3qxSk51XIeQSVPz0yTtXYmBPi8QIdzCtbTECi7Nen8sHi/
+         RI7udCQ0dAYkK3LvhF4VggdzbKbpmUa/NP88vXI+15EkyiIqwOhZBHfXELZiM3vquuT4
+         IYRVFqVsPZomZ2Epo87gufjwUY1DEQjc3wp7AI5lq7FjBVAwiB9r2EQKtZ0GNEPYqn2t
+         c97w==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :to:from:dkim-signature:dkim-signature;
+        bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+        fh=NAJ0ep1d1+HZyEpxrYBTy+FUVn9QOES3Xwtp/oIXs1Y=;
+        b=k2ZSWJttl7HXm78ICq/kCBT53GB7OGHZDL8dlb3IXrWiLCqXex86o/WBXg988KIU7X
+         TPiYXT0NrrC+JS3TKWhG5+/T+jkKrKVuvUV1mF7weYjGlcHh/y4DqrqAugzaEeyUqrEC
+         L83NmDpCxI8/7rtzNRGFTkMqO9rN7rzTCgewrFBaNfQeVgNi/CiMbz3vZwuvPb4qL7jZ
+         Sw4NST1TACN449Ev8R9DHykZ7lTQh5bRxNfHJmS5WA65NY3Zl+7BtpzCRtNnu25oSqHp
+         4ViFd0WkiVob4GVWUeJEhFp5+S1uXJa/yuYCZFAbHmkDkNRy+0p5w6ELnph3majC4fec
+         DDkw==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=X7JzNrDk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=X7JzNrDk;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ashutosh.srivastava5@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=ashutosh.srivastava5@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+Received: from PNZPR01CU001.outbound.protection.outlook.com (mail-centralindiaazlp170110003.outbound.protection.outlook.com. [2a01:111:f403:c408::3])
+        by mx.google.com with ESMTPS id 00721157ae682-711a5334175si10443007b3.399.2025.06.16.23.03.05
+        for <ops@xperteez.co.in>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 23:03:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashutosh.srivastava5@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) client-ip=2a01:111:f403:c408::3;
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=Kj38BXCMAL5i9rspN5KFrihB18uiHQgqDgArf3aW3fynALQILv1M+E0joLAY3/Zzcmxwzmvw0AQc7xs5aXAeDTTOH5VBUHzejKOq8PfPT1Tyi+dUZnnvOAW8e9zlAeAtJwGSASy10cq5zSXoFzY2c8oLLR4UmI+feEbYzebFeID0YUFTmmSfvgPJzl3364oL7kHEc3hdLqmw8DwDgpaHwAH6g99F2x6z3fvp3wfftzNbV4e920y6hiWSxgxlNLlxySd36ysIBvNRtaG4GrE0n17tgsRq9O2wsylUZdeAyu/zybkuE88WY6VJwJY9uRgw24ruU3RbbLuN+bKPFoTBZQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+ b=IJsQnLtxWiwd+XF8Bx/yp8rGj2tMbYZ2igSbPnXIHe1At/CuUTOxybclBH00NR2RRGIUMZaphBASccIKLFBX3WpVtEfMrNrrpoWPgTbIE2QObXQtjeLOjhc44B2iYrRQ9es2JCJxwZxojhn4uWHka79eOLPuKbb+ee9uw0cHaaR4/N99n8xo3jF5EZcC2FtIXItKfH3/sBSgtxkfB8BOrYXoHfj7DJgoAO7AnKziT3RpbfC6OedbUVn1LKNbElfKyCVwkVB+K+Ai3M8f1vHpcF4JXnr04LQnfQrVlOBIK8X0Oe0860TdGy+RII4m/PoJusD9SaCxK2ki5iNwGOWUIQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.204.180.79) smtp.rcpttodomain=upgrad.com smtp.mailfrom=axismaxlife.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=axismaxlife.com] dkim=[1,1,header.d=axismaxlife.com]
+ dmarc=[1,1,header.from=axismaxlife.com])
+Received: from MAXP287CA0002.INDP287.PROD.OUTLOOK.COM (2603:1096:a00:49::23)
+ by PN0PR01MB5774.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:65::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Tue, 17 Jun
+ 2025 06:03:02 +0000
+Received: from MA1PEPF000072B0.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:49:cafe::31) by MAXP287CA0002.outlook.office365.com
+ (2603:1096:a00:49::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.28 via Frontend Transport; Tue,
+ 17 Jun 2025 06:03:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 20.204.180.79)
+ smtp.mailfrom=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com;dmarc=pass action=none header.from=axismaxlife.com;
+Received-SPF: Pass (protection.outlook.com: domain of axismaxlife.com
+ designates 20.204.180.79 as permitted sender)
+ receiver=protection.outlook.com; client-ip=20.204.180.79;
+ helo=appliancehostname.parentdomain.com; pr=C
+Received: from appliancehostname.parentdomain.com (20.204.180.79) by
+ MA1PEPF000072B0.mail.protection.outlook.com (10.167.242.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Tue, 17 Jun 2025 06:03:02 +0000
+Received: from PNZPR01CU001.outbound.protection.outlook.com (unknown [40.93.132.29])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Forcepoint Email with ESMTPS id 25F94C50B82C87ADBC35;
+	Tue, 17 Jun 2025 11:32:55 +0530 (IST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RuVk3zCL6WOYTs1iWF4Mc2U219Zs6kVWrJiXiW6ttJPTJ4iIrbXCEifu/SL341D6CWRjBldh7k5SO0XjE97WP/zjUzcuGQ0+Xu/O4Zb3O8HZ/1rG5z3yj59P2gi+9AF/kvVwSOI4igtsj9XmJdeLO+qjaBF67jhhOXkVzFE+BPvVH0LFfWRmbUy7vJbOQ/efFa9qssuFBnIIYmXbecfeQUfZPUbyfcqZ0IY32lyG07Sl+E+MRJQ9isBKr8hKtsKnsMJFX7wjebDeZGSLmcTtXmcAQPLmDBziWUhEdyGCm3BZXuUV8WUZVRu1H6Ao9H6/I83SjSnKy2jihcSRPbZDXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CbsvfBOBmNqA+QbRHcEo8Khx1sGYGtJbEkXH6VvXTXc=;
+ b=cjklyahCcjN0ztjvZKnQopp1hAd44K0loK5mIuNVa+MVphEQythXGBbBgLH2JLTNj97nUswBuSqiMC4698Mt8/q27fdSm2f/F84jxU00CjxHmAVzTd9336tSGH2Wlf789VNvrKxADdIlaf1Rs63/HANdM3LeuktnlixwljPj5nxzIW/hmAvs0GuH+nu0V+U7goVerthdtqKoxcVtHwHW9kutRgozTq2prVc6o3YLf7i4fGC13KSrw5EZtGVmD+5kGL1lbJRAudHzYLbxUHxcWNLP22LYxVVjxRyc4GMXrlH3AaQAfTkDqMFhMkP+b7bdpic4U1oYq8zf+wAWxkMULQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axismaxlife.com; dmarc=pass action=none
+ header.from=axismaxlife.com; dkim=pass header.d=axismaxlife.com; arc=none
+Received: from MA1PR01MB4177.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:12::8)
+ by PNXPR01MB7485.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:a5::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Tue, 17 Jun
+ 2025 06:02:51 +0000
+Received: from MA1PR01MB4177.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::26bc:ddb7:1487:9d1a]) by MA1PR01MB4177.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::26bc:ddb7:1487:9d1a%7]) with mapi id 15.20.8857.016; Tue, 17 Jun 2025
+ 06:02:51 +0000
+From: "ashutosh.srivastava5 via Recruitment Operations" <ops@xperteez.co.in>
+To: <gandhi.rima@axismaxlife.com>
+Subject: Walk-in-Drive for Mumbai (Borivali) in Axis Max Life Insurance -
+ Direct Channel (18th - June - 2025)
+Thread-Topic: Walk-in-Drive for Mumbai (Borivali) in Axis Max Life Insurance -
+ Direct Channel (18th - June - 2025)
+Thread-Index: AdvfTUtl9TKASjvDRiiHZI9wD6ctxA==
+Date: Tue, 17 Jun 2025 06:02:51 +0000
+Message-ID: <MA1PR01MB41771F2D5188026566C7F588DE73A@MA1PR01MB4177.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axismaxlife.com;
+x-ms-traffictypediagnostic: MA1PR01MB4177:EE_|PNXPR01MB7485:EE_|MA1PEPF000072B0:EE_|PN0PR01MB5774:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98403b4d-e0b6-4576-7992-08ddad649e7d
+x-ld-processed: 97e4bcfe-5cba-4a9c-8821-4be8019d9055,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018|4053099003|8096899003;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Urg2AFUIeYgEXsKUCul+ANzkLo34ln2KDdqZA2rEhyIj4Io+HdyuQMLRPsKC?=
+ =?us-ascii?Q?bUqYGaPi633lVtD3Lec9/+yyVAIHP54nwgvRkqKcJwHTj/e8Fc0oU7sxbm/W?=
+ =?us-ascii?Q?Xtb/1WYISq2ar22n4UHFi5VB7mYOH2x4abhX9CpE5ZG8IjxLMpi0dB+zQuyN?=
+ =?us-ascii?Q?GPCzzB76bWv0ib15QjTMcUDb0nm1q7Yd4RGlR9aQotFTD0uIygTEJHT14qwd?=
+ =?us-ascii?Q?l+35SM9MeeJ8ZYci99726/dEST/2qSFN//Du5boWssG1d/vTF2kbMI2j/kCC?=
+ =?us-ascii?Q?d71mpyAf8FSzKKBNnZ8ltfOUHpO15W0cFVWAEa8/LM5LVtEV7meFv+nsl3Wh?=
+ =?us-ascii?Q?wqr3rqeBSnGDF6GOFHur3YY9nW8qLxl4LLy0UFOu2ImYJJH3ZFwY+2E5JNND?=
+ =?us-ascii?Q?eiIvx9fFrw7SAZ92p3kauwuH89w6rlZTEidetsf0Bw/P6dNFNzlRordZIMzM?=
+ =?us-ascii?Q?zufVAtgYrK+JRY/1HA28ZNgBbwC2ushcIJAlgK9uAOQafGHHwFe+tTOJh0r/?=
+ =?us-ascii?Q?3CV9ykdpMZj7SNkk9X4BnN3qqNHBfTwdvXpdPklXBWvftoILV6ixlNvbavoT?=
+ =?us-ascii?Q?HqIhw1ItiJbRfGycsbYfTI2VMb7q3vmUE8GOz/0FWVldXhNYR6dehmJF7ht8?=
+ =?us-ascii?Q?5BPlBPseKQQIvx1BxubZQqHNLMQIlIOHk4/lRzECLqy9Lx5E7WdiEsP8wces?=
+ =?us-ascii?Q?HZlodpAjaILvjoysD2X62g55B7rh/zTesGnTiuwCU5eGX+z5FzTFrMrIvqOL?=
+ =?us-ascii?Q?LRm5ePLQru1GB0hN7yfyRhcFxSFLoy+NF8K3lI82LLrdCGgZwsf4dI8DdBLU?=
+ =?us-ascii?Q?LwjeiBk/UywvK8OtCW5zOsDJxh9JLT5F5o7ZMm438a4Wiht3bUR1ft0hL0b7?=
+ =?us-ascii?Q?oD4Iu3WgzF4oWwcTOSyrqWyl3aPDKl7X2Ev71x0ywGbWhaVWrGA2sl75oObm?=
+ =?us-ascii?Q?NlVSwldEcJETdXhNyQAIMVWLUEs+OaAdkdgbryTPjQbvQTMnweEuDAdK55Ac?=
+ =?us-ascii?Q?InBXGujGL3/PUD6/lLbwYRQQZh1LQEh/XJdfakhtdd1SFgzO0OuPkZU942ZY?=
+ =?us-ascii?Q?KRmQn/2xwpW3axnZGhOH0U4RY9NPi8+BU4qsPXkXx+pzd36DyuBQXVFzZYlw?=
+ =?us-ascii?Q?Fmsr2snjLIcLbf/iNsxgIybdj5OItnv/UqN2zonzxcymI9sbWLEmE/2QRQS9?=
+ =?us-ascii?Q?g/0UGE9K4+GzSeiZNTeXYjTlnOnIqLBeinX8optsm8ACgt2CMVa/s7vge3yj?=
+ =?us-ascii?Q?WXtYc7X6UZt+kasGBaZQN4199ZcpO/GrHQ4ajLqeBuYqC8gt90mXOxwDk1F+?=
+ =?us-ascii?Q?GRiJ4Xi3tzuVkhaI2B2xm/dTPsZGQiMAIK9NrmLTx8YoMVZZ2OBhiMKKsAAk?=
+ =?us-ascii?Q?SAErDPwzkriaSpUEmbkaadIiZTtEdNHL5WLOiM9WGvXdNfLGkeDyr3AfFfxA?=
+ =?us-ascii?Q?4ZB0y6cdUspJ4hSK8mQwqzvZO5xmbwAxE7nfmuvgmDEMBLH7Q2jbJywbML3x?=
+ =?us-ascii?Q?N9n26oSIgBJyMao=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA1PR01MB4177.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018)(4053099003)(8096899003);DIR:OUT;SFP:1102;
+Content-Type: multipart/related;
+	boundary="_005_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNXPR01MB7485
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MA1PEPF000072B0.INDPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 57ad7031-851b-4c1c-3855-08ddad6497e3
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|376014|7416014|14060799003|1800799024|36860700013|4053099003|4076899003|8096899003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yiWUhviJsQ9nz1i2NFk7jldCn4lRPX4PfEKc6FTw+00DJqdKfHLH7tntT5+H?=
+ =?us-ascii?Q?PpiLg8hpBO2F39by1ndEO8tCJ3r4osgscZ/Rf4iXnFHmxxN8KZkB77uAuZgL?=
+ =?us-ascii?Q?Z6aJL+oxIAqMwGwAG/0dMfkIn+terbuXF8jQ2FAdxlbcKnbklOLNIG3ZGiZh?=
+ =?us-ascii?Q?CLBtbDpGImBhk3DHB+8K6IYVfGdiH2WqfVHp4xOFgi0UD5Eo+git/Rjv3dGy?=
+ =?us-ascii?Q?cWjy+mJHgsmnPER4ROkyojySZOPFA7UBD79gTf/PHgu5trJGuMDOZFgM0dzq?=
+ =?us-ascii?Q?Ewr+mjyqpGBX+4qTWDUr1CwsQkaRPyT2r5l+Ez7TpECEgmcyLvhW9/BcNTOH?=
+ =?us-ascii?Q?Iqz6g62uJ9DGezCL88QVaOmFwIhwH4fiZc57VwNwLelD9cc553e4prtvyMoc?=
+ =?us-ascii?Q?28yG/93/r6rEKARb/8BicOOKC6RIw2PgUKb+5IPn+XfGCtKeiKllrN156z+y?=
+ =?us-ascii?Q?3ljLt/H/nM8AM9LCkbSIbxFRTxixyzhebGlCDj8zdVmS6TkS+N2p9OeK3gsT?=
+ =?us-ascii?Q?YX2Psfl/EyvWc/VQSAsTNGaGvR/L2SrlNF5NUCTG31oBTe8VX4zhKiB2oENk?=
+ =?us-ascii?Q?TkUWhV+LR+1ALyEzjKxHjizwuJmivWBy3NvWnnGqWqsy4S7a3saSCiJuuoCM?=
+ =?us-ascii?Q?o135pULGQDGrj6j5q2keOzNXAcsyR3wnT4jIlKqPuafcTq2PlKjJ8eF5+YUQ?=
+ =?us-ascii?Q?fWzYzHLkfMVxcx+8IFx/d6kkQHogRwH2WoA6VKpRvArA8zCDgYOkXMp2LgeX?=
+ =?us-ascii?Q?TEmWz6qOMzGyS/QNz5YQ7kYlf0rMYGjXCUSGuaDGfQQyoKF7LQv8/uvMOklG?=
+ =?us-ascii?Q?pZGis2OAKZCR5XaaJUdSE8onAxAde3pfpE3CPo/TPDb8oSAxfSdWfSpdcNlf?=
+ =?us-ascii?Q?PcrVVZZJd0dRWUCZIXIncdo3BM8kF/qn0BgP9xEqj54Zo2C/fS9UQeMWoNVC?=
+ =?us-ascii?Q?pvG1DBDNarL/3InIvUvZwFQ6ZBClz3SSbIHIEMkzSyn5isUKl0vYBh3JByoo?=
+ =?us-ascii?Q?25nMcZjPpvhi+dNZf2Edofe0/v5PpG4+lgr38kf4nLbjji6fobEml6CERx9B?=
+ =?us-ascii?Q?hOK0uuJeO6JLnYX7lYwIO/eo9dY510GUicOJzbHtqoQwKEp+MF4qd6bsub/8?=
+ =?us-ascii?Q?M8lp6Vjt44p8hWq1bl9c8bISsd5oAXXTbV/KDoMdpHkFbrGG06AOccnBHj4V?=
+ =?us-ascii?Q?maCcMEPlM+ljs9KecLjIAJchmGrUHb8St8krXS+MONbEtC7TU0X/AWILydtp?=
+ =?us-ascii?Q?OeOTGWqV6aqqI5ViVzlS+aR5uh5BC+ga5TLxQffKWQmNBJT8AbDTPGGtvsp1?=
+ =?us-ascii?Q?t1asHRKjApjTBaGFwulRyjOveVVxH706juLDIdotUAVzdxlUCeLe32w2T3pU?=
+ =?us-ascii?Q?gM5Ux2/ukKuAub43JwiyQI6c0ejY8rmiUICbZ043btT7nowd+4It3B4TAix9?=
+ =?us-ascii?Q?yE/00vwGBLEsDZzA9c79BrKQo89JcLF3k8jyQhh194q7YfgzZOYuMmEAVvsR?=
+ =?us-ascii?Q?natuZQdpe8M1b9hI5HWRqCclwRENS9ALXuPFz7kuJYiZMh9TVPAxUXaSsg?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:20.204.180.79;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:appliancehostname.parentdomain.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(376014)(7416014)(14060799003)(1800799024)(36860700013)(4053099003)(4076899003)(8096899003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axismaxlife.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 06:03:02.2934
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98403b4d-e0b6-4576-7992-08ddad649e7d
+X-MS-Exchange-CrossTenant-Id: 97e4bcfe-5cba-4a9c-8821-4be8019d9055
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=97e4bcfe-5cba-4a9c-8821-4be8019d9055;Ip=[20.204.180.79];Helo=[appliancehostname.parentdomain.com]
+X-MS-Exchange-CrossTenant-AuthSource: MA1PEPF000072B0.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB5774
+X-Original-Sender: ashutosh.srivastava5@axismaxlife.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@axismaxlife.com header.s=selector1 header.b=X7JzNrDk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1
+ header.b=X7JzNrDk;       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com
+ dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ashutosh.srivastava5@axismaxlife.com
+ designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=ashutosh.srivastava5@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+X-Original-From: <ashutosh.srivastava5@axismaxlife.com>
+Reply-To: <ashutosh.srivastava5@axismaxlife.com>
+Precedence: list
+Mailing-list: list ops@xperteez.co.in; contact ops+owners@xperteez.co.in
+List-ID: <ops.xperteez.co.in>
+X-Spam-Checked-In-Group: ops@xperteez.co.in
+X-Google-Group-Id: 950430647392
+List-Post: <https://groups.google.com/a/xperteez.co.in/group/ops/post>, <mailto:ops@xperteez.co.in>
+List-Help: <https://support.google.com/a/xperteez.co.in/bin/topic.py?topic=25838>,
+ <mailto:ops+help@xperteez.co.in>
+List-Archive: <https://groups.google.com/a/xperteez.co.in/group/ops/>
+List-Subscribe: <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>,
+ <mailto:ops+subscribe@xperteez.co.in>
+List-Unsubscribe: <mailto:googlegroups-manage+950430647392+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>
+
+--_005_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_
+Content-Type: multipart/alternative;
+	boundary="_000_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_"
+
+--_000_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Channel partner,
+
+Greetings from Axis Max Life Insurance!
+
+We are conducting a Mega walk-in drive for Mumbai (Borivali) location Wedne=
+sday 18th June 2025. (SO / AM / DM)
+                                                      Location - Max Life I=
+nsurance Co. Ltd. 5th Floor, Maxlife Insurance, Agora Business Plaza, Above=
+ Mac Donald, Vivekanand Nagar, Borivali, West, Mumbai, Maharashtra-400092, =
+India
+
+Timing - 10:00 AM (Morning) to 05:00 PM (Evening)
+
+Contact Person - Rima Gandhi
+
+Note * - Please go through with our Requirments, Age and CTC criteria, We n=
+eed your support with quality profiles as mentiomned in that mail.
+
+[Walk In Interview PNG Transparent Images Free Download | Vector Files |  P=
+ngtree]
+
+
+Preferred Locations for Borivali :-
+
+1) Kandivali         2) Goregaon       3) Andheri           4) Borivali    =
+        5) Malad              6) Ram Mandir                  7) Jogeshwari =
+                               8) Ville Parle                       9) Bhay=
+andar                     10) Borivali West              11) Dahishar
+
+12) Santacruz                     13)  Mira Road                   14) Khar=
+ Road                    15) Bandra                          16) Mahim JN
+
+
+Non-Preferred Locations :-
+
+1) Nallasopara                   2) Virar                 3) Vasai         =
+       4) Palghar            5) Boiser              6) Matunga
+
+Note* - Please do not share any candidates who is from these 6 locations.
+
+
+Requirements:
+
+
+1.      We are okay with freshers with good confidence and who is ready for=
+ field work (Female candidates more preferred).
+
+2.      If candidate having Telesales, Credit-Card, Loan or Policy sales ex=
+perience more preferable.
+
+3.      We are looking candidates who are based in Mumbai and have done ent=
+ire education in Mumbai.
+
+4.      Candidate should be staying between Churchgate to Bhayander only (M=
+andatory).
+
+5.      Candidates wear formal dress at the time of interview (Mandatory).
+
+CTC Range:
+
+  *   Senior Officer : 2.3 - 2.7 LPA (Fresher's or candidates with IMF/IM c=
+hannel), Age Criteria (20 - 24)
+  *   Associate Manger  : 2.7 - 3.3 LPA ( 6 Months of LI exp/ candidates wi=
+th IMF/IM channel), Age Criteria (24 - 27)
+  *   Deputy Manager : 3.3 - 4 LPA  (At least 1 yr exp in Life Insurance ma=
+ndatory / Direct / Agency Channel), Age Criteria (27 - 32)
+
+
+Specifications:
+
+
+
+  *   Field sales job with 3 contacts to be made daily.
+  *   Graduate
+
+  *   Age: 20 - 30 years
+
+  *   Vehicle Required
+
+
+Please share the tracker along with CVS in the below mentioned format.
+Gender
+Date of CV shared
+Candidate Name
+Contact No
+Email ID
+Highest Education
+Total Exp in Yrs
+Sales / LI experience in years
+Current Organization
+Current CTC
+Notice Period (In days)
+Current Location
+Location Applying for
+Rehire (Yes/No)
+Zone
+Source
+Sub Source
+
+
+Regards,
+Ashutosh Srivastava - Human Resource
+9628566589
+Axis Max Life Insurance Co. Ltd
+[Axis]
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Disclaimer: This email contains confidential information intended solely fo=
+r the recipient, and if received by mistake, it should not be distributed o=
+r copied; please notify the sender and delete all copies.
+
+WARNING: Computer viruses can be transmitted via email. You are advised to =
+check for viruses in the email and attachments, with the company disclaimin=
+g liability for any resulting damage.
+
+
+--_000_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Sitka Text";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:1401901703;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1263507730 67698703 67698713 67698715 67698703 6769=
+8713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1
+	{mso-list-id:1402290191;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1964183044 1074331649 1074331651 1074331653 1074331=
+649 1074331651 1074331653 1074331649 1074331651 1074331653;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Sitka Text&quot;=
+;color:black">Dear Channel partner</span></b><b><span style=3D"font-family:=
+&quot;Sitka Text&quot;;color:#1F497D">,</span></b><o:p></o:p></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-fami=
+ly:&quot;Sitka Text&quot;;color:black">Greetings from
+</span></b><b><span style=3D"font-family:&quot;Sitka Text&quot;;color:#1F49=
+7D">Axis </span></b><b><span style=3D"font-family:&quot;Sitka Text&quot;;co=
+lor:black">Max Life Insurance!</span></b><span lang=3D"EN-IN"><o:p></o:p></=
+span></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-fami=
+ly:&quot;Sitka Text&quot;;color:#1F497D;background:yellow;mso-highlight:yel=
+low">We are conducting a Mega walk-in drive for Mumbai (Borivali) location =
+Wednesday 18th June 2025. (SO / AM / DM)</span></b><b><span style=3D"font-f=
+amily:&quot;Sitka Text&quot;;color:#1F497D"><o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:#1F497D">&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Locat=
+ion - Max Life Insurance Co. Ltd.
+</span>5<sup>th</sup> Floor, Maxlife Insurance, Agora Business Plaza, Above=
+ Mac Donald, Vivekanand Nagar, Borivali, West, Mumbai, Maharashtra-400092, =
+India</b><o:p></o:p></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-size=
+:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D">Timing - =
+10:00 AM (Morning) to 05:00 PM (Evening)<o:p></o:p></span></b></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-size=
+:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D">Contact P=
+erson - Rima Gandhi<o:p></o:p></span></b></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-size=
+:14.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D">Note * - =
+Please go through with our Requirments, Age and CTC criteria, We need your =
+support with quality profiles as mentiomned in that
+ mail.<o:p></o:p></span></b></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-size=
+:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D"><img widt=
+h=3D"360" height=3D"360" style=3D"width:3.75in;height:3.75in" id=3D"Picture=
+_x0020_1" src=3D"cid:image001.jpg@01DBDF7B.6CEAA4D0" alt=3D"Walk In Intervi=
+ew PNG Transparent Images Free Download | Vector Files |  Pngtree"><o:p></o=
+:p></span></b></p>
+<p align=3D"center" style=3D"text-align:center"><b><span style=3D"font-size=
+:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D"><o:p>&nbs=
+p;</o:p></span></b></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:955.6pt;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:15.75pt">
+<td width=3D"1274" nowrap=3D"" valign=3D"bottom" style=3D"width:955.6pt;pad=
+ding:0in 5.4pt 0in 5.4pt;height:15.75pt">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:12.0pt">Preferred Locati=
+ons for Borivali :-</span></b><b><span style=3D"font-size:12.0pt"><o:p></o:=
+p></span></b></p>
+<p class=3D"MsoNormal"><b><o:p>&nbsp;</o:p></b></p>
+<p class=3D"MsoNormal">1) Kandivali&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp; 2) Goregaon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3) Andheri&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4) Borivali&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5) Malad&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6) Ram =
+Mandir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7) Jogeshwari&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; 8) Ville Parle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9) B=
+hayandar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 10) Borivali West&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp; 11) Dahishar<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">12) Santacruz &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; 13) &nbsp;Mira Road &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14) Khar Road &nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp; 15) Bandra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; 16) Mahim JN<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:12.0pt">Non-Preferred Lo=
+cations :-</span>&nbsp;&nbsp;&nbsp;&nbsp;
+<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b><o:p>&nbsp;</o:p></b></p>
+<p class=3D"MsoNormal">1) Nallasopara &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) Virar =
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; 3) Vasai&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4) Palghar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5) Boiser&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6) Matunga<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b>Note* - Please do not share any candidates who is=
+ from these 6 locations.<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:14.0pt;color:#1F497D"=
+><o:p><span style=3D"text-decoration:none">&nbsp;</span></o:p></span></u></=
+b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:14.0pt;color:#1F497D"=
+><o:p><span style=3D"text-decoration:none">&nbsp;</span></o:p></span></u></=
+b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:14.0pt;color:#1F497D"=
+>Requirements:<o:p></o:p></span></u></b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:12.0pt;color:#1F497D"=
+><o:p><span style=3D"text-decoration:none">&nbsp;</span></o:p></span></u></=
+b></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><b><span style=3D"font-size:12.0pt;color:#1F49=
+7D"><span style=3D"mso-list:Ignore">1.<span style=3D"font:7.0pt &quot;Times=
+ New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]><span style=3D"font-size:12.0pt;color:#1=
+F497D">We are okay with freshers with good confidence and who is ready for =
+field work
+<b>(Female candidates more preferred).<u><o:p></o:p></u></b></span></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><b><span style=3D"font-size:12.0pt;color:#1F49=
+7D"><span style=3D"mso-list:Ignore">2.<span style=3D"font:7.0pt &quot;Times=
+ New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]><span style=3D"font-size:12.0pt;color:#1=
+F497D">If candidate having Telesales, Credit-Card, Loan or Policy sales exp=
+erience more preferable.<b><u><o:p></o:p></u></b></span></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><b><span style=3D"font-size:12.0pt;color:#1F49=
+7D"><span style=3D"mso-list:Ignore">3.<span style=3D"font:7.0pt &quot;Times=
+ New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]><span style=3D"font-size:12.0pt;color:#1=
+F497D">We are looking candidates who are based in Mumbai and have done enti=
+re education in Mumbai.<b><u><o:p></o:p></u></b></span></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><b><span style=3D"font-size:12.0pt;color:#1F49=
+7D"><span style=3D"mso-list:Ignore">4.<span style=3D"font:7.0pt &quot;Times=
+ New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]><span style=3D"font-size:12.0pt;color:#1=
+F497D">Candidate should be staying between Churchgate to Bhayander only
+<b>(Mandatory).<u><o:p></o:p></u></b></span></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><b><span style=3D"font-size:12.0pt;color:#1F49=
+7D"><span style=3D"mso-list:Ignore">5.<span style=3D"font:7.0pt &quot;Times=
+ New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><![endif]><span style=3D"font-size:12.0pt;color:#1=
+F497D">Candidates wear formal dress at the time of interview
+<b>(Mandatory).</b> <b><u><o:p></o:p></u></b></span></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"color:#1F497D"><o:p><span style=
+=3D"text-decoration:none">&nbsp;</span></o:p></span></u></b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:14.0pt;color:#1F497D"=
+>CTC Range:</span></u></b><b><u><span style=3D"font-size:16.0pt"><o:p></o:p=
+></span></u></b></p>
+<ul style=3D"margin-top:0in" type=3D"disc">
+<li class=3D"MsoNormal" style=3D"color:#1F497D;mso-list:l1 level1 lfo2"><sp=
+an style=3D"font-size:12.0pt">Senior Officer : 2.3 - 2.7 LPA&nbsp;(Fresher&=
+#8217;s or candidates with IMF/IM channel),
+<b>Age Criteria (20 - 24)</b><o:p></o:p></span></li><li class=3D"MsoNormal"=
+ style=3D"color:#1F497D;mso-list:l1 level1 lfo2"><span style=3D"font-size:1=
+2.0pt">Associate Manger&nbsp; : 2.7 - 3.3 LPA ( 6 Months of LI exp/ candida=
+tes with IMF/IM channel),
+<b>Age Criteria (24 - 27)</b><o:p></o:p></span></li><li class=3D"MsoNormal"=
+ style=3D"color:#1F4E79;mso-list:l1 level1 lfo2"><span style=3D"font-size:1=
+2.0pt">Deputy Manager : 3.3 - 4 LPA&nbsp;&nbsp;(At least 1 yr exp in Life I=
+nsurance mandatory / Direct / Agency Channel),
+<b>Age Criteria (27 - 32)</b><o:p></o:p></span></li></ul>
+<p class=3D"MsoNormal"><b><u><span style=3D"color:#1F497D"><o:p><span style=
+=3D"text-decoration:none">&nbsp;</span></o:p></span></u></b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"color:#1F497D"><o:p><span style=
+=3D"text-decoration:none">&nbsp;</span></o:p></span></u></b></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:12.0pt;color:#1F497D"=
+>Specifications:</span></u></b><b><u><span style=3D"font-size:12.0pt"><o:p>=
+</o:p></span></u></b></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"1274" nowrap=3D"" valign=3D"bottom" style=3D"width:955.6pt;pad=
+ding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoListParagraph"><span style=3D"font-size:12.0pt;color:#1F497D=
+"><o:p>&nbsp;</o:p></span></p>
+<ul style=3D"margin-top:0in" type=3D"disc">
+<li class=3D"MsoNormal" style=3D"color:#1F497D;mso-list:l1 level1 lfo2"><sp=
+an style=3D"font-size:12.0pt">Field sales job with 3 contacts to be made da=
+ily.<o:p></o:p></span></li><li class=3D"MsoNormal" style=3D"color:black;mso=
+-list:l1 level1 lfo2"><span style=3D"font-size:12.0pt;color:#1F497D">Gradua=
+te</span><span style=3D"font-size:12.0pt"><o:p></o:p></span></li></ul>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"1274" nowrap=3D"" valign=3D"bottom" style=3D"width:955.6pt;pad=
+ding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<ul style=3D"margin-top:0in" type=3D"disc">
+<li class=3D"MsoNormal" style=3D"color:black;mso-list:l1 level1 lfo2"><span=
+ style=3D"font-size:12.0pt;color:#1F497D">Age: 20 - 30 years</span><span st=
+yle=3D"font-size:12.0pt"><o:p></o:p></span></li></ul>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"1274" nowrap=3D"" valign=3D"bottom" style=3D"width:955.6pt;pad=
+ding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<ul style=3D"margin-top:0in" type=3D"disc">
+<li class=3D"MsoNormal" style=3D"color:#1F497D;mso-list:l1 level1 lfo2"><sp=
+an style=3D"font-size:12.0pt">Vehicle Required</span><span style=3D"font-si=
+ze:12.0pt;color:windowtext">
+</span><span style=3D"font-size:12.0pt"><o:p></o:p></span></li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal" style=3D"margin-left:.25in"><span style=3D"color:#1F=
+4E79"><o:p>&nbsp;</o:p></span></p>
+<p style=3D"background:white"><span style=3D"color:#1F497D">Please share th=
+e tracker along with CVS in the below mentioned format.</span><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"><o:p></o:p=
+></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:21.7in;margin-left:-.15pt;border-collapse=
+:collapse">
+<tbody>
+<tr style=3D"height:1.8pt">
+<td width=3D"117" nowrap=3D"" style=3D"width:87.45pt;border:solid black 1.0=
+pt;background:yellow;padding:.75pt 5.4pt .75pt 5.4pt;height:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Gender</span></b><b><span style=3D"color:black"><o:=
+p></o:p></span></b></p>
+</td>
+<td width=3D"109" nowrap=3D"" style=3D"width:82.1pt;border:solid black 1.0p=
+t;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Date of CV shared<o:p></o:p></span></b></p>
+</td>
+<td width=3D"150" nowrap=3D"" style=3D"width:112.3pt;border:solid black 1.0=
+pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Candidate Name<o:p></o:p></span></b></p>
+</td>
+<td width=3D"120" nowrap=3D"" style=3D"width:90.25pt;border:solid black 1.0=
+pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Contact No<o:p></o:p></span></b></p>
+</td>
+<td width=3D"94" nowrap=3D"" style=3D"width:70.45pt;border:solid black 1.0p=
+t;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Email ID
+<o:p></o:p></span></b></p>
+</td>
+<td width=3D"147" nowrap=3D"" style=3D"width:110.4pt;border:solid black 1.0=
+pt;border-left:none;background:yellow;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Highest Education<o:p></o:p></span></b></p>
+</td>
+<td width=3D"89" nowrap=3D"" style=3D"width:66.85pt;border:solid black 1.0p=
+t;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Total Exp in Yrs<o:p></o:p></span></b></p>
+</td>
+<td width=3D"160" nowrap=3D"" style=3D"width:119.75pt;border:solid black 1.=
+0pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;hei=
+ght:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Sales / LI experience in years<o:p></o:p></span></b=
+></p>
+</td>
+<td width=3D"182" nowrap=3D"" style=3D"width:136.3pt;border-top:solid black=
+ 1.0pt;border-left:none;border-bottom:solid black 1.0pt;border-right:solid =
+windowtext 1.0pt;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;height:=
+1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Current Organization<o:p></o:p></span></b></p>
+</td>
+<td width=3D"106" valign=3D"top" style=3D"width:79.6pt;border:solid windowt=
+ext 1.0pt;border-left:none;background:#ED7D31;padding:0in 0in 0in 0in;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Current CTC<o:p></o:p></span></b></p>
+</td>
+<td width=3D"106" nowrap=3D"" style=3D"width:79.6pt;border:solid black 1.0p=
+t;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Notice Period (In days)<o:p></o:p></span></b></p>
+</td>
+<td width=3D"130" nowrap=3D"" style=3D"width:97.45pt;border:solid black 1.0=
+pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Current Location<o:p></o:p></span></b></p>
+</td>
+<td width=3D"133" nowrap=3D"" style=3D"width:99.85pt;border:solid black 1.0=
+pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Location Applying for
+<o:p></o:p></span></b></p>
+</td>
+<td width=3D"134" nowrap=3D"" style=3D"width:100.45pt;border:solid black 1.=
+0pt;border-left:none;background:yellow;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Rehire (Yes/No)<o:p></o:p></span></b></p>
+</td>
+<td width=3D"87" nowrap=3D"" style=3D"width:65.5pt;border:solid black 1.0pt=
+;border-left:none;background:yellow;padding:.75pt 5.4pt .75pt 5.4pt;height:=
+1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Zone<o:p></o:p></span></b></p>
+</td>
+<td width=3D"109" nowrap=3D"" style=3D"width:82.05pt;border:solid black 1.0=
+pt;border-left:none;background:yellow;padding:.75pt 5.4pt .75pt 5.4pt;heigh=
+t:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Source<o:p></o:p></span></b></p>
+</td>
+<td width=3D"109" nowrap=3D"" style=3D"width:82.05pt;border:solid black 1.0=
+pt;border-left:none;background:#ED7D31;padding:.75pt 5.4pt .75pt 5.4pt;heig=
+ht:1.8pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"color:black">Sub Source<o:p></o:p></span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-IN" style=3D"font-family:&quot;Aria=
+l&quot;,sans-serif;color:black">Regards,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-IN" style=3D"font-family:&quot;Aria=
+l&quot;,sans-serif;color:black">Ashutosh Srivastava - Human Resource<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-IN" style=3D"font-family:&quot;Aria=
+l&quot;,sans-serif;color:black">9628566589<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-IN" style=3D"font-family:&quot;A=
+rial&quot;,sans-serif;color:black">Axis Max Life Insurance Co. Ltd<o:p></o:=
+p></span></b></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Segoe UI&quot;,sans=
+-serif;color:#424242"><img width=3D"172" height=3D"52" style=3D"width:1.791=
+6in;height:.5416in" id=3D"x_Picture_x0020_1" src=3D"cid:image002.jpg@01DBDF=
+7B.6CEAA4D0" alt=3D"Axis"></span><b><span lang=3D"EN-IN" style=3D"font-size=
+:12.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></=
+span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:12.0pt;font-family:&quot=
+;Century Gothic&quot;,sans-serif;color:#003974">Max Life Insurance
+</span></b><b><span style=3D"font-size:7.0pt;font-family:&quot;Century Goth=
+ic&quot;,sans-serif;color:#003974">is now
+</span></b><b><span style=3D"font-size:12.0pt;font-family:&quot;Century Got=
+hic&quot;,sans-serif;color:#97144D">Axis
+</span></b><b><span style=3D"font-size:12.0pt;font-family:&quot;Century Got=
+hic&quot;,sans-serif;color:#003974">Max Life Insurance
+</span></b><span style=3D"font-size:7.0pt;font-family:&quot;Century Gothic&=
+quot;,sans-serif;color:#003974"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:7.0pt;font-family:&quot;=
+Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa for our Custo=
+mers, Sellers, Partners, Employees &amp; Community.</span></b><o:p></o:p></=
+p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<title>AxisMaxLifeInsurance</title>
+<style> body {margin:0} .head-text{font-size:12.0pt;} .subhead-text{font-si=
+ze:7.0pt;}@media(max-width:768px) {.head-text{font-size:8.0pt;line-height:5=
+px}.subhead-text{font-size:5pt;line-height:5px}} </style><span style=3D"mso=
+-bookmark:_MailOriginal"><span class=3D"head-text"><b><span style=3D"mso-bi=
+di-font-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color=
+:#003974">Max
+ Life Insurance </span></b></span></span><span style=3D"mso-bookmark:_MailO=
+riginal"><span class=3D"null1"><b><span class=3D"subhead-text" style=3D"mso=
+-bidi-font-size:4.0pt;font-family:&quot;Century Gothic&quot;,sans-serif; co=
+lor:#003974">is now
+<o:p></o:p></span></b><b><span class=3D"head-text" style=3D"mso-bidi-font-s=
+ize:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#97144d"=
+>Axis
+</span></b></span></span><b><span class=3D"head-text" style=3D"mso-bidi-fon=
+t-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#0039=
+74">Max Life Insurance
+</span></b><span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"=
+><b>
+<div><span class=3D"subhead-text" style=3D"mso-bidi-font-size:4.0pt; font-f=
+amily:&quot;Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa f=
+or our Customers, Sellers, Partners, Employees &amp; Community.</span></b><=
+/span></span>
+<span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"><b><span c=
+lass=3D"subhead-text" style=3D"mso-bidi-font-size:7.0pt;font-family:&quot;C=
+entury Gothic&quot;,sans-serif; color:#013974"><o:p></o:p></span></b></div>
+<br>
+<h><b>Disclaimer:</b></h> This email contains confidential information inte=
+nded solely for the recipient, and if received by mistake, it should not be=
+ distributed or copied; please notify the sender and delete all copies.<br>
+<br>
+<b>WARNING:</b> Computer viruses can be transmitted via email. You are advi=
+sed to check for viruses in the email and attachments, with the company dis=
+claiming liability for any resulting damage.<br>
+<br>
+<p></p>
+</span></span>
+</body>
+</html>
+
+--_000_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_--
+
+--_005_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_
+Content-Type: image/jpeg; name="image001.jpg"
+Content-Description: image001.jpg
+Content-Disposition: inline; filename="image001.jpg"; size=14770;
+	creation-date="Tue, 17 Jun 2025 06:02:48 GMT";
+	modification-date="Tue, 17 Jun 2025 06:02:48 GMT"
+Content-ID: <image001.jpg@01DBDF7B.6CEAA4D0>
+Content-Transfer-Encoding: base64
+
+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
+2ZB/0O//2Q==
+
+--_005_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_
+Content-Type: image/jpeg; name="image002.jpg"
+Content-Description: image002.jpg
+Content-Disposition: inline; filename="image002.jpg"; size=2644;
+	creation-date="Tue, 17 Jun 2025 06:02:48 GMT";
+	modification-date="Tue, 17 Jun 2025 06:02:48 GMT"
+Content-ID: <image002.jpg@01DBDF7B.6CEAA4D0>
+Content-Transfer-Encoding: base64
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMg
+IyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCAA1AK0DASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiii
+gBKTOKU9K4/4h+Jv7E0b7LbSYvbwFEx1RP4m/oKC6dN1JKMep1sU0c8YkhdZEboynINSV5b8LvEv
+kyHQrqT5Hy9qSeh/iT+o/GvUM0MqtRdGfIx1FFITQZC0UmTRmgBaKTNITQA6im5pc0ALRSUZoAWi
+kzRzQAtFJmjNAC0UmaWgApKWkNAEF7eQWFnNdXLhIYULux7AV4Dr+sza/rM9/PkbziNP7iDoK7L4
+o+JfPnXRLV/kjIe5IPVuqr+HU/hXnfqTVpHtZfh+SPtJbsv6HY3eo63aW+nsy3LSBkcf8s8c7vwr
+6GQFUUM24gcnGM1538ObDT9HsXv7+8tY725GAkkqhoo+wwTwT1/Ku3/tzSx/zErP/v8Ar/jSkcmO
+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
+FGBRRQIKMUUUDDAoxRRQAtFFFAH/2Q==
+
+--_005_MA1PR01MB41771F2D5188026566C7F588DE73AMA1PR01MB4177INDP_--

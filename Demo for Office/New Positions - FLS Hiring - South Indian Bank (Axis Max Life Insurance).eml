@@ -1,0 +1,2871 @@
+Delivered-To: debojit@xperteez.co.in
+Received: by 2002:ac4:9a86:0:b0:723:80c:1b3d with SMTP id bi6csp152776pib;
+        Fri, 13 Jun 2025 02:34:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=6; AJvYcCXdUHulY/cR424o/Ry9WX0LPl9fKKWyIuWHnrAa2jroPWRGBn9WMhBzsN3kEu+ER8cv95SjEbHq@xperteez.co.in
+X-Received: by 2002:a05:6902:124c:b0:e81:b4ae:99f0 with SMTP id 3f1490d57ef6-e821be24f3dmr2686917276.20.1749807273319;
+        Fri, 13 Jun 2025 02:34:33 -0700 (PDT)
+ARC-Seal: i=5; a=rsa-sha256; t=1749807273; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jHxUxk1UfERp4wFT0qixS+YaAyzr+UZdIO1PSqABsKBirE3kmyDvbw7VcFStRgWjT4
+         XV3UL0bxW4zZVeUrh2jtIdyCmGtP2wbSPIAL1mRW1ZcA2xvPaFuxcuUUIvqF6R29qH2j
+         HaR17hW8zI7LaTz/V//xtAlybtbx7RAuTbFOtbXZAlsyZWOwevopD3VajoFsHmcposfq
+         scDX9FFQ0SAkWsImG8BJgdq8OVW6ABgNlDp1OUOFP3Fllaqbt9UEKkq15veIe+fLVBVf
+         uzSa7rLxXn5ANqdKtNVlXzpBuEoanPKzCWf66idUBcYU3tVmGEPFbh/OOof1QzpTv8n/
+         0SnA==
+ARC-Message-Signature: i=5; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+        fh=vmQF+G5oVr1OUQra7lnqIXseffJkKWwG4f+fFs04kIM=;
+        b=KTn69lZfQl1y0xE557eIbIlIWLNbwHoPgon8bh29crSM5jUOSB2nXkSbxpzlmAbWcQ
+         F1NW+kEU/Qk9E6NrImmV4WXN40e1A6gEwk9Aoi7Z0OZpCI//xO3tzu97pf3PlodVUZOx
+         nRbSzKxm3rEnVIc7kHPKyRxhVOuFFEST10bZEayFVeUmZs+t1zQg2jeuq+ccDANq73xW
+         sexnbdHRFwFwGvJR6G73qyE9mErQi1c3lgFaiCsRDXMS7Y/UYXEH9zhJZtXvbIbl7+A8
+         Ssu+ls2S2y7A3l4+zX2ToQb1YSRJah4y0dGMbwplMkwbusPN1VOdFi1BKptn9Gh2H+nU
+         t1xg==;
+        dara=google.com
+ARC-Authentication-Results: i=5; mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b="oN2q/GRI";
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbi7bv7bamgqehuzn3yq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBI7BV7BAMGQEHUZN3YQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+Return-Path: <ops+bncBAABBI7BV7BAMGQEHUZN3YQ@xperteez.co.in>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 3f1490d57ef6-e820d650a49sor1086759276.1.2025.06.13.02.34.28
+        for <debojit@xperteez.co.in>
+        (Google Transport Security);
+        Fri, 13 Jun 2025 02:34:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ops+bncbaabbi7bv7bamgqehuzn3yq@xperteez.co.in designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b="oN2q/GRI";
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbi7bv7bamgqehuzn3yq@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBI7BV7BAMGQEHUZN3YQ@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+ARC-Seal: i=4; a=rsa-sha256; t=1749807268; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jlX6DikrGto9ErbtiWl8VNEuUtyvoZA70WqC1a1paEI0UnUuM3df9Cw5VyRvN3e2xX
+         kZTzChdFOhn6JgD9p7ce4UHubuz0QNLMhkYvFkOYhIhMPQC/0QirUEI0Okqbd7PWRJZx
+         EdVZWjjTNCWUoUFHZEHdpXdh1YJ5rm5uLpZ77BSTjbjXdfDkFJXxfwpJEFRZ7vrzmJE9
+         zcAwbNc7ty/wPLZM4EHCLIjtPm+0m77WZN9paCo5+o9mtsgHQ1M0Tah+AkXGhr2spqqo
+         DeG2WBowr/fEiXhZ3tzNWAMIVs8kYkP+RqF2/ysZNOP8BIsfFhGfXoFxa1vAMflrbUWk
+         +YPQ==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+        fh=vmQF+G5oVr1OUQra7lnqIXseffJkKWwG4f+fFs04kIM=;
+        b=ZN6y/ODNQacb6oyFs5zWdknclDtzAHbQtBe1MxRmGERFfjP0XmFspiy7rBb0A0GQ90
+         zTaxtOVacZuno50AP5Ip8GGBU2ZCkuJzZgdOXPf2CjDuFF5kIer++GTzdn+6NkeXI10m
+         hgp8k6G0btnKPRF9RwIeva02pVNRpZ/tv079aofY2oDGYJN69HpgyF2aYLeJOX8IE6WJ
+         gF5Cw3MvJqVtPdCpK8nqXendzgpuCkGUUAogES94nMwVrUbab1oFBqYBvhUB2pmcVbGi
+         RhV7EGw0t2qIJMv8vu7viVwYnBuaN1L7lfN4EBMcsdLBvulLhnqgO+3qxuL8taPkuXTC
+         6PDA==;
+        darn=xperteez.co.in
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=czB+Y3qk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=czB+Y3qk;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshita.bansal@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=akshita.bansal@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xperteez-co-in.20230601.gappssmtp.com; s=20230601; t=1749807268; x=1750412068; darn=xperteez.co.in;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+        b=oN2q/GRIucANszB1++sEHQyyDmvpPX6EF7Ousp5bHUJ96bhxhgm2/eotPr61pIyBCn
+         NmyTqt9BClTuOJba7D7VU0iscGCKY0caKgdwclc2YEFd6KS55LyzSqacMbgYrp/+Sid9
+         KnyvXHc23w8v9T+GFs6JmT+f2wrN3ZBfSveQh+s/udK323qjS4MERYJVgy+XykRyo3P1
+         iMHSpWsBGKS2bo8yHiNcxVdSWJKe+uAIFkrA+oExINTkIPN8DO/6ASdtihjnNjCG9QQI
+         CTNLpiK0mVPrzbKKZ6EQYPmRwdlLwFcJuj4Fgq+0d2CrPAAQkB/jSvOzceJ979nJRbvL
+         1NSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749807268; x=1750412068;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+        b=cfj5CwxBM6m3FKl7PiNOfAyISPVu787ocx4Dj4SWmPXh80A7ZSSFgwPLJQYlsV0j4I
+         dwekXhGUnTfOv72k+U+wMYP4Bm3eAxKezbsPL84EEUCnWr6XFuklIIRZBH7FVMTyI47M
+         2v4eS7R2wkctink8QtAaq4fJLRRsfIDI4pgELE//+KTARGmbg6SZVqTuyXeXhJFd//Xs
+         4Jeh86YYfpwOW0CyOAUd/QJ4zb/+11GX12/AZV/NEJqHAC8tYcJon9ba2lmnWeMqDiV7
+         wFL0HeclP76x8cJXo6LFtWjTbNLuEZcMMk52xK9SjHOzB78xS1gUuwUcC5Uh1EVdYdRH
+         uBTQ==
+X-Forwarded-Encrypted: i=4; AJvYcCX5lmPXATbfPsHBEqMd5gznovt4T2TSvAdCw5x8KBVjFof3vjYy00styefWXAH1N7JcNwvv60Aq@xperteez.co.in
+X-Gm-Message-State: AOJu0YwrYsVH0pnoDlRrBLmcx7y15iVeIXutqWJF2Fc9ByO9fgQTYDIH
+	O6qyB0NwLjolFTsS7Lx+rxm8qApk7HQyhVutry66EO+1f8FAI9ojKQHQc7Tb2NR9sNhdEw==
+X-Google-Smtp-Source: AGHT+IGAeW/UMVXo9qS8nzp7U6lSv5sCykp7DG2oSdQ4DmP5NotdZA6fQU6p25/+TL+0A9PDEmmzOw==
+X-Received: by 2002:a05:6902:102d:b0:e81:be6d:6387 with SMTP id 3f1490d57ef6-e821c317fb1mr1278478276.10.1749807267572;
+        Fri, 13 Jun 2025 02:34:27 -0700 (PDT)
+X-BeenThere: ops@xperteez.co.in; h=AZMbMZe5g6OwYOZkb1gsloncsSjcmoC2F+P0S2JX9XGoYaqSqg==
+Received: by 2002:a25:e4c4:0:b0:e7d:82d4:2546 with SMTP id 3f1490d57ef6-e820da659d8ls2044672276.1.-pod-prod-06-us;
+ Fri, 13 Jun 2025 02:34:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCXWGgWE9t9svB9cuEWcJR3JQQbvDFcgj0vLfrU+cfglHBKIRW4MuyW4yNhBDWeiUmsK5Fg=@xperteez.co.in
+X-Received: by 2002:a05:690c:23ca:b0:70e:1474:63f2 with SMTP id 00721157ae682-7116367a1d1mr35606807b3.7.1749807266672;
+        Fri, 13 Jun 2025 02:34:26 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1749807266; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ONsLhd8zcRFvGD2c+/wvo0opdaBNNzi0c8HnCFXs4Mvjt7bzglTseDwR9bCjn8oyLc
+         uGn/zWbSbyTlU3E50WfwOprgf7fXWl39G/+wLIaZoOKc0jE2xWz5DuPMsDNJqm0PcSHj
+         Kvc06theBqyD8QNyKoAlLu8ymExJxec1BcGTeE55dAOM16D0PaybaWSY/eqbeSfzRTBI
+         lmIgFU2IJfiXGjvz/VRdJ2gRfmvtnx/kIklICWJCY/SK1c8SklPe9HzrhMUWWYj6lLq4
+         loOxEf0aYDdW4O1F0o6K5epSVojBlMAj5d20tu4RgShrLJ9tcYfGFs0erne0lOppWhUz
+         jSYg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :cc:from:dkim-signature:dkim-signature;
+        bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+        fh=whJCoF6h3ixR0etI6KP+r5G5+O9p1a33KWNPtK9Q+xc=;
+        b=ZnBfQkktmFFkvv4DWknx37+GaeKM1EvF/5XnnG6C001DJcCcu8Hp9x61YOyrAHsKz+
+         gE9ItAhBGJTcPzDIIujVvyFnDKJjgKKxJ/uUY89H11cfO4WksJnaZU+XxA0EA8j9T8Uh
+         KhkMib5PeMtTYcZaHCUHfqylwiV0qPPbwJDBaJsgbStFuN5Nib7Edtt00WiXa9KtdukG
+         rT6UEwpHbNu9Wb2zDtk1nWDhLNueG6WW5sO7dF/rc0CwUrRojgzOJ9z4U20VXaR8wBXo
+         VKnkt04+5xCA7MnAhvbMXy4y7R2x/fq7Xstt3JZIZLcN4IiTf+7izPaixTRRrTyw3QuT
+         rZFA==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=czB+Y3qk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=czB+Y3qk;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshita.bansal@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=akshita.bansal@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+Received: from PNZPR01CU001.outbound.protection.outlook.com (mail-centralindiaazlp170110003.outbound.protection.outlook.com. [2a01:111:f403:c408::3])
+        by mx.google.com with ESMTPS id 00721157ae682-71152e5aa0esi31511047b3.389.2025.06.13.02.34.25
+        for <ops@xperteez.co.in>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 02:34:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of akshita.bansal@axismaxlife.com designates 2a01:111:f403:c408::3 as permitted sender) client-ip=2a01:111:f403:c408::3;
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ii9TZUDfz5qrz2nkyLyOsAiy/QOQALn+SvKZkWbW3FKihxARidjYeI3jFg8sN00EKF+YzK6i6skMbuukSmbMWCHLmECvvfGdM3F6ZW5uMokDARzX4oyHH6PhACxSiaQ+ew7D8ZpoVDdT6AOtuz6gOCTmzdnUpi5lVRL9HcPerax3dxGwwP0+kgHfsG+TCFQ80PxZtuXl851KJ4GBwmIkJ6AOtQI4y9AnT6e0bZ+wVqVNnDerkSyVC5eqM74UDOnKK2msW3OtDmje5+vHYQ2XLtLZC2Syt/7AutiO4/Qh2HUMq6fKZAuxJKZzwGgvH1vJ7trCiH8/I/9N2cz+ZE6NuA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+ b=ff2A6TG5ZFOVH/b9paztO97JVwmE3eEyZK+gHknCd8dcgYCwzPDmwa+2of7Y1FwDZzda0SEhj1uLbkAlNmAGMzLK1A+ZjCRbJ8xg7xKII2nzT6bQ8vxZfhMTN3Tv8GLgFrBjPQOCd9oToFOsa9iRge3ii8gqGj4wm6wKOXC+UL+LJA9ovhsRGJCi97ArJwOtBE2IBfGDDXlfVYXoDWbGJ389cJfMK7X4gH1IRgt34Mz8Itup7I7t3uhh2cAtZxtk4I2tEv80QizbctoLSPj7AetpYuZ/oDfp4e8Gri1hGWacT+bzChsAYJ7AGWUIEuZX5IGwIDyydx+v80ZmwQSHWg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.204.180.79) smtp.rcpttodomain=sunkarahr.com smtp.mailfrom=axismaxlife.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=axismaxlife.com] dkim=[1,1,header.d=axismaxlife.com]
+ dmarc=[1,1,header.from=axismaxlife.com])
+Received: from PN4PR01CA0082.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:26d::15)
+ by MAZPR01MB9254.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:ce::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.25; Fri, 13 Jun
+ 2025 09:34:22 +0000
+Received: from PN2PEPF00000190.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:26d:cafe::37) by PN4PR01CA0082.outlook.office365.com
+ (2603:1096:c01:26d::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.25 via Frontend Transport; Fri,
+ 13 Jun 2025 09:34:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 20.204.180.79)
+ smtp.mailfrom=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com;dmarc=pass action=none header.from=axismaxlife.com;
+Received-SPF: Pass (protection.outlook.com: domain of axismaxlife.com
+ designates 20.204.180.79 as permitted sender)
+ receiver=protection.outlook.com; client-ip=20.204.180.79;
+ helo=appliancehostname.parentdomain.com; pr=C
+Received: from appliancehostname.parentdomain.com (20.204.180.79) by
+ PN2PEPF00000190.mail.protection.outlook.com (10.167.242.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Fri, 13 Jun 2025 09:34:22 +0000
+Received: from MA0PR01CU009.outbound.protection.outlook.com (unknown [40.93.131.0])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Forcepoint Email with ESMTPS id A609FA3188218F60C42D;
+	Fri, 13 Jun 2025 15:04:07 +0530 (IST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rYglqhhr1by+ATtv8Jn4Uqg3uP2mynacPTQEKpX6kRLkWvhbOUiOLbpjC8a8G+grQDa+0PK1psOUYO1L8N7Ade57omPPsWmci5YvzDnVNC2gy0yMfLd99qAyBx+nIOi30deyEx2Lp/dFtW3Onu4xJEzLG8HMbW+P4Sn6S8SZU0ZqXdSmip900qiQGnN+7537pI+YebMw7T6mFW7QUXNUGy/D3V4g4Ty6swFw4jw+CoVyBKbByhMAUoqVYuPzH6xikk7qTtglNUtsRPzjoOZ1Ji7sJ3Ts6XrrBfZ/+wRqIAkpQYDw+ZSiGLJEdplZhauUBiybewhyaj7T1WT9Fb8gHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v8ztzxDziA92m2aSNlFyfxZBdbNcpXGeeXSQRviKZM8=;
+ b=dtzjffNgqMuQA8hLePmN19QGQXTnsILu8LgdC9/XKaKGIU3gIF8a5VhLfRLhL5uVSgMy+yJN6tZlis4fLNUhFckU1DtmzLk5jASdo+M7XsRK2J7UcCI4gglJkfrAW3gXCGQPs9LQEOsBxH/7PAKzIQ6IXLzqj2lE3OaHk7a8Ps8V6B5cnW0Vzkpd/APTD6Eij4wK7ta0Eg1Xb4heGolf11RMnj93jxlKTIvY0/vlQrTe6sIHzvw7p1H0QcXvBchVH6rjPIzsryWW1z7vbFf/hXBasGGmNahS0xSDFzqm07LIjlh8Di8+7FAbBbNN6HdM70w2HckRqUrxBgfvThVS2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axismaxlife.com; dmarc=pass action=none
+ header.from=axismaxlife.com; dkim=pass header.d=axismaxlife.com; arc=none
+Received: from PN0PR01MB8999.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:161::5)
+ by MA0PR01MB7611.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:2f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.24; Fri, 13 Jun
+ 2025 09:34:04 +0000
+Received: from PN0PR01MB8999.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::c88d:4926:f2f1:d0f8]) by PN0PR01MB8999.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::c88d:4926:f2f1:d0f8%4]) with mapi id 15.20.8835.023; Fri, 13 Jun 2025
+ 09:34:04 +0000
+From: "akshita.bansal via Recruitment Operations" <ops@xperteez.co.in>
+CC: <vimalan.s@axismaxlife.com>, <shaik.afroz@axismaxlife.com>,
+	<deepti.chowdhary@axismaxlife.com>
+Subject: New Positions - FLS Hiring - South Indian Bank (Axis Max Life
+ Insurance)
+Thread-Topic: New Positions - FLS Hiring - South Indian Bank (Axis Max Life
+ Insurance)
+Thread-Index: AdvcQsdCZ++PQz8KQzmmUiD5TlpNLA==
+Date: Fri, 13 Jun 2025 09:34:04 +0000
+Message-ID: <PN0PR01MB89995463DA38ACF198AD5FD99477A@PN0PR01MB8999.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axismaxlife.com;
+x-ms-traffictypediagnostic: PN0PR01MB8999:EE_|MA0PR01MB7611:EE_|PN2PEPF00000190:EE_|MAZPR01MB9254:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21a3ec0c-8ff0-4d53-be05-08ddaa5d7a8b
+x-ld-processed: 97e4bcfe-5cba-4a9c-8821-4be8019d9055,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|8096899003|4053099003|4013099003|38070700018;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?TeapfEOWIW9xCVvzMgaIJu3HG+vVRAOUVUWshVEMhlmCI9YgqJjf6N9MHsm+?=
+ =?us-ascii?Q?xxVOD8n28hzV8LRZ9UFlrBt5m5DdEyb0LtJqka6IpZBj/e+G0QtjT6eLnSzF?=
+ =?us-ascii?Q?1NgLNELEDcwzVuavRtQXHvcMHVoyCE7sDiEaSetZUhMMUU0NPly6BWHiOc4J?=
+ =?us-ascii?Q?sodi+o0x6aITMRQU8V3DT4jUt9IStIXwHJzffREYPjeQWDtSiq890xrtPLjC?=
+ =?us-ascii?Q?PYdVWB6fv4K+AkoKNvzwNNLBiYGFli8igJNHMT0VxXY2eKySkpZ/tXWouql3?=
+ =?us-ascii?Q?EjITsdg/MHab5MAKFpgmmjKXVRaZ50vGQlRDHT+bLGaYhJwdu/ZBUxFYDQ3c?=
+ =?us-ascii?Q?qWUX2ZfBMz1D2MMyPSzs+I0fjiWebmEggGUpseD8Du2GYtqUrMFVR/I9LpCv?=
+ =?us-ascii?Q?9ItHvGQtuk5JJ8HBhEcbde9dsmwCBgiI6VlRDOzX8uSo6PhW1G+4Uo0WKCtV?=
+ =?us-ascii?Q?p+DpvN+xSOqCqfZsklmn0OlEwcWtJgOQQDihutaHcV8926zF448ehWUWmKK6?=
+ =?us-ascii?Q?cvSCRKJRKVanZKP++SUJw848X2t7z4Uomh9MIg5nHqBPYzeR8Qnkn6PHDXT5?=
+ =?us-ascii?Q?q/JmLRXYEHEalMDTNgq6ngIYRjy169CM2Uq/IcUoOk9v0HrvDV26Q+CPmWer?=
+ =?us-ascii?Q?fhoMoKTw2iQgfzUdegV9xNJB4bRYXo4cCwkkYTdtbrOTqGKc7HXUEOrwlrFB?=
+ =?us-ascii?Q?Zz036ztA5hEykGMmuT0+V9kNnqzXQ9FqEXSZf15VGszPS+rBxzXmWaOQYKVD?=
+ =?us-ascii?Q?I8MBa78Thnx3jq92Q//++4MTPR4wcZhQt4Bz0DfrGqSWsYifbyt660jDH/Qb?=
+ =?us-ascii?Q?lEMa3UB4AcRxXYwwhHTV3rgN1THilHK/6b9kXrpa/6dVE6GuzlHe35CDEBO1?=
+ =?us-ascii?Q?4u/CYCx7vws4oo5mjVLCeObVky+8yw7p5XhZVVoL8BohtGPnR15o2lOHRJ+k?=
+ =?us-ascii?Q?nddMtrr5tUocXzO/uNcDROXa6uZuQ0wOc2NugJxZWpfrLDwKsrmVSSjc3wSa?=
+ =?us-ascii?Q?6zxEuJDIb6pMyLN+4EybZ0QuV1VaQsiyv9k3nxsk7mpXbozQwGEb0B2yOo4X?=
+ =?us-ascii?Q?sQ0HSYsLtfcviIszDU7ET3GsS41LFKXIUbHzMpqT5c2pNG/MVPsTZSkhjcsW?=
+ =?us-ascii?Q?twfzzwY9qSqUFxH+yECMBkJ7rLavwv6f3qB7qn4k3gx4r1iMp1tk+cgwzN8M?=
+ =?us-ascii?Q?2vhTx7bWpae26YagqEBxWnAtktzeQh4DkZbRWEj7VmUe1gcKOM74dMauxKUM?=
+ =?us-ascii?Q?JQCFuuYw0eDYveL2BXcej2SUavnLdXCgn71997EMi0Bw53V3rjhSfXZadXTb?=
+ =?us-ascii?Q?+IudH/hWPO6+VLX6J0ThMTA9dvl5SwRIrsDQsY5lwgmVAXLIqMP66NiOzBIY?=
+ =?us-ascii?Q?pwgWJI2RRq+vFhogzwu8oOUNrn3vIon3+oeAG9utCUNdGhNBXW5BM7ED8asv?=
+ =?us-ascii?Q?hbwWOnI+fdDnyhrLkCWlY7my5KnbfgUD4GqZ0wmdYyWDawJhqQ2l2MOdDJfA?=
+ =?us-ascii?Q?ykXv/g6G7YPHOjc=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0PR01MB8999.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(8096899003)(4053099003)(4013099003)(38070700018);DIR:OUT;SFP:1102;
+Content-Type: multipart/related;
+	boundary="_004_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB7611
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: PN2PEPF00000190.INDPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b1760db6-e722-4f63-91c3-08ddaa5d702b
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|35042699022|36860700013|376014|7416014|14060799003|4053099003|8096899003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/clL4FFEWlal6MFD/3lfikaAbOz8+Kw9UY4q70y7me6kMviJ8Z3QKRPVrLYi?=
+ =?us-ascii?Q?/zaa0dUoFMWlgA1Ny/2spHQ70mrzKASgtqHUWacc90D8KoGl81RVmKh0XYRf?=
+ =?us-ascii?Q?z05JvmtZRy+RSnLgz6ohV0XqpSTcJKSmB4IVXW+0T7Vx4UBurkEHRM9jJGN5?=
+ =?us-ascii?Q?URpECxhygbcyKYGt+0dM7af+wEo8lYYqQmbvbNmLbPsUQmgFafQURFg+7ony?=
+ =?us-ascii?Q?irE6QhlSgenoiswrJ31btKThbCgpRaZqZY7wG6V5pL5qm9+2ZpIXXgxdoBaj?=
+ =?us-ascii?Q?DD5LoxTpy9J3PG9b6pN3PTonWyGtkb1u2I4XA34l+bY9Kr4s89roXuqIS3Nm?=
+ =?us-ascii?Q?MQl582J/h7S9rKkXwIxKXRcIWrkAC0kdJ1EUBIQz1Kg0oVAq3L+5mgpGkr/s?=
+ =?us-ascii?Q?9nL7FQzaq2y+CPirIE+DMmt3sFhIbGH10qwZGjdfafRHkO/m0gVv6VzrjoMq?=
+ =?us-ascii?Q?5UYpu0ffH9KA5qloZKqEC4f/gKflsH2VwEdvVPuPoODjxexyh2/b2Q7sYzQU?=
+ =?us-ascii?Q?utLgfO5RrZmpyVJLhoQIxLwzCfy9/OZsAIdcllKz0TIpLkQukE8xbcJlON1D?=
+ =?us-ascii?Q?YBu3HRnzHYlSn5xxTEVJSVldFRwg4eV1yXzm+jXFy63rAcTHSnPmcZerI2Ur?=
+ =?us-ascii?Q?pMJWAllNYgb9+V6mj1YdvX4SCDOsWazMis/nU3dn88YkgpBgZ9jgXncPInFw?=
+ =?us-ascii?Q?KMXMrm10s1Rzyj8uamY0y7MEnTnBi3jX9Gm4tz0mxNwyCbDBgKTUq4V/B5JJ?=
+ =?us-ascii?Q?F4Qkc17lNsDS9NLSYqLInIYwj8yUEDFTcjTTqcIm9foninLPYN3PTwGBWa9X?=
+ =?us-ascii?Q?Zxfo7cxZkTri6ySfIz2Nosgsl5QNXqH+EjhcGJL/8WH8IHnQLBFV/cLAxwzv?=
+ =?us-ascii?Q?iZffQuEPW6yAUH7XLx8EzBORvr0cd1bYYnUY14oi86v2hyJr08vC+n4X3pKg?=
+ =?us-ascii?Q?/pw0F9DiYSDcY+9daV1L8iuQQHCvkeq8QzGKml7rvn2wRDdeBUpOMmMkFpTQ?=
+ =?us-ascii?Q?XwKzQuZ3PWcefoWp65fflLho5//qQ6zvnwiinXIcel66ZvZOaerAKHJg1r1n?=
+ =?us-ascii?Q?a+Y70IBW1fM+bgvBgOvBY4MCtGDxMzwX2t3AZcdg6oWKB0LeNhy1fskkqpEy?=
+ =?us-ascii?Q?auK5riA/3bXuQcEgeO4aCIpu7ImocvDATxhmMf0k0MKq2500pE2xT80BYPgR?=
+ =?us-ascii?Q?dHNhknarJNwyzH/JwShkKfnkysycDZhtZMULx74WjVh7lpo4jXZqbsmYJXzI?=
+ =?us-ascii?Q?k+dr3QyXHqtNWn0BTsPVEN7Oa2LC+BeX0mji6NmkN5TT0dW1vqRGuUY68dXy?=
+ =?us-ascii?Q?IVyU07sK0+LOg4lvWOkLB8KktV7rVcLo8uheEnTaEHDFuSVd/PPVi/1Iz4HI?=
+ =?us-ascii?Q?LlEwTyPMA3aLgxc+IvLjyZJbb72OL8SEMOiw58OcsB1jLSfj7npodpo7fiHW?=
+ =?us-ascii?Q?O9KLhKWGrwrUQDw1P/stx8CceeaR0azZVaKZD+u68ZggB/mEcbno64rDBQ/n?=
+ =?us-ascii?Q?94EddzGoWOy+0BgG6G7iUE+yjw/4imkHr4Un?=
+X-Forefront-Antispam-Report: CIP:20.204.180.79;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:appliancehostname.parentdomain.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(35042699022)(36860700013)(376014)(7416014)(14060799003)(4053099003)(8096899003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axismaxlife.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 09:34:22.0475
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21a3ec0c-8ff0-4d53-be05-08ddaa5d7a8b
+X-MS-Exchange-CrossTenant-Id: 97e4bcfe-5cba-4a9c-8821-4be8019d9055
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=97e4bcfe-5cba-4a9c-8821-4be8019d9055;Ip=[20.204.180.79];Helo=[appliancehostname.parentdomain.com]
+X-MS-Exchange-CrossTenant-AuthSource: PN2PEPF00000190.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAZPR01MB9254
+X-Original-Sender: akshita.bansal@axismaxlife.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@axismaxlife.com header.s=selector1 header.b=czB+Y3qk;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1
+ header.b=czB+Y3qk;       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com
+ dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of akshita.bansal@axismaxlife.com
+ designates 2a01:111:f403:c408::3 as permitted sender) smtp.mailfrom=akshita.bansal@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+X-Original-From: <akshita.bansal@axismaxlife.com>
+Reply-To: <akshita.bansal@axismaxlife.com>
+Precedence: list
+Mailing-list: list ops@xperteez.co.in; contact ops+owners@xperteez.co.in
+List-ID: <ops.xperteez.co.in>
+X-Spam-Checked-In-Group: ops@xperteez.co.in
+X-Google-Group-Id: 950430647392
+List-Post: <https://groups.google.com/a/xperteez.co.in/group/ops/post>, <mailto:ops@xperteez.co.in>
+List-Help: <https://support.google.com/a/xperteez.co.in/bin/topic.py?topic=25838>,
+ <mailto:ops+help@xperteez.co.in>
+List-Archive: <https://groups.google.com/a/xperteez.co.in/group/ops/>
+List-Subscribe: <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>,
+ <mailto:ops+subscribe@xperteez.co.in>
+List-Unsubscribe: <mailto:googlegroups-manage+950430647392+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>
+
+--_004_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_
+Content-Type: multipart/alternative;
+	boundary="_000_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_"
+
+--_000_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Team,
+
+Hope you are well!
+
+We are currently hiring for FLS Positions for our partnership with South In=
+dian Bank. Please find the vacancy list below.
+
+We believe that your expertise in the market would make it easier to fill t=
+he positions.
+
+Channel Name
+BRANCH
+REGION
+SIB
+KENGERI SATELLITE TOWN
+BANGALORE
+SIB
+GANDHIPURAM, COIMBATORE
+COIMBATORE
+SIB
+LEIGH BAZAR, SALEM
+COIMBATORE
+SIB
+UDHAGAMANDALAM (OOTY)
+COIMBATORE
+SIB
+ELAMPILLAI
+COIMBATORE
+SIB
+ROHINI-DELHI
+DELHI
+SIB
+INDIRAPURAM
+DELHI
+SIB
+KOLENCHERY BRANCH
+ERNAKULAM
+SIB
+PERUMBAVOOR
+ERNAKULAM
+SIB
+PALARIVATTOM
+ERNAKULAM
+SIB
+Vazhakulam
+ERNAKULAM
+SIB
+ERNAKULAM-BANERJI ROAD
+ERNAKULAM
+SIB
+PALLIKKARA
+ERNAKULAM
+SIB
+MANIKONDA
+HYDERABAD
+SIB
+Kannur town
+KANNUR
+SIB
+HOWRAH, KOLKATA
+KOLKATA
+SIB
+LILUAH (HOWRAH)
+KOLKATA
+SIB
+BHUBANESWAR
+KOLKATA
+SIB
+BHILAI NAGAR
+KOLKATA
+SIB
+KADUTHURUTHY
+KOTTAYAM
+SIB
+KOTTAYAM-COLLECTORATE JN
+KOTTAYAM
+SIB
+KANJIKUZHY
+KOTTAYAM
+SIB
+AYARKUNNAM
+KOTTAYAM
+SIB
+NEDUMKANDAM
+KOTTAYAM
+SIB
+MUTHALAKODAM
+KOTTAYAM
+SIB
+PONNANI
+KOZHIKODE
+SIB
+KOZHIKODE MAIN
+KOZHIKODE
+SIB
+THAMARASSERY
+KOZHIKODE
+SIB
+ANDHERI WEST, MUMBAI
+MUMBAI
+SIB
+GHATKOPAR, MUMBAI
+MUMBAI
+SIB
+FORT BRANCH, MUMBAI
+MUMBAI
+SIB
+VIMAN NAGAR,  PUNE
+MUMBAI
+SIB
+ADOOR
+Thiruvalla
+SIB
+KOZHENCHERRY -NRI
+Thiruvalla
+SIB
+PULLAD
+Thiruvalla
+SIB
+OMALLOOR
+Thiruvalla
+SIB
+PATHANAMTHITTA
+Thiruvalla
+SIB
+VADASSERIKKARA
+Thiruvalla
+SIB
+Kundara
+Thiruvanathapuram
+SIB
+Sasthamtotta
+Thiruvanathapuram
+SIB
+MISSION QUARTERS, THRISSUR
+THRISSUR
+SIB
+Kanjany
+THRISSUR
+SIB
+THRISSUR-HIGH ROAD
+THRISSUR
+SIB
+VENKITANGU
+THRISSUR
+SIB
+OLARIKKARA
+THRISSUR
+SIB
+VATANAPALLY
+THRISSUR
+SIB
+KUNDALIYUR
+THRISSUR
+SIB
+KUNNAMKULAM MAIN
+THRISSUR
+SIB
+CHAVAKKAD MAIN
+THRISSUR
+
+Please share the CVs to vimalan.s@axismaxlife.com<mailto:vimalan.s@axismaxl=
+ife.com>. Please keep me (Akshita.bansal@axismaxlife.com<mailto:Akshita.ban=
+sal@axismaxlife.com>) in cc while sharing the CVs in below format.
+
+Sno.
+Role
+JR number
+Open Location
+Candidate Name
+Contact No
+E-mail ID
+Current Company
+Total experience
+Current CTC
+Expected CTC
+Notice Period
+Notice buyout option (Yes/No)
+Age
+How soon can join us
+Mobility Y/N
+Zone/Region
+Sourced by
+CV tagged Yes/No
+Status
+
+RA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+131530
+
+
+ASM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Best,
+Akshita Bansal
+Deputy Manager - Human Resources
+[Axis Max Life Insurance]
+
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Disclaimer: This email contains confidential information intended solely fo=
+r the recipient, and if received by mistake, it should not be distributed o=
+r copied; please notify the sender and delete all copies.
+
+WARNING: Computer viruses can be transmitted via email. You are advised to =
+check for viruses in the email and attachments, with the company disclaimin=
+g liability for any resulting damage.
+
+
+--_000_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle18
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-IN" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Hi Team,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Hope you are well!<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">We are currently hiring for FLS Positions for our pa=
+rtnership with South Indian Bank. Please find the vacancy list below.<o:p><=
+/o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">We believe that your expertise in the market would m=
+ake it easier to fill the positions.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:361.0pt;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:26.5pt">
+<td width=3D"75" valign=3D"bottom" style=3D"width:56.0pt;border:solid windo=
+wtext 1.0pt;background:#FFFF99;padding:0cm 5.4pt 0cm 5.4pt;height:26.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Channel=
+ Name<o:p></o:p></span></b></p>
+</td>
+<td width=3D"259" valign=3D"bottom" style=3D"width:194.0pt;border:solid bla=
+ck 1.0pt;border-left:none;background:#FFFF99;padding:0cm 5.4pt 0cm 5.4pt;he=
+ight:26.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">BRANCH<=
+o:p></o:p></span></b></p>
+</td>
+<td width=3D"148" valign=3D"bottom" style=3D"width:111.0pt;border:solid bla=
+ck 1.0pt;border-left:none;background:#FFFF99;padding:0cm 5.4pt 0cm 5.4pt;he=
+ight:26.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">REGION<=
+o:p></o:p></span></b></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KENGERI SA=
+TELLITE TOWN<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">BANGALORE<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">GANDHIPURA=
+M, COIMBATORE<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">COIMBATORE=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">LEIGH BAZA=
+R, SALEM<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">COIMBATORE=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">UDHAGAMAND=
+ALAM (OOTY)<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">COIMBATORE=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ELAMPILLAI=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">COIMBATORE=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ROHINI-DEL=
+HI<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">DELHI<o:p>=
+</o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">INDIRAPURA=
+M<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">DELHI<o:p>=
+</o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOLENCHERY=
+ BRANCH<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PERUMBAVOO=
+R<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PALARIVATT=
+OM<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Vazhakulam=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM-=
+BANERJI ROAD<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PALLIKKARA=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ERNAKULAM<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MANIKONDA<=
+o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">HYDERABAD<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Kannur tow=
+n<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KANNUR<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">HOWRAH, KO=
+LKATA<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOLKATA<o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">LILUAH (HO=
+WRAH)<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOLKATA<o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">BHUBANESWA=
+R<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOLKATA<o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">BHILAI NAG=
+AR<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOLKATA<o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KADUTHURUT=
+HY<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM-C=
+OLLECTORATE JN<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KANJIKUZHY=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">AYARKUNNAM=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">NEDUMKANDA=
+M<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MUTHALAKOD=
+AM<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOTTAYAM<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PONNANI<o:=
+p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOZHIKODE<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOZHIKODE =
+MAIN<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOZHIKODE<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THAMARASSE=
+RY<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOZHIKODE<=
+o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ANDHERI WE=
+ST, MUMBAI<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MUMBAI<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">GHATKOPAR,=
+ MUMBAI<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MUMBAI<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">FORT BRANC=
+H, MUMBAI<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MUMBAI<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">VIMAN NAGA=
+R,&nbsp; PUNE<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MUMBAI<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">ADOOR<o:p>=
+</o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KOZHENCHER=
+RY -NRI<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PULLAD<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">OMALLOOR<o=
+:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">PATHANAMTH=
+ITTA<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">VADASSERIK=
+KARA<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvalla=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Kundara<o:=
+p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvanat=
+hapuram<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Sasthamtot=
+ta<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Thiruvanat=
+hapuram<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">MISSION QU=
+ARTERS, THRISSUR<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Kanjany<o:=
+p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR-H=
+IGH ROAD<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">VENKITANGU=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">OLARIKKARA=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">VATANAPALL=
+Y<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KUNDALIYUR=
+<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">KUNNAMKULA=
+M MAIN<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.5pt">
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.0pt;border=
+:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:=
+13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">SIB<o:p></=
+o:p></span></p>
+</td>
+<td width=3D"259" nowrap=3D"" valign=3D"bottom" style=3D"width:194.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">CHAVAKKAD =
+MAIN<o:p></o:p></span></p>
+</td>
+<td width=3D"148" nowrap=3D"" valign=3D"bottom" style=3D"width:111.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:s=
+olid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">THRISSUR<o=
+:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Please share the CVs to <a href=3D"mailto:vimalan.s@=
+axismaxlife.com">
+vimalan.s@axismaxlife.com</a>. Please keep me (<a href=3D"mailto:Akshita.ba=
+nsal@axismaxlife.com">Akshita.bansal@axismaxlife.com</a>) in cc while shari=
+ng the CVs in below format.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:856.2pt;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:26.0pt">
+<td width=3D"39" style=3D"width:28.95pt;border:solid windowtext 1.0pt;backg=
+round:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Sno.<o:=
+p></o:p></span></b></p>
+</td>
+<td width=3D"40" style=3D"width:29.35pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Role<o:=
+p></o:p></span></b></p>
+</td>
+<td width=3D"58" style=3D"width:43.6pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">JR numb=
+er<o:p></o:p></span></b></p>
+</td>
+<td width=3D"62" style=3D"width:46.25pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Open Lo=
+cation<o:p></o:p></span></b></p>
+</td>
+<td width=3D"71" style=3D"width:53.0pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Candida=
+te Name<o:p></o:p></span></b></p>
+</td>
+<td width=3D"57" style=3D"width:42.9pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Contact=
+ No<o:p></o:p></span></b></p>
+</td>
+<td width=3D"38" style=3D"width:28.8pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">E-mail =
+ID<o:p></o:p></span></b></p>
+</td>
+<td width=3D"67" style=3D"width:50.05pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Current=
+ Company<o:p></o:p></span></b></p>
+</td>
+<td width=3D"75" style=3D"width:56.5pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Total e=
+xperience<o:p></o:p></span></b></p>
+</td>
+<td width=3D"57" style=3D"width:42.4pt;border:solid windowtext 1.0pt;border=
+-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Current=
+ CTC<o:p></o:p></span></b></p>
+</td>
+<td width=3D"65" style=3D"width:48.75pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Expecte=
+d CTC<o:p></o:p></span></b></p>
+</td>
+<td width=3D"51" style=3D"width:37.95pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Notice =
+Period<o:p></o:p></span></b></p>
+</td>
+<td width=3D"63" style=3D"width:47.55pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Notice =
+buyout option (Yes/No)<o:p></o:p></span></b></p>
+</td>
+<td width=3D"36" style=3D"width:26.65pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Age<o:p=
+></o:p></span></b></p>
+</td>
+<td width=3D"41" style=3D"width:30.95pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">How soo=
+n can join us<o:p></o:p></span></b></p>
+</td>
+<td width=3D"61" style=3D"width:45.85pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Mobilit=
+y Y/N<o:p></o:p></span></b></p>
+</td>
+<td width=3D"86" style=3D"width:64.35pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Zone/Re=
+gion<o:p></o:p></span></b></p>
+</td>
+<td width=3D"72" style=3D"width:54.25pt;border:none;border-right:solid wind=
+owtext 1.0pt;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Sourced=
+ by<o:p></o:p></span></b></p>
+</td>
+<td width=3D"58" style=3D"width:41.35pt;border:solid windowtext 1.0pt;borde=
+r-left:none;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">CV tagg=
+ed Yes/No<o:p></o:p></span></b></p>
+</td>
+<td width=3D"49" style=3D"width:36.75pt;border:none;border-right:solid wind=
+owtext 1.0pt;background:#9BC2E6;padding:0cm 5.4pt 0cm 5.4pt;height:26.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">Status<=
+o:p></o:p></span></b></p>
+</td>
+</tr>
+<tr style=3D"height:18.75pt">
+<td width=3D"39" style=3D"width:28.95pt;border:solid windowtext 1.0pt;borde=
+r-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"40" style=3D"width:29.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">RA<o:p></o=
+:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:43.6pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"62" style=3D"width:46.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"71" style=3D"width:53.0pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.9pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"38" style=3D"width:28.8pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"67" style=3D"width:50.05pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"75" style=3D"width:56.5pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.4pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"65" style=3D"width:48.75pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"51" style=3D"width:37.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"63" style=3D"width:47.55pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"36" style=3D"width:26.65pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"41" style=3D"width:30.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"61" style=3D"width:45.85pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"86" style=3D"width:64.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<=
+o:p></o:p></span></b></p>
+</td>
+<td width=3D"72" style=3D"width:54.25pt;border:solid windowtext 1.0pt;borde=
+r-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+</td>
+<td width=3D"58" style=3D"width:41.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-family:Aptos;color:black">131530</span><span style=3D"font-siz=
+e:10.0pt;color:black;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+</td>
+<td width=3D"49" style=3D"width:36.75pt;border:solid windowtext 1.0pt;borde=
+r-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:17.25pt">
+<td width=3D"39" style=3D"width:28.95pt;border:solid windowtext 1.0pt;borde=
+r-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"40" style=3D"width:29.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;color:black;mso-fare=
+ast-language:EN-IN">ASM<o:p></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:43.6pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"62" style=3D"width:46.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"71" style=3D"width:53.0pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.9pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"38" style=3D"width:28.8pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"67" style=3D"width:50.05pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"75" style=3D"width:56.5pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.4pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"65" style=3D"width:48.75pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"51" style=3D"width:37.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"63" style=3D"width:47.55pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"36" style=3D"width:26.65pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"41" style=3D"width:30.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"61" style=3D"width:45.85pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"86" style=3D"width:64.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<=
+o:p></o:p></span></b></p>
+</td>
+<td width=3D"72" style=3D"width:54.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:41.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"49" style=3D"width:36.75pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:17.25pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:14.5pt">
+<td width=3D"39" style=3D"width:28.95pt;border:solid windowtext 1.0pt;borde=
+r-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"40" style=3D"width:29.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:43.6pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"62" style=3D"width:46.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"71" style=3D"width:53.0pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.9pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"38" style=3D"width:28.8pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"67" style=3D"width:50.05pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"75" style=3D"width:56.5pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" nowrap=3D"" valign=3D"bottom" style=3D"width:42.4pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"65" nowrap=3D"" valign=3D"bottom" style=3D"width:48.75pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"51" nowrap=3D"" valign=3D"bottom" style=3D"width:37.95pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"63" nowrap=3D"" valign=3D"bottom" style=3D"width:47.55pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"36" style=3D"width:26.65pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"41" nowrap=3D"" valign=3D"bottom" style=3D"width:30.95pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"61" nowrap=3D"" valign=3D"bottom" style=3D"width:45.85pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"86" style=3D"width:64.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<=
+o:p></o:p></span></b></p>
+</td>
+<td width=3D"72" style=3D"width:54.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:41.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"49" nowrap=3D"" valign=3D"bottom" style=3D"width:36.75pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-fareast-language:EN-I=
+N">&nbsp;<o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:13.0pt">
+<td width=3D"39" style=3D"width:28.95pt;border:solid windowtext 1.0pt;borde=
+r-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"40" style=3D"width:29.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:43.6pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"62" style=3D"width:46.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"71" style=3D"width:53.0pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.9pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"38" style=3D"width:28.8pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"67" style=3D"width:50.05pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"75" style=3D"width:56.5pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"57" style=3D"width:42.4pt;border-top:none;border-left:none;bor=
+der-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;paddi=
+ng:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"65" style=3D"width:48.75pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"51" style=3D"width:37.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"63" style=3D"width:47.55pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"36" style=3D"width:26.65pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"41" style=3D"width:30.95pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"61" style=3D"width:45.85pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"86" style=3D"width:64.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<=
+o:p></o:p></span></b></p>
+</td>
+<td width=3D"72" style=3D"width:54.25pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"58" style=3D"width:41.35pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+<td width=3D"49" style=3D"width:36.75pt;border-top:none;border-left:none;bo=
+rder-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padd=
+ing:0cm 5.4pt 0cm 5.4pt;height:13.0pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:10.0pt;color:black;mso-fareast-language:EN-IN">&nbsp;<o:p=
+></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:14.5pt">
+<td width=3D"39" nowrap=3D"" valign=3D"bottom" style=3D"width:28.95pt;borde=
+r:solid windowtext 1.0pt;border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height=
+:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"40" nowrap=3D"" valign=3D"bottom" style=3D"width:29.35pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"58" nowrap=3D"" valign=3D"bottom" style=3D"width:43.6pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"62" nowrap=3D"" valign=3D"bottom" style=3D"width:46.25pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"71" nowrap=3D"" valign=3D"bottom" style=3D"width:53.0pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"57" nowrap=3D"" valign=3D"bottom" style=3D"width:42.9pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"38" nowrap=3D"" valign=3D"bottom" style=3D"width:28.8pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"67" nowrap=3D"" valign=3D"bottom" style=3D"width:50.05pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"75" nowrap=3D"" valign=3D"bottom" style=3D"width:56.5pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"57" nowrap=3D"" valign=3D"bottom" style=3D"width:42.4pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"65" nowrap=3D"" valign=3D"bottom" style=3D"width:48.75pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"51" nowrap=3D"" valign=3D"bottom" style=3D"width:37.95pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"63" nowrap=3D"" valign=3D"bottom" style=3D"width:47.55pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"36" nowrap=3D"" valign=3D"bottom" style=3D"width:26.65pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"41" nowrap=3D"" valign=3D"bottom" style=3D"width:30.95pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"61" nowrap=3D"" valign=3D"bottom" style=3D"width:45.85pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"86" nowrap=3D"" valign=3D"bottom" style=3D"width:64.35pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"72" nowrap=3D"" valign=3D"bottom" style=3D"width:54.25pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"color:black;mso-fareast-language:EN-IN">&nbsp;<o:p></o:p></span></p=
+>
+</td>
+<td width=3D"58" nowrap=3D"" valign=3D"bottom" style=3D"width:41.35pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-fareast-language:EN-I=
+N">&nbsp;<o:p></o:p></span></p>
+</td>
+<td width=3D"49" nowrap=3D"" valign=3D"bottom" style=3D"width:36.75pt;borde=
+r-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-rig=
+ht:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.5pt">
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-fareast-language:EN-I=
+N">&nbsp;<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"mso-fareast-language:E=
+N-IN">Best,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"mso-fareast-language:E=
+N-IN">Akshita Bansal<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"mso-fareast-language:E=
+N-IN">Deputy Manager &#8211; Human Resources<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;mso-fareast-language=
+:EN-IN"><img border=3D"0" width=3D"214" height=3D"48" style=3D"width:2.2291=
+in;height:.5in" id=3D"Picture_x0020_1" src=3D"cid:image001.jpg@01DBDC63.851=
+C2990" alt=3D"Axis Max Life Insurance"></span><span lang=3D"EN-US" style=3D=
+"mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<title>AxisMaxLifeInsurance</title>
+<style> body {margin:0} .head-text{font-size:12.0pt;} .subhead-text{font-si=
+ze:7.0pt;}@media(max-width:768px) {.head-text{font-size:8.0pt;line-height:5=
+px}.subhead-text{font-size:5pt;line-height:5px}} </style><span style=3D"mso=
+-bookmark:_MailOriginal"><span class=3D"head-text"><b><span style=3D"mso-bi=
+di-font-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color=
+:#003974">Max
+ Life Insurance </span></b></span></span><span style=3D"mso-bookmark:_MailO=
+riginal"><span class=3D"null1"><b><span class=3D"subhead-text" style=3D"mso=
+-bidi-font-size:4.0pt;font-family:&quot;Century Gothic&quot;,sans-serif; co=
+lor:#003974">is now
+<o:p></o:p></span></b><b><span class=3D"head-text" style=3D"mso-bidi-font-s=
+ize:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#97144d"=
+>Axis
+</span></b></span></span><b><span class=3D"head-text" style=3D"mso-bidi-fon=
+t-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#0039=
+74">Max Life Insurance
+</span></b><span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"=
+><b>
+<div><span class=3D"subhead-text" style=3D"mso-bidi-font-size:4.0pt; font-f=
+amily:&quot;Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa f=
+or our Customers, Sellers, Partners, Employees &amp; Community.</span></b><=
+/span></span>
+<span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"><b><span c=
+lass=3D"subhead-text" style=3D"mso-bidi-font-size:7.0pt;font-family:&quot;C=
+entury Gothic&quot;,sans-serif; color:#013974"><o:p></o:p></span></b></div>
+<br>
+<h><b>Disclaimer:</b></h> This email contains confidential information inte=
+nded solely for the recipient, and if received by mistake, it should not be=
+ distributed or copied; please notify the sender and delete all copies.<br>
+<br>
+<b>WARNING:</b> Computer viruses can be transmitted via email. You are advi=
+sed to check for viruses in the email and attachments, with the company dis=
+claiming liability for any resulting damage.<br>
+<br>
+<p></p>
+</span></span>
+</body>
+</html>
+
+--_000_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_--
+
+--_004_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_
+Content-Type: image/jpeg; name="image001.jpg"
+Content-Description: image001.jpg
+Content-Disposition: inline; filename="image001.jpg"; size=5188;
+	creation-date="Fri, 13 Jun 2025 09:34:03 GMT";
+	modification-date="Fri, 13 Jun 2025 09:34:03 GMT"
+Content-ID: <image001.jpg@01DBDC63.851C2990>
+Content-Transfer-Encoding: base64
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
+FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAwANYDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDy79jH
+9mOD9pnx/qNvq99LZeHdFijmvha/6653/chR/wCD131+kekfsLfAzSLNIF+Hum3AQcyXTyzO3/A3
+fNfLH/BJL/kPfEn/AK97L/2ev0k619FnOKqvFzhGZ4WW0KTw8Z8p4h/wxN8D/wDom2i/9+3/APiq
+P+GJvgf/ANE30X/v2/8A8VXuGT60jcjmvD9tV/nPV9jS/lPDf+GKfgaBk/DbRf8Avhv/AIqq1t+x
+98Bb1phbfDzw/OYm8qXYu7Y391/m/Sud/bB/artvgN4cOiaHJFdeN9RhP2ZCN6WSH/ltIP8A0FO5
+r4T/AGbv2ntd+BXj+61W+ubvWtC1ibfrVrI+95n/AOflP+m3/odbRnX/AJ3959VguGK+Mwk8VCH+
+H+8fo1/wxL8D/wDom+i/9+3/APiqX/hib4H/APRN9F/79v8A/FV6n4V8V6V418P6frWiXkWo6TfQ
+rNbXUDZR09RW3171j7ar/OfLPDxpu3IeIf8ADE3wP/6Jvov/AH7f/wCKo/4Ym+B//RN9F/79v/8A
+FV7jk0x5VT7zAUe2q/zsXsaX8h4j/wAMTfA//om+i/8Aft//AIqj/hib4H/9E30X/v2//wAVXt4d
+ZB1zSGVA20uu/wBKPb1f52H1el/IeI/8MTfA/wD6Jvov/ft//iqP+GJvgf8A9E30X/v2/wD8VXt5
+kx1YD60gmRh99cfWj21X+dh7Gn/IeI/8MTfA/wD6Jvov/ft//iqP+GJvgf8A9E30X/v2/wD8VXt4
+kRx94VCt5A0hiEyeZj7m/wCaj21X+dj+rU/5Dxb/AIYm+B//AETfRf8Av2//AMVR/wAMTfA//om+
+i/8Aft//AIqvcKZJKsKbnZUX1aj21X+dk+ypfyniX/DE3wP/AOib6L/37f8A+Ko/4Ym+B/8A0TfR
+f+/b/wDxVe3JKr/dZT9Kdk0e2q/zsPZUv5Tw/wD4Ym+B/wD0TfRf+/b/APxVH/DE3wP/AOib6L/3
+7f8A+Kr2zz037PMXf/d3USTrAm53VE/vM1Htqv8AOw9lS/lPE/8Ahib4H/8ARN9F/wC/b/8AxVH/
+AAxN8D/+ib6L/wB+3/8Aiq9uMgRN24BfWo/tUXy/vU+bp81Htqv87D2VL+U8V/4Yn+B5/wCabaKP
++2b/APxVcr49/wCCevwY8Y6RNb2XhlfDF7s/daho8jxSI3rszsb8q+lZLmGP78qL/wACqWrhicRB
+/Gwnh6U94n4A/Fb4f3Hwl+IviHwfqcwup9Hu2t/Pi4WZP+Wb/wDfOKK9C/bV4/as+JH/AF/x/wDo
+lKK/VcJXnOhGT7H51iYclaUT6Y/4JJf8h/4k/wDXvZ/+z1+kvevza/4JJf8AIf8AiT/172f/ALPX
+6SV+c5v/AL9M+4y3/dIEbqvGe1eI/tQ/tJaX+zx4La8bZf8AiS9Dx6XphfmZ/wC+3oid66f48fG7
+QvgR4FuvEWttvf8A1VnZRt++u5v4I09zX4+/E74la78W/GmoeKPENx52oXj/ACRx/ctof4IU/wBh
+K8yEOc/ReH8jnmVT21VfuomR4o8Sav4x8RX+ua3fNqOrX0vm3Fy3AZ//AIin+FPCmreOPENhoGg2
+jahqt7L5VvCpwGH/AMRVCxsbnVb+1sLK2mu725mSGGCBN7zO/wBxEr7L0PRfEX7AWgad4n1DwLZ+
+KtR1uIRXmti/ZBpj9rPmP5R/t/xkV1H6tj8dDA040KHxy+GJ9ifsz/AuL9n74aWXhz7fLqV67G6v
+Jnb92Z3+/wCUn8CZ7V6+cdTX54f8PS9Z/wCifWf/AING/wDjddf8JP8AgpHYeMfG2naH4s8NweGd
+Ovz5MWprqHnxxTfwh/kTYn+3XK4TPyTF5Fm3v4mtTPuBn29eBivjn9pf403vxG8bL8EvAmr2um3F
+2c+JPEM06omnWv8AHErf89D/APY96+nvHGk6t4i8Majp+ia0NB1S5hKQ6mLfz/s/+2ibh81eQ/DX
+9iX4beDvCq6drei2PjjV3lea71vW7RJJ7iR+p/2aR5GBqYejerW+JfCv/bjgv2YfjXeeA/GT/BHx
+1q1vqV9YHb4d12OZXTUbb/lnFu7uF/8Aie1euftJ/A7w/wDGTwfJLqN9L4e1bS0a5sPENvL5Mlk6
+92f+561znxO/Yh+HXjPw3FZ+HdKtPAetW1wlzaa1odqkc8MidD/tfjUvxN/Zz8S/GLw54d8O+JPi
+PeNoFoiDV4NOsEtptadf777zsB/ujig7KtXD1K8MRSlyfzf1/ePlHw/8fPG/7Rdx4f8Ag7q/i/T9
+CsLiaa2vfF1o7I+uwo+NkGejv/4/X0t+0p4C0b4UfsaeMPD3hi3ay0+0sV2Hezuzecm93f8Ajau3
++I37Lfgf4gfC208DtpMOj2Omp/xKZ9OQRzae/wDfjft/tf3+9U9R+AuveKf2fNV+GnibxvNrlzdx
+fZk1+SxCToiujpvTf87/ACffo5kdFbHYatOlOj7kIy+H/wBuPLPCvgfxp8Sv2C/C2jeBtffRvENz
+p6P5rzOhmTe2+Lzeqb/WvKZ/Angr4deD7eP4l/BHxp4RvLRV+1eN/Duqve4ccGbzkk3pvP8AsV9K
+6l+ybpOs/Abw78OLvX9Ujl0SP/RNb06T7NMsgB+fYMhvvfdrN1n9nD4peLvDE3hfxB8bZbzw9cQ/
+Z7jyfD8MV5cRdNjTb+Op5A70M0pY6jzTTl7nN/ejL/yX9T2j4XeJdC8U+BNF1Lwzq0muaLNbJ9n1
+CeZ53mT1d3+fd/vV0Ws6LY+INMnsNRtIL2ymG2WC5QOjj6Guc+FPwx0T4Q+B9M8K6AjppthHsQyv
+vd2/iZz3Y10GsR38+nTJps0VpeshEU80PnRo2OrJvXd+YqD5aryucuT4T8yfhd4u8RfsceMNI8cX
+L3GpfB/xrf3NlfwR73OkzQ3MyJ/3wif8DTfX2R8a/ixf3+it4X+HWoo/iDUNJfV5tZh/ew6Rpuxn
++0nHV3+5Cnfl+iVZ8Pfs0wn4L6r8NPGWq2/irRbvz2WdLH7NPC00jzb8b3+dHfKH2FHw1/Zks/g7
+8F77wP4W1MHUr+B4b3XtRtvOmuNyFM7A6fcThE37Er0alelOXO/iPMp0qsPc+yeAf8Ep9Ns9T+HH
+i3xBdw/a9ak1gwnUbn95Ps8tPk3vXX/tUz2n7RUPjH4dWfjPT/Den+HLbfN599DD/aWrffhtvnf/
+AFKJ9/8A23T+5XVfAb9k7xL+zr4H1zwz4V+IFrImqTG5S/vdC3zWr7Au5P3+1+g+/XqPwn+Ddp8O
+/h/pnh+9Nnrl9a73l1V7JUkupHfc8z7i/wA79+aK9eDxEq0R06U/ZeykeK/sF/tDH42fCiTwt4iZ
+bjxX4dT+z7+Gf5/tdt9xJv8Ab/uP7/WvOf2jfg4P2cvip4c+LHwrgtZ9TeZ0ufAbK0wvE/5bTWcP
+8BROX2DCCvVG/Yz1LRf2g9Q+LPhbxtD4Zv71wJ9Ig0XdbTJs2Or/AL4b9/3/APfr1P4afCS78K63
+r3iPxNr0XjDxPqU25NW+wm1a1th9y1hTe+yIf7P3/wCPfTnWpQq+1pfDL7IRpTlDkmeQfs3HwN+1
+Dfy/FvVf7N1/xEP9DTRWi+XQ1Q/IkiOP303fznH+5gCvrJGJHIr5b1L9jK+0z48XvxN8CeN/+EFu
+rvH2rSLPSfNtbzu5nTzhv3+2yvpyxSeG0iS6dJLoL87ou1GauTE8k5c1KRtS5/tn4nftrf8AJ1nx
+I/6/4/8A0SlFH7a3/J1nxI/6/wCP/wBEpRX6fgf93h6H57jP48j6X/4JJ8a98SP+vey/9nr71+JX
+xM0D4R+DtQ8TeJL5LDSrJNzMx+Z3/hRB/EzdAK/IP9kP9p2T9mPx7e313pr6p4e1eJIdRgg/16bP
+uTJ/8RX6Ct+3b+z14z0uJtY8Qwqn3haappM0jo3+75brmvi82wWIWLnOEPcPsMqxeHVKEKsj88/j
+18etX+PvjqfxBq8ywWUJMWnaWZMpaQ//ABf99684+1QyPsR0kf8AgSP+Ov1QH7XH7LY6azoR+uhy
+f/GaE/a8/ZehdJYtc0JHRtyyR6HICn4+TXm+xxHSEj9focb4LC0PYUaPu/4jmf2Iv2Rj8N7G28de
+MrTHiy6j/wBBspxn+zYX/wDar9/7nSvrLxZ4S0vxp4dv9D1uyhv9JvoWhuLWcZR0PY14l/w3/wDA
+f/ofYP8AwBuf/jdO/wCHgPwG/wCh9g/8Abn/AON1h9UxP8kj4PF5s8ZiPrNWfvH55ftOfs66n+zr
+41NnJvuvDF9I7aXqcn8Sf88H/wBtP/H68beeGRNjzRbP9+v1i1P9uD9nXW7UW2p+MdPv4d27Zc6X
+cypu/wCBQ1nD9rr9lwf8xjQcf9gKT/4zW/scR/JI+5wnHUKdGFOvHnl/iPJP2Fv2woJ2tPhr4y1N
+TdjEOh6pczf65On2d3/v/wBz1Ar7zu5Hhs5pVYNsRnAxXzLH+1x+y1G6Oms6Ejr86udDk/8AjNdB
+/wAN+fAT/oe4P/AG5/8AjdRPC1v5JHxGZY/A4zEOth1yf9vEPgD9oy78Vfsu3PjSXUtGk8aQaJf6
+i9lCy7EeHzNm+Hfv2/In51zs/wAdviNr/jPwVoOgorjVPA9r4mvP7P06G5m855Nj/wCunhREq9bf
+tj/sx2UrzW3iDR4J5Y3Rnh0WZHdW++hxDz71eh/bo/Z3tZo5ovGFjBMkXkq66Xcq6J/c/wBT92rV
+Ka+GkzyPaw/5+mZ8R/jT420L40Q+CbPUbSytYfDltqk0klvaee87zOjl/OuoU2/7Cb6+lEunTRBc
+eYs8yW+/zP4HfZXzrqv7aH7NOvy+bqXiTSNTnRdm+60eaVwP+Bw1ox/t8fAGNFRfHdsiIuwJ9huf
+/jdZToVp/wDLoI1aX85yvhX9pj4ia5oHwan03R9F1/U/F9jqVzfWUkz2fmfZnH+of51R9v8Af+Q/
+7FdJp37S99rPxek8ORadL4dtbTwveavqNl4lsZLaezuYpE2F3X5Gh2E/PHvpsP7cf7OlqtqIvGNh
+b/ZtyQFNLuU8nd9/Z+5+SrD/ALefwAaZJm8c27zou1XOnXJdP/INX7Gr/wA+n+Ivaw/5+mN8Jvj/
+AOJda1hNG8Q6vp99r2o6Lc6lp1vottFdWMzxYO+C5hndyn+xMiO36U2L9p/UL/4EfDfXbK+0O58c
+67qem2F9pdv87qXnCXSJCH3o6Jv6/dq7pH7af7NehSSy6b4n0vTJ7j/XPa6RNE7/AO+UhpsP7Z/7
+NVtrD6rB4j0mDU3+/fJosyTv9X8nfV/V6nN/BkHtYf8AP05TxR+05460f4peJ9JsVsWsrHxTDodo
+t9YmHT2R443YXN/537mX55NnyfOdiYruvjZ+0pfeDvEcfhfwLpcXiPXdPH23V98M8sNtCPmFtvhR
+8XM38G/hPvvxVab9uH9nSeK5hl8Xae8N4265R9Ln2Tf7/wC5+eprX9uv9nrTjMbTxnZ2vmvvm8nT
+blNz/wC3+5o9lPT90R7WH/P0Xxh+07f6nonwy1b4cWun62/ivV302bTtWaS2eJ0hkeSB3x+5mR49
+mHQ0i/tJ6ze/GXwV4NXw5qGgXl7aalPrGkarZkTb4YQ8P2a5U+TMjuH+dN//AACoF/bh/Z0Enmjx
+bp2/zftO/wDsqbf5/wDz0/1P3/8Aaq0/7enwBneJ38cWzPF9x30+5+T/AMh1HsJ/8+i/aw/5+mN4
+I+O/iLxf4HtvGep/Efwd4OZ5tk/he+s95sTv2fZpnaZJvO/4AP8AcqbV/jj4yn+PnivwlaanY2Oi
+6PNpiw5hsy7rcQ733+ddQv8A98I9LP8Atnfszzaymqy+I9HfVF+5fSaLN5//AH35O+i9/bO/Zn1O
+/wDtd74j0e7vf+fifRZnk/778mq9jV/59P7ifaw/5+n1D0+tL2r51P8AwUA+Ayf8z7B/4BXP/wAb
+rk/Hv/BSr4P+GtJln0LUL3xdf7D5NjZWckKs/wDtvMibKwhg8RN8qgayxVCG8z8+v22P+TrfiR/1
+/wAf/olKK86+Jnj28+KXjzXvFmrrHFfavdvczKn+rj7Rqv8AwHFFfqmEoTp0IxfRH57iZxnWlJH/
+2Q==
+
+--_004_PN0PR01MB89995463DA38ACF198AD5FD99477APN0PR01MB8999INDP_--

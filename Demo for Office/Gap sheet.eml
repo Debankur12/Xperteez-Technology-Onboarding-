@@ -1,0 +1,1077 @@
+Delivered-To: debojit@xperteez.co.in
+Received: by 2002:ac4:9a86:0:b0:723:80c:1b3d with SMTP id bi6csp1860324pib;
+        Mon, 16 Jun 2025 05:28:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=6; AJvYcCVn8dvhT6IrDYT3i1SqKNQVC/Gk84uETjpUCVU9UJ5VX4n4WlS08SUMoRndns9KolNrIVt5FJKF@xperteez.co.in
+X-Received: by 2002:a05:6e02:1a2b:b0:3dc:7c9e:c3aa with SMTP id e9e14a558f8ab-3de07d79f9amr112441035ab.21.1750076891645;
+        Mon, 16 Jun 2025 05:28:11 -0700 (PDT)
+ARC-Seal: i=5; a=rsa-sha256; t=1750076891; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jBxTPyoJfUOMm6MJFKP2P/CVSRkGw2x5svMqLXCDfDy3906c5TiBeP7rJbwtGzhmAi
+         C+qFJgBKXrviQUiudNLfXyC+4d1pwyj0oqPadtSsAxklbw2AOGfYzCLRRx+hGJ+jofeO
+         zx31+4hbPds+ULfK+eHabLd2VxmWzbV+T+2TsqqcL8otIIulqeXF1NFD9RRNkMRrk9Gp
+         RisYbwB9/VUFGLZyzXHYdUGOEWGOkYgPRr57zNOotblkluzUpDRqVYp3udvERd3DVBgm
+         x8SGQ+xCA5RPfLt6dOZlLLb/JbldHRQWuGMX5kurFf1PZxPAwh3XfFhGrdCgmQ9ClNqx
+         5cqA==
+ARC-Message-Signature: i=5; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+        fh=ozyh0WVfl/E9G2Zxa1fpqHOYKGcRf8N4wrBXfJzt5lc=;
+        b=jD6rmZy3YR3h1WzKB10l4Hf3Qjk8FTZh+RbsHcyheZvP9c3vWIbPxybNrutL5LAzGH
+         cmiOxfbRBMhbhHmJUI4K3ttbVeaQt/XKJPjBQhyUtWRir2l/KcybqgB+vjAqBRl1qyJ2
+         lvD5dkmMuILjSDPmzRmREvUKjYAD0iK7rZZH1DpPNBmJDEWfy104pC7HWEiD1fNzlIw8
+         4+hr2B/Y28/20WzUC924qzKljTTSqjTVPqYg2J72RwXf5A5TTvmXQ3z4GaT6Ytjff/2u
+         r8Xhkx+h/OckyLxeQoliqS6iiF30RMHINCvxPrVYgDi1b7qmBAIzaUamwseveA2k5cXz
+         3GCQ==;
+        dara=google.com
+ARC-Authentication-Results: i=5; mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=QWVkVgud;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbwu3ydbamgqemrvieqa@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBWU3YDBAMGQEMRVIEQA@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+Return-Path: <ops+bncBAABBWU3YDBAMGQEMRVIEQA@xperteez.co.in>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id e9e14a558f8ab-3ddfba1fe2fsor12065725ab.1.2025.06.16.05.28.11
+        for <debojit@xperteez.co.in>
+        (Google Transport Security);
+        Mon, 16 Jun 2025 05:28:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ops+bncbaabbwu3ydbamgqemrvieqa@xperteez.co.in designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@xperteez-co-in.20230601.gappssmtp.com header.s=20230601 header.b=QWVkVgud;
+       arc=pass (i=4 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of ops+bncbaabbwu3ydbamgqemrvieqa@xperteez.co.in designates 209.85.220.69 as permitted sender) smtp.mailfrom=ops+bncBAABBWU3YDBAMGQEMRVIEQA@xperteez.co.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=xperteez.co.in;
+       dara=fail header.i=@xperteez.co.in
+ARC-Seal: i=4; a=rsa-sha256; t=1750076891; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Kvyl4SaNA8LdHQw8NRJhPaVGMw2buw5nsnpfiAg7Zk0sxr7x0T5hVvwo3XzsiHAMaK
+         9lAvlgBZMv/r5d5p9Jzjn86gyT6kaa8LrZaZ/KXrS1kcqqY3Wk7nIEdrqTk7Htz6GzsF
+         DlnH6k/ZpXJyqd4rPDbU8+VztIPblFXdc0VuqTCUaFmTT1mge86vN6U9QdYM4Vh2z+9o
+         e7D4NyPVq/NGsdTH7kTeZswZjhCqb43QGkAGh8OHvw6oyJ7N61PHltsVMSIJ5yRtFp1s
+         2sYLQ9jZz8WwrUIM7nDcedBGAybeEkDMpGUqwuWHWNlgtlTKd/2nUH1bQBojn0tWpt2g
+         gUmA==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+        fh=ozyh0WVfl/E9G2Zxa1fpqHOYKGcRf8N4wrBXfJzt5lc=;
+        b=g+xt4AYbOlw04JImmg/T7RK/Q3gUaXXK5gyZOmwN8a3iIE9ieUu+hNfGhZNGuHP6KI
+         qxliSMWJjy70Q8yY6EN6qGtuVtR2aLg88TthOZY4JQFJVdabXp9VlKm2wC8t/AJh3N6f
+         Ajrd1lPbCUUPoPs83EaZrC3FBc/wjbqdnUk4Kp9rQjc+w2miGYBZZ/I4Q4wfaqBp1rpJ
+         wUu9nJb3gVHeq4vOZrZPBtWm9HARl5N+K5UPTMXu48WEIAx4Zrgzgk6hYeejn4ltaBUe
+         J0oRG6bVVOyHn+M7Wf10pi+V8DVh7KY8bkuADQETF+Y9EDzCo2KywJVvgNg58xc1hCBi
+         8cTg==;
+        darn=xperteez.co.in
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=SDAXeqC8;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=SDAXeqC8;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of sagar.suman1@axismaxlife.com designates 2a01:111:f403:c409::2 as permitted sender) smtp.mailfrom=sagar.suman1@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xperteez-co-in.20230601.gappssmtp.com; s=20230601; t=1750076891; x=1750681691; darn=xperteez.co.in;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+        b=QWVkVgud47TRPF+naBiGuMElMMpuz10Y3SL9C0jL8yZo3r96bVp1OZ8KqywzUlZsnK
+         4R+O/a6WszmQQmG735Ba81Yd9tb39VV4ZwFVM783orTYLiT43tUMLZIZrIJ8J3dzlwMO
+         I13Bx1GLqyVhwQmPP4ImFMbL5pHKxsS93au4CGCPQ4unHcUC6BT0I37EO6IxnRb3Wdl9
+         /dcdXZrcMiU76fMg+s62bs/YGOIm8Q/EtKrxgqtBMxQPwdSAMoh3ZefSQXV9F3VSNbFb
+         T3Jzg7EB7WJ+QEDiFSTs8ndnW63vGmsmUjeYeNC/eb7qaCygm092uBkLBhcJ5bbSXRqH
+         GQKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750076891; x=1750681691;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :authentication-results-original:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+        b=sJ3XVduEl4/0Oq4N6+KfM+PGB1UtCsdypW3E75bR6ZwATSSxu+fK3Hy5GkYG65VZF7
+         JcqVDi8pZwxW8v6HeGWbswyuXb7XpI9Rb/MGWPSSma1UAFmhQ8+0DMRGH8VVGOgmVeJ0
+         aUCo9ZS1EMhB3nv263v7SSm0ICX+nZTx2vMg9zuKlvMIuP2Hl//lyhF4LozURCJ3hIOj
+         vFtjiU9vjYGRKuM6rfj8CEUVkhSSFt+YR8YiITfXYowklExs+m7pNPAYLeJ6eU35HX/Z
+         v9ai53gSBirMj+PXcIk5woDl9FAGaMHlARALpYqEkBfrNtlnw+SXGNmNP37w3T/Jn2lP
+         Og4A==
+X-Forwarded-Encrypted: i=4; AJvYcCX1sJEzI+8/7t+Lkqftc683GAbEnNesYRWIcXJ8OtgqryKmiKvjFRt8aMLdE0JwOs2CyHwPPW2Z@xperteez.co.in
+X-Gm-Message-State: AOJu0YxUShdC3r0+8Ba+4zc4EPXMN55SStZ454K1g/E/YyfTVdJOlzAD
+	J6/Rc+UPG2iKJIxAP6Y4XgHrFj/YIwTo5zeZ9n3Gtt6GBgx0lea56d0fRdxxywsW0IBPNw==
+X-Google-Smtp-Source: AGHT+IEUohRA9AiuuCHkGMoJtvC74uLd51u0SvJCKlxO9qYUoTug52T7b+RFBI0l5c1HE4JHjKWsXg==
+X-Received: by 2002:a05:6e02:1fed:b0:3dd:bcad:706c with SMTP id e9e14a558f8ab-3de07c774e9mr24523085ab.1.1750076890911;
+        Mon, 16 Jun 2025 05:28:10 -0700 (PDT)
+X-BeenThere: ops@xperteez.co.in; h=AZMbMZcuCeZvWIxPEURcCREgpoRzD31Z93JoX7BUDvHjzLPfwQ==
+Received: by 2002:a92:c511:0:b0:3dd:bec6:f17d with SMTP id e9e14a558f8ab-3ddfb4f5de9ls32122045ab.2.-pod-prod-06-us;
+ Mon, 16 Jun 2025 05:28:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCUr1BPQ20Qfh19UZ2+OukDuSpK3pHqWcP+wtzMaSQbz2M+F0YxieLpFpeYLuEgHFG0slyA=@xperteez.co.in
+X-Received: by 2002:a05:6602:6019:b0:867:3670:5d49 with SMTP id ca18e2360f4ac-875ded651b6mr1062065039f.7.1750076890276;
+        Mon, 16 Jun 2025 05:28:10 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1750076890; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LYrAbejcMZQRFG8CY9LK/fhGrtAQ1zuLiwcna0z8+AaPkdb307AXfTqcktwWZndiCM
+         zGIn6xtk3VQP0klU2wgVSfapQ1DtNFZJv3Nb4aRtWTfKpt74RBhrc3PxReYQl6ixo0kN
+         171RQtlg+C0kuTSCQqXJc1wsKdaw7p7C2JO/NWo+vY6Fhn6SvFwXrtta5C2Qdq4qgJA3
+         2ynZt0b6YUi2cYCuHSn7hqisobsZX2tNWSlu36biIUjXiN/2f9HsNVmVHyZfEhRgh+Fq
+         +t5c0neVIo9A/iQvuldhXZBvAt7proQFdXKEVlnkmvVJPI7npFbJMu7+RYJMhWm0g3QL
+         bmmQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :cc:from:dkim-signature:dkim-signature;
+        bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+        fh=pSRvTA7im9wLNF6c3D90CktRUmTBO6Nhn6WXlZc7mB4=;
+        b=jme0LIEqxykPI/OMXnta4nWspJ1MaS4L+TN4QJUowrQ9+5O5vaZH0B8HChE0ioVzav
+         AFa8x/k7WpdNEZEwZcFJxkrG1YXCIl5uUDh96VNAdEyrJIQSI9UNGoMpX0EwZiQcTnvZ
+         lM41OJuZyGjboSKGcwneYadqRbipK7AELtsHjxFPs81+ZVdFNBj13f3bgQiSCOVqCBDr
+         v8w3JJNxJ9+ACI6KvrmzgAXzrIzDVAfGU0tS4spZ+bf4X7Rs4KsscFDuAt6nDW0jl8Dz
+         T7E2s+78uub6Y5GU+RzgFtFv9sf3YptKJC77vQ7jxTYL52jgukVmLZrW9tOCwl4XBZKx
+         aQ6Q==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=SDAXeqC8;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1 header.b=SDAXeqC8;
+       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of sagar.suman1@axismaxlife.com designates 2a01:111:f403:c409::2 as permitted sender) smtp.mailfrom=sagar.suman1@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+Received: from MA0PR01CU012.outbound.protection.outlook.com (mail-southindiaazlp170110002.outbound.protection.outlook.com. [2a01:111:f403:c409::2])
+        by mx.google.com with ESMTPS id 8926c6da1cb9f-50149ca2f53si7546593173.137.2025.06.16.05.28.09
+        for <ops@xperteez.co.in>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 05:28:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sagar.suman1@axismaxlife.com designates 2a01:111:f403:c409::2 as permitted sender) client-ip=2a01:111:f403:c409::2;
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=x0i2s5S3ErYX9ZyV8AITZyFj7MH6pjl49oTBsXurKpryRNBrbv5im2Q9OQxQhw3bKPGFWx6w33dm/xt2oBA+PQ29ai0PKPuiYwL7w985eqcZ/8GVrVkRKc5aeVPpXFQZSL7TncMFfA9n3svoDC3M9k5/uRXXKsqp23kDwBhKT7p9Obx83SZ0ioWEPP4TWPzeS8AdIOiyGUs/45PrI//S+kDFlPBGYqRu98jcAC4SFDnZJzj6nO1D4P0gkAKt4S6sWNRmUjF5hzOZI2ErB9RC4DvnBvdqnkk7YvqI+eZ6FlNjYJozE0KleyhWlLRPvTAH23Wtd/U8sxxJ7tPpqL+xbw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+ b=HRNQMOeJOQREBh7aef0OWUSlbHNQxE0GtMjnmgNkgbezXUns/DQ3yXdNJTntJBhPxsb3I4jnjpSjDhrWRDr3pKHOTc+T/kYPVmbpGsNu+QJ3zicFGlyZKcXTZt1LbQH/rm6c3E2OV/+6QiPiZAtYY3gXOaGxRoE0fEyWkS2pvAUVJFVLs/zXkqXoLdtr4CH8HGQuyC2/Z6l3f/fANptVBhxGF/rwd+IfsXrxLkK+oB6Sf6L+kN1LV1QoXU10ax32Ec3Leeb/qP8GLowz/0hecbLNGq5s3EjFdPmX0xm1UdTBPPUyHfDFCSB6VXIMfg2SEDtfQLUlAclsWK6bMX1cFw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.204.180.79) smtp.rcpttodomain=stalwartmanagement.com
+ smtp.mailfrom=axismaxlife.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=axismaxlife.com] dkim=[1,1,header.d=axismaxlife.com]
+ dmarc=[1,1,header.from=axismaxlife.com])
+Received: from PN4P287CA0023.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:269::10)
+ by MAZPR01MB6188.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:4f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Mon, 16 Jun
+ 2025 12:28:05 +0000
+Received: from PN1PEPF000062BB.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:269:cafe::ed) by PN4P287CA0023.outlook.office365.com
+ (2603:1096:c01:269::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.29 via Frontend Transport; Mon,
+ 16 Jun 2025 12:28:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 20.204.180.79)
+ smtp.mailfrom=axismaxlife.com; dkim=pass (signature was verified)
+ header.d=axismaxlife.com;dmarc=pass action=none header.from=axismaxlife.com;
+Received-SPF: Pass (protection.outlook.com: domain of axismaxlife.com
+ designates 20.204.180.79 as permitted sender)
+ receiver=protection.outlook.com; client-ip=20.204.180.79;
+ helo=appliancehostname.parentdomain.com; pr=C
+Received: from appliancehostname.parentdomain.com (20.204.180.79) by
+ PN1PEPF000062BB.mail.protection.outlook.com (10.167.242.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Mon, 16 Jun 2025 12:28:05 +0000
+Received: from PNZPR01CU001.outbound.protection.outlook.com (unknown [40.93.132.27])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Forcepoint Email with ESMTPS id EB48E5028A814E2B3F3F;
+	Mon, 16 Jun 2025 17:57:58 +0530 (IST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r11deRaZJLSilUrikOhvC2/uEWs/+i+B3v+5O6SAfHBT+mAc6LFRjIttTlfocHFqP0Yr8HHgbybOenQYYXkNbN4QJEk3k5CsOGicUzJ9fi8x3T103X1bXnheC+qEmsgmq8He5R0v5rCklNeq1iy44SKRA10Rtjw9hQM1uKexE4ke4+mG5/hVi/5jqhBNjkjaQrSooQhZHEK81UIQl9Du+3aj5zrpXy/39WtGU6+qZcd6zEshWAImWuocvixCS7k8kaHkn4J5O9R/ooX1lg7hebalbOdkJiS2uHYX2gXo9lDg8eom5Yo5wrPf1Hml9/UQ/ZL9IYjGMs300qLDWj7hSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+gE6wIvVChMih8r3g72eZIsUO0xoiejeeo86gBSTEuY=;
+ b=gjKcff2BxjxUzY4mvCLkgxL+Jl3Wko5FigvnFWmekl2Ny8nE++dBVg2gm+2593ZyRB52Gc/2/XLEkJGdDpvCSXZfaWUJ1Da8l2ZxGlvPfFgPtv7SdmwMCdVVNN+xYOuLiuGI4eTDRbwnZ+RF5RZ/2wwLaeNY5rbBR8Jk29bBZkCJYYjAZRDdnvmJMzRwVX4LnJzbGJzrAobUb5TWUGtWXauqrdCvBzF/lIGcq6N9eim6vN49IutPQR1J/f77yd966tlXd3UNVldqa+WldqcTnlxH4fMda67RuR0XjY9n48K0qcqW4L0Taridb1RHroJYbpIkjw9269p6oeLL0ttuxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axismaxlife.com; dmarc=pass action=none
+ header.from=axismaxlife.com; dkim=pass header.d=axismaxlife.com; arc=none
+Received: from PN2PR01MB10089.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:1fa::8)
+ by PN3PR01MB8641.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:d8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Mon, 16 Jun
+ 2025 12:27:56 +0000
+Received: from PN2PR01MB10089.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::d38c:58bd:52a9:2c67]) by PN2PR01MB10089.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::d38c:58bd:52a9:2c67%5]) with mapi id 15.20.8835.027; Mon, 16 Jun 2025
+ 12:27:56 +0000
+From: "sagar.suman1 via Recruitment Operations" <ops@xperteez.co.in>
+CC: <vandana.bhatia1@axismaxlife.com>
+Subject: Gap sheet
+Thread-Topic: Gap sheet
+Thread-Index: AdveuPlBBl5BePl3RpiMkJiFzNO9Ug==
+Date: Mon, 16 Jun 2025 12:27:56 +0000
+Message-ID: <PN2PR01MB1008999F485BD962508BB1DB0D970A@PN2PR01MB10089.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axismaxlife.com;
+x-ms-traffictypediagnostic: PN2PR01MB10089:EE_|PN3PR01MB8641:EE_|PN1PEPF000062BB:EE_|MAZPR01MB6188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c0a4869-4008-4587-c77e-08ddacd13e9f
+x-ld-processed: 97e4bcfe-5cba-4a9c-8821-4be8019d9055,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|8096899003|38070700018;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?VDkuTahGTuDbpRomEULdnTh7RKXk34m3GugRzisCP4LKqJN7xCqnUhTO+Soy?=
+ =?us-ascii?Q?tYYDAkfqmQzSx+F8k8VdtcJcizrnJU0aPESk5NvJ5ltgnHmOfjGt14g9gbeT?=
+ =?us-ascii?Q?p7wl1TnNdINJ9duGIEtSEGPOgEglko0q2p653/XQDZ+dFAddBY0EFYvEWFB6?=
+ =?us-ascii?Q?94CknPNFORlX1ru5ZMyQsNp1eFhuyaBgfOzZMFAguiHwqsYssYvESVA//Blu?=
+ =?us-ascii?Q?8cWM9PKMNVhvSHAfnlmzQE5qkmsHaKSUg4S6LSEG9dkPfTLSlZPNId69BUzA?=
+ =?us-ascii?Q?TkrJYkY2HFx4jCrljI1WioEsnp+j7viLb8yAlD65xlCvkzIi5Isp/tDAH7TG?=
+ =?us-ascii?Q?PeTrueIatDbFF1fC/5Z7LH7b+v7PJwBkUKc0gjvo6WLkLvekWO/P27TQKHfj?=
+ =?us-ascii?Q?jyEqFaStfSOD4zYCGuQAVbh8mUIdhCwSIPJEm8oK+blvSNsZBOwMmgB1yupH?=
+ =?us-ascii?Q?I6Epzq2HVfENtHO4YGWr+UHHrD7bKacKTwSPzc++Sos0RploYCgt+Oj1KQx3?=
+ =?us-ascii?Q?RN6JcuWROqlbLjSYNszHoWMvBYR7I/R3jMAJFtamFxPanJU6lgK6WG5Qj4Rt?=
+ =?us-ascii?Q?MaBVJEThpV+/H9xiWxMNqGOSeWRM+7KJt/oJ5Hu1iSElrAIZRmUp8kcvH2qP?=
+ =?us-ascii?Q?Z/oLwya7lTYW6/pPUFwbtzm45Aq4Tkv/eUWyLywqWN/7EjvCAUz8nPDIA7go?=
+ =?us-ascii?Q?Xc+AnsEyJhchDs7bY3jYEKiJy3zWFXeLjii8nwb4kNxdbAdBpdpJrWeBYnL/?=
+ =?us-ascii?Q?LOPNfABMD5dMQB0uP0Ue0CH9MOVCZbi2kLD/tz5aAc2UFnRgUKvGqycEoup7?=
+ =?us-ascii?Q?tdK6W5H+z8+oV1NuY+Ohxd1VwOK7MnZkQqX/Y1QAyFebAqzgU4hvlcq7Gk10?=
+ =?us-ascii?Q?VM3xloFd0T/UEEoqFBennaRcHczEp71xuglDepn2RG/FpCyXKSyphhWXYNiY?=
+ =?us-ascii?Q?1DNdIG1UO4eYpNbzmSMNHyLYyHtSFmAdxgEsDw1q2H7D5ZzBxW56x+BueTDf?=
+ =?us-ascii?Q?pAiDikXFsTOe/6BYXMOqb16clMUdEIj+erazJz5Y3ulwvMxkB/RAY2acQWkO?=
+ =?us-ascii?Q?LEcSBMrgfc3sCp94QifPvVQC7Kne6KCEA6oxLVcpRkM+3u1uMq1ay0ldfMFc?=
+ =?us-ascii?Q?mKMzrbxY693kJYNFwWZkQqv5iLt3JidcHpYk5MevGeW/OqycBBUpe3YcsPhB?=
+ =?us-ascii?Q?Yoz8Z10lLjqmbi3xTPvFinOcSsNEq4spJdtrC/inSjOlnO8sqhNp8Jq/tSNV?=
+ =?us-ascii?Q?W03Hw1Xz4+363myf/hFq3FangF1TZbhnvMW5u1Sh2Rr53qof+OZ7F0sLwN+g?=
+ =?us-ascii?Q?JRNR7ZEOAbZeAGTEkMMQVSYzVWrTcy7H70TlDX7x6IAFtt2eMxE6JCMNBdHl?=
+ =?us-ascii?Q?sY4LfBu1NPVcvH9uwL0fr6ay6+ECj06VmzNiyZZgi7AM1rtswxvUVoYHOmWm?=
+ =?us-ascii?Q?sfJEYVyGwzSwaFVmsG8bmW6Qfm30tPRje81J3ahMEg9S78rP3dsF+g=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN2PR01MB10089.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(8096899003)(38070700018);DIR:OUT;SFP:1102;
+Content-Type: multipart/alternative;
+	boundary="_000_PN2PR01MB1008999F485BD962508BB1DB0D970APN2PR01MB10089IN_"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PR01MB8641
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: PN1PEPF000062BB.INDPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 389bd8c7-d5ee-48c7-cc67-08ddacd138fc
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|35042699022|82310400026|14060799003|8096899003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tsyc5ef52Catkqin0UMhYrPbV73aVcsuEiSZ+4hhnz/8dj29KYDt+DvP626K?=
+ =?us-ascii?Q?Q3OhXltykEOIx9CIsyx/j3vpEh8HAo5k0Jbn2k4uFJrfGx9Z/Rviws/KE2dm?=
+ =?us-ascii?Q?bBqzcP1CmxDLIPE1gQhEodV+A8LegPMpS5qmT2/A5zaoe1slb+Tri8yrxmRk?=
+ =?us-ascii?Q?/sGviS1pu4/H14a8XOfLv4WNxdQOIORFkqAeZlS/GQPtXYahzA3r0dHBZ96p?=
+ =?us-ascii?Q?PJberneolS6522s3QFH7fgu3tel3lVu9FPLdmot+dETRaGhmapVxNf5I0Mkw?=
+ =?us-ascii?Q?CuyrCsx3eBHNGhRMcLa4RcRgWloIQQ4SECUMFTZvehKRHzGuBXbMSa3wO9kn?=
+ =?us-ascii?Q?2LGJL6RvlFjpKHk2Vgd703ebsx64oKRDZOgFf2JYOK+/xrm2s0xHzbvzDkDW?=
+ =?us-ascii?Q?FZxdMjVRHEiWvMBzgdLCKmOhRMMWbohL6lX2GM/CwrLXWe0rAgUWwhhPZ7Nj?=
+ =?us-ascii?Q?UOXe9Cp/CzcsV7p0hz1kJ5Oqc5P/005d0qeWk8cMmT7DVKt/lEr3yePbHT1N?=
+ =?us-ascii?Q?Ok5B+WKP6iPCZbYOaOrFNwmWp82wgGa+3z4QkGWBvzatMG1BI2d8T/YcubeH?=
+ =?us-ascii?Q?aFRl4APbfmC9MxdOvr8UDA6uoi8yBhrdQbeFXv5Za7HuyubnWsbA4igHTw3K?=
+ =?us-ascii?Q?eQEziPzE5myu0VRSU02AKCv8D5o/rLzBYGxxmBjj6yMT38uwcVlcRLMD0DA9?=
+ =?us-ascii?Q?gMhe/IHwIkeW4PHnPkNR1zFwxvtQbe32ub4/xH4/3UfJPcJxipcV7lMX8Zvo?=
+ =?us-ascii?Q?tdsq3i2j7lflm8LMg7zNPKA7OJqfmafh4XUKoJaKZ5ac57ZLVsw7kqiFIy77?=
+ =?us-ascii?Q?Vvae7L5BCmQHJpSrIKwyYtlSlIAFCLNjOKxUKIQlQYnm5v5MBJY8C7V8fXpk?=
+ =?us-ascii?Q?vBhi56oFpnlnEr+uTtWqx5U018dxpTIucdTmdCmeUgvzn3h5VNQwVFiinKBH?=
+ =?us-ascii?Q?OXzNLjIUudWA3XyZAkQWEmzzOO+sUnpfa5eMvGd//4A1wLK4yBJRnyn6ynTK?=
+ =?us-ascii?Q?ygMRJjaMuqt0mzrfdpYOC3yvOaNyxD39n/VqBz9j4ItU/hco433QacYMqSWl?=
+ =?us-ascii?Q?cPC+Dh4WCRf/m5tZrWUBjv+gl4pnyxMBGxNX94DkNueNpPmGOLTzm8BUPjGX?=
+ =?us-ascii?Q?is0G3EtEZeJ/EAuoJYv5CqE9Rkzt7BpiJSEJMs3MdpliGrDyhEyftkvEK7ek?=
+ =?us-ascii?Q?svT4viV2C9c6JcSP8xVYDMdxGAAum9DnHCZ1HTSHJ1ZTdGDyWmJ2oFiv8RQZ?=
+ =?us-ascii?Q?m9r539EFphg5fFrcgVowg86iAq902Mc3s+Nq4k8JSLNfUy2gPD/c67P1/729?=
+ =?us-ascii?Q?iI1LL6OtdRh2jkJAxuH+yJlTAmst7Zvh3zrylK7Erq46v/jul/jt5Ydl8EpI?=
+ =?us-ascii?Q?TwsUnJWm4CkHuJoSdxzJ6E+SzcjvznlHZDiz4yg3X5QjZ08xR6Po44tXvRl0?=
+ =?us-ascii?Q?XacGW0ArKQY5Xrh7IZGgkcF9Wt42IAtU4A1YjtRUZ5KP6k66CSGose4kURlf?=
+ =?us-ascii?Q?1HVzOviTU+qP9+kC/wJiPsIdzA0boFu4k717?=
+X-Forefront-Antispam-Report: CIP:20.204.180.79;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:appliancehostname.parentdomain.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(35042699022)(82310400026)(14060799003)(8096899003);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axismaxlife.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 12:28:05.4617
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c0a4869-4008-4587-c77e-08ddacd13e9f
+X-MS-Exchange-CrossTenant-Id: 97e4bcfe-5cba-4a9c-8821-4be8019d9055
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=97e4bcfe-5cba-4a9c-8821-4be8019d9055;Ip=[20.204.180.79];Helo=[appliancehostname.parentdomain.com]
+X-MS-Exchange-CrossTenant-AuthSource: PN1PEPF000062BB.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAZPR01MB6188
+X-Original-Sender: sagar.suman1@axismaxlife.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@axismaxlife.com header.s=selector1 header.b=SDAXeqC8;
+       dkim=pass header.i=@axismaxlife.com header.s=selector1
+ header.b=SDAXeqC8;       arc=pass (i=2 spf=pass spfdomain=axismaxlife.com
+ dkim=pass dkdomain=axismaxlife.com dmarc=pass fromdomain=axismaxlife.com);
+       spf=pass (google.com: domain of sagar.suman1@axismaxlife.com designates
+ 2a01:111:f403:c409::2 as permitted sender) smtp.mailfrom=sagar.suman1@axismaxlife.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=axismaxlife.com
+X-Original-From: <sagar.suman1@axismaxlife.com>
+Reply-To: <sagar.suman1@axismaxlife.com>
+Precedence: list
+Mailing-list: list ops@xperteez.co.in; contact ops+owners@xperteez.co.in
+List-ID: <ops.xperteez.co.in>
+X-Spam-Checked-In-Group: ops@xperteez.co.in
+X-Google-Group-Id: 950430647392
+List-Post: <https://groups.google.com/a/xperteez.co.in/group/ops/post>, <mailto:ops@xperteez.co.in>
+List-Help: <https://support.google.com/a/xperteez.co.in/bin/topic.py?topic=25838>,
+ <mailto:ops+help@xperteez.co.in>
+List-Archive: <https://groups.google.com/a/xperteez.co.in/group/ops/>
+List-Subscribe: <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>,
+ <mailto:ops+subscribe@xperteez.co.in>
+List-Unsubscribe: <mailto:googlegroups-manage+950430647392+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/xperteez.co.in/group/ops/subscribe>
+
+--_000_PN2PR01MB1008999F485BD962508BB1DB0D970APN2PR01MB10089IN_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Team
+
+
+Please find the Gap sheet
+
+We need only BFSI Candidate
+
+AM - 3.3 Lpa
+DM - 4 Lpa
+
+Also we need Fresher candidate
+
+
+*         Age only 25 for Fresher
+
+*         Bike Mandatory
+
+*         Basic Knowledge of Insurance
+
+
+
+Manpower Gap
+count
+
+Chandigarh
+3
+Fresher / Experience
+Mohali
+2
+Fresher / Experience
+Patiala
+2
+Fresher / Experience
+Ludhiana
+4
+Fresher / Experience
+Jammu
+2
+Fresher / Experience
+Jalandhar
+4
+Fresher / Experience
+Amritsar
+4
+Fresher / Experience
+solan
+3
+Fresher / Experience
+Bathinda/Firozpur
+4
+Fresher / Experience
+Ambala
+5
+Fresher / Experience
+East of Kailash
+3
+Fresher / Experience
+Faridabad
+2
+Fresher / Experience
+NSP
+2
+Fresher / Experience
+CP
+2
+Fresher / Experience
+Pashim vihar
+2
+Fresher / Experience
+Haridwar
+2
+Fresher / Experience
+Deharadun
+2
+Fresher / Experience
+Total
+48
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thanks and Regards
+Sagar Suman
+(HR- Max Life Insurance)
++91-8235078896
+
+
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Max Life Insurance is now Axis Max Life Insurance
+#DoubleBharosa for our Customers, Sellers, Partners, Employees & Community.
+
+Disclaimer: This email contains confidential information intended solely fo=
+r the recipient, and if received by mistake, it should not be distributed o=
+r copied; please notify the sender and delete all copies.
+
+WARNING: Computer viruses can be transmitted via email. You are advised to =
+check for viruses in the email and attachments, with the company disclaimin=
+g liability for any resulting damage.
+
+
+--_000_PN2PR01MB1008999F485BD962508BB1DB0D970APN2PR01MB10089IN_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:1393039338;
+	mso-list-type:hybrid;
+	mso-list-template-ids:551054178 187489752 67698691 67698693 67698689 67698=
+691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:Calibri;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Hi Team <o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Please find the Gap sheet <o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">We need only BFSI Candidate <o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">AM &#8211; 3.3 Lpa <o:p></o:p></p>
+<p class=3D"MsoNormal">DM &#8211; 4 Lpa<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b>Also we need Fresher candidate <o:p></o:p></b></p=
+>
+<p class=3D"MsoNormal"><b><o:p>&nbsp;</o:p></b></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><span style=3D"font-family:Symbol"><span style=
+=3D"mso-list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roma=
+n&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b>Age only 25 for Fresher <o:p></o:p></b></=
+p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><span style=3D"font-family:Symbol"><span style=
+=3D"mso-list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roma=
+n&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b>Bike Mandatory <o:p></o:p></b></p>
+<p class=3D"MsoListParagraph" style=3D"text-indent:-.25in;mso-list:l0 level=
+1 lfo1"><![if !supportLists]><span style=3D"font-family:Symbol"><span style=
+=3D"mso-list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roma=
+n&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b>Basic Knowledge of Insurance<o:p></o:p></=
+b></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"0" style=3D"width:253.0pt;margin-left:-.15pt;border-collaps=
+e:collapse">
+<tbody>
+<tr style=3D"height:18.75pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;background:yellow;padding:0in 5.4pt 0in 5.4pt;height:18.75pt">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:14.0pt;color:black">Manp=
+ower Gap<o:p></o:p></span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border:solid windowtext =
+1.0pt;border-left:none;background:yellow;padding:0in 5.4pt 0in 5.4pt;height=
+:18.75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b><spa=
+n style=3D"font-size:14.0pt;color:black">count<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er:solid windowtext 1.0pt;border-left:none;padding:0in 5.4pt 0in 5.4pt;heig=
+ht:18.75pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">&nbsp;<o:p></o:p></span>=
+</p>
+</td>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.75pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Chandigarh</span></b>=
+<b><span style=3D"font-size:12.0pt;color:black"><o:p></o:p></span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">3<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.75pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Mohali<o:p></o:p></sp=
+an></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Patiala<o:p></o:p></s=
+pan></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Ludhiana<o:p></o:p></=
+span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">4<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Jammu <o:p></o:p></sp=
+an></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Jalandhar<o:p></o:p><=
+/span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">4<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Amritsar<o:p></o:p></=
+span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">4<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">solan<o:p></o:p></spa=
+n></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">3<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Bathinda/Firozpur<o:p=
+></o:p></span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">4<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Ambala<o:p></o:p></sp=
+an></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">5<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">East of Kailash <o:p>=
+</o:p></span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">3<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Faridabad <o:p></o:p>=
+</span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">NSP <o:p></o:p></span=
+></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">CP <o:p></o:p></span>=
+</b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Pashim vihar<o:p></o:=
+p></span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Haridwar<o:p></o:p></=
+span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Deharadun <o:p></o:p>=
+</span></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" style=3D"width:48.0pt;border-top:none;border-l=
+eft:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext=
+ 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><b><span =
+style=3D"color:black">2<o:p></o:p></span></b></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">Fresher / Experience <o:=
+p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"height:15.0pt">
+<td width=3D"133" nowrap=3D"" style=3D"width:100.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><b><span style=3D"color:black">Total<o:p></o:p></spa=
+n></b></p>
+</td>
+<td width=3D"64" nowrap=3D"" valign=3D"bottom" style=3D"width:48.0pt;border=
+-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-righ=
+t:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"color:black">48<o:p></o:p></span></p>
+</td>
+<td width=3D"140" nowrap=3D"" valign=3D"bottom" style=3D"width:105.0pt;bord=
+er-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-ri=
+ght:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.0pt">
+<p class=3D"MsoNormal"><span style=3D"color:black">&nbsp;<o:p></o:p></span>=
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b>Thanks and Regards<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b>Sagar Suman<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b>(HR- Max Life Insurance)<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b>+91-8235078896<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Times New Roman&=
+quot;,serif"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:26.0pt;font-family:&quot=
+;Century Gothic&quot;,sans-serif;color:#003974">Max Life Insurance
+</span></b><b><span style=3D"font-size:14.0pt;font-family:&quot;Century Got=
+hic&quot;,sans-serif;color:#003974">is now
+</span></b><b><span style=3D"font-size:26.0pt;font-family:&quot;Century Got=
+hic&quot;,sans-serif;color:#003974">Axis Max Life Insurance</span></b><span=
+ style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif"><=
+br>
+</span><b><span style=3D"font-size:14.0pt;font-family:&quot;Century Gothic&=
+quot;,sans-serif;color:#003974">#DoubleBharosa for our Customers, Sellers, =
+Partners, Employees &amp; Community.</span></b><span style=3D"font-size:12.=
+0pt;font-family:&quot;Times New Roman&quot;,serif">
+</span><b><span lang=3D"EN-IN" style=3D"font-size:14.0pt;font-family:&quot;=
+Century Gothic&quot;,sans-serif;color:#003974"><o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<title>AxisMaxLifeInsurance</title>
+<style> body {margin:0} .head-text{font-size:12.0pt;} .subhead-text{font-si=
+ze:7.0pt;}@media(max-width:768px) {.head-text{font-size:8.0pt;line-height:5=
+px}.subhead-text{font-size:5pt;line-height:5px}} </style><span style=3D"mso=
+-bookmark:_MailOriginal"><span class=3D"head-text"><b><span style=3D"mso-bi=
+di-font-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color=
+:#003974">Max
+ Life Insurance </span></b></span></span><span style=3D"mso-bookmark:_MailO=
+riginal"><span class=3D"null1"><b><span class=3D"subhead-text" style=3D"mso=
+-bidi-font-size:4.0pt;font-family:&quot;Century Gothic&quot;,sans-serif; co=
+lor:#003974">is now
+<o:p></o:p></span></b><b><span class=3D"head-text" style=3D"mso-bidi-font-s=
+ize:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#97144d"=
+>Axis
+</span></b></span></span><b><span class=3D"head-text" style=3D"mso-bidi-fon=
+t-size:4.0pt; font-family:&quot;Century Gothic&quot;,sans-serif;color:#0039=
+74">Max Life Insurance
+</span></b><span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"=
+><b>
+<div><span class=3D"subhead-text" style=3D"mso-bidi-font-size:4.0pt; font-f=
+amily:&quot;Century Gothic&quot;,sans-serif;color:#003974">#DoubleBharosa f=
+or our Customers, Sellers, Partners, Employees &amp; Community.</span></b><=
+/span></span>
+<span style=3D"mso-bookmark:_MailOriginal"><span class=3D"null1"><b><span c=
+lass=3D"subhead-text" style=3D"mso-bidi-font-size:7.0pt;font-family:&quot;C=
+entury Gothic&quot;,sans-serif; color:#013974"><o:p></o:p></span></b></div>
+<br>
+<h><b>Disclaimer:</b></h> This email contains confidential information inte=
+nded solely for the recipient, and if received by mistake, it should not be=
+ distributed or copied; please notify the sender and delete all copies.<br>
+<br>
+<b>WARNING:</b> Computer viruses can be transmitted via email. You are advi=
+sed to check for viruses in the email and attachments, with the company dis=
+claiming liability for any resulting damage.<br>
+<br>
+<p></p>
+</span></span>
+</body>
+</html>
+
+--_000_PN2PR01MB1008999F485BD962508BB1DB0D970APN2PR01MB10089IN_--
